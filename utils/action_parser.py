@@ -50,6 +50,35 @@ def _pre_clean(raw: str) -> str:
     return text
 
 
+def _extract_action_from_value(action_val: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """Handle hybrid format where action value contains func-call: "CLICK(point=[[354, 71]]"."""
+    text = action_val.strip()
+    # CLICK(point=[x,y]) or CLICK(point=[[x,y]] (malformed, missing closing paren)
+    m = re.search(r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*\((.+?)(?:\)|$)', text, re.IGNORECASE)
+    if m:
+        action = m.group(1).upper()
+        params_str = m.group(2)
+        params: Dict[str, Any] = {}
+        for pair in re.finditer(r'(\w+)=\[([^\]]*(?:\[[^\]]*\])?)\]', params_str):
+            key = pair.group(1)
+            inner = pair.group(2).strip("[]")
+            vals = [v.strip() for v in inner.split(",")]
+            try:
+                params[key] = [int(float(v)) for v in vals if v]
+            except (TypeError, ValueError):
+                params[key] = vals
+        for pair in re.finditer(r'(\w+)="([^"]*)"', params_str):
+            params[pair.group(1)] = pair.group(2)
+        for pair in re.finditer(r"(\w+)='([^']*)'", params_str):
+            params[pair.group(1)] = pair.group(2)
+        return (action, params)
+    # CLICK[[x,y]]
+    m = re.search(r'(CLICK)\s*\[\[(\d+)\s*,\s*(\d+)\]\]', text, re.IGNORECASE)
+    if m:
+        return (m.group(1).upper(), {"point": [int(m.group(2)), int(m.group(3))]})
+    return None
+
+
 def _parse_standard_json_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[str, Any]]]:
     """解析标准格式 {"action": "CLICK", "parameters": {...}}"""
     if not isinstance(obj, dict):
@@ -58,9 +87,36 @@ def _parse_standard_json_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[st
         return None
     action = str(obj["action"]).upper()
     if action not in VALID_ACTIONS:
+        # Hybrid: action value contains func-call syntax like "CLICK(point=[[354, 71]]"
+        extracted = _extract_action_from_value(str(obj["action"]))
+        if extracted:
+            # Merge parameters from the object if present
+            obj_params = obj.get("parameters", {})
+            if isinstance(obj_params, dict):
+                for k, v in obj_params.items():
+                    if k not in extracted[1]:
+                        extracted[1][k] = v
+            return extracted
         return None
     params = obj.get("parameters", {})
     if not isinstance(params, dict):
+        # Parameters is a list/array — treat as coordinates for CLICK, text for TYPE
+        if isinstance(params, list):
+            if action == "CLICK" and len(params) >= 2:
+                try:
+                    return (action, {"point": [int(float(v)) for v in params[:2]]})
+                except (TypeError, ValueError):
+                    return (action, {"point": params[:2]})
+            elif action == "TYPE" and params:
+                return (action, {"text": str(params[0])})
+            elif action == "OPEN" and params:
+                return (action, {"app_name": str(params[0])})
+            elif action == "SCROLL" and len(params) >= 4:
+                try:
+                    return (action, {"start_point": [int(float(v)) for v in params[:2]],
+                                     "end_point": [int(float(v)) for v in params[2:4]]})
+                except (TypeError, ValueError):
+                    pass
         params = {}
     return (action, params)
 

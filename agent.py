@@ -74,6 +74,7 @@ class Agent(BaseAgent):
             return self._retry_or_fallback(input_data, messages, "模型输出无法解析为合法动作")
 
         action, parameters = parsed
+        logger.debug(f"解析结果: action={action}, params={parameters}, 原始输出: {raw_output[:200]}")
 
         # 校验修正
         last_action = self._history.get_last_action()

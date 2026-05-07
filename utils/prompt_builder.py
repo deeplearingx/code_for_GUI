@@ -69,6 +69,15 @@ SYSTEM_PROMPT_TEMPLATE = """你是安卓手机 GUI Agent。根据用户任务、
 5. 找不到目标 → SCROLL
 6. 确认任务完成 → COMPLETE（不要过早）
 
+COMPLETE规则：
+- 当任务目标已经达成时，立即输出COMPLETE，不要继续做额外操作
+- 搜索已执行且结果已点开 → COMPLETE
+- 评论已发布 → COMPLETE
+- 商品已加入购物车/已下单 → COMPLETE
+- 路线已规划/已叫车 → COMPLETE
+- 已收藏/已关注 → COMPLETE
+- 不要因为还有可选操作而继续点击，任务目标达成即可
+
 TYPE规则：
 - 只有输入框已激活（光标闪烁）时才输出TYPE
 - 不要连续输出TYPE，输入后应点搜索/发送/确定/下一个输入框

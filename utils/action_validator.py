@@ -16,7 +16,9 @@ KEY_ALIASES: dict[str, dict[str, str]] = {
     "CLICK": {
         "point": "point", "coord": "point", "coords": "point",
         "position": "point", "pos": "point", "xy": "point",
-        "location": "point", "coordinate": "point",
+        "location": "point", "coordinate": "point", "coordinates": "point",
+        "target": "point", "click_position": "point", "center": "point",
+        "spot": "point", "place": "point",
     },
     "TYPE": {
         "text": "text", "content": "text", "input": "text",
@@ -26,7 +28,11 @@ KEY_ALIASES: dict[str, dict[str, str]] = {
         "app_name": "app_name", "app": "app_name", "name": "app_name",
         "application": "app_name", "package": "app_name",
     },
-    "SCROLL": {},
+    "SCROLL": {
+        "start_point": "start_point", "start": "start_point",
+        "end_point": "end_point", "end": "end_point",
+        "from_point": "start_point", "to_point": "end_point",
+    },
     "COMPLETE": {},
 }
 
@@ -73,7 +79,17 @@ def _standardize_keys(action: str, params: Dict[str, Any]) -> Dict[str, Any]:
 
 def _validate_click(params: Dict[str, Any]) -> Tuple[Optional[Dict[str, Any]], Optional[str]]:
     if "point" not in params:
-        for key in ("coord", "coords", "position", "pos", "xy", "location", "coordinate"):
+        # Try x/y separate fields: {"x": 500, "y": 300}
+        if "x" in params and "y" in params:
+            try:
+                params["point"] = [float(params["x"]), float(params["y"])]
+                params.pop("x", None)
+                params.pop("y", None)
+            except (TypeError, ValueError):
+                return None, "CLICK invalid x/y coordinates"
+    if "point" not in params:
+        for key in ("coord", "coords", "position", "pos", "xy", "location", "coordinate",
+                     "coordinates", "target", "click_position", "center", "spot", "place"):
             if key in params:
                 params["point"] = params.pop(key)
                 break
@@ -129,8 +145,7 @@ def _check_complete_protection(
         return "pending text content remains"
     if last_action == "OPEN":
         return "last action was OPEN"
-    if last_action == "TYPE":
-        return "last action was TYPE"
+    # Removed: TYPE rejection — after typing search term or comment, task may be done
     return None
 
 
