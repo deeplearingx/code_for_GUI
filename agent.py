@@ -53,7 +53,11 @@ class Agent(BaseAgent):
             response = self._call_api(messages)
         except Exception as e:
             logger.warning(f"API调用失败: {e}")
-            return self._fallback(input_data)
+            action, parameters = self._fallback(input_data)
+            if action == ACTION_TYPE and self._task is not None:
+                self._task.commit_text()
+            self._history.add(action, parameters)
+            return AgentOutput(action=action, parameters=parameters)
 
         # 提取模型输出
         raw_output = ""
@@ -168,55 +172,33 @@ class Agent(BaseAgent):
             logger.warning(f"重试API调用失败: {e}")
 
         # 重试也失败 → fallback
-        return self._fallback(input_data)
+        action, parameters = self._fallback(input_data)
+        # TYPE commit for fallback
+        if action == ACTION_TYPE and self._task is not None:
+            self._task.commit_text()
+        self._history.add(action, parameters)
+        return AgentOutput(action=action, parameters=parameters)
 
-    def _fallback(self, input_data: AgentInput) -> AgentOutput:
-        """fallback策略：永远不主动COMPLETE"""
+    def _fallback(self, input_data: AgentInput) -> tuple[str, dict]:
+        """Conservative fallback: returns (action, parameters), no history.add()"""
         step_count = input_data.step_count
-        last_action = self._history.get_last_action()
 
-        # 1. step_count==1 且 app_name → OPEN（上面已处理，此处为冗余保护）
+        # 1. step_count==1 and app_name -> OPEN
         if step_count == 1 and self._task and self._task.app_name:
-            parameters = {"app_name": self._task.app_name}
-            self._history.add(ACTION_OPEN, parameters)
-            return AgentOutput(action=ACTION_OPEN, parameters=parameters)
+            return (ACTION_OPEN, {"app_name": self._task.app_name})
 
-        # 2. 上一步是OPEN → 点搜索框（为后续TYPE做准备）
-        if last_action == ACTION_OPEN and self._task and self._task.has_pending_text():
-            app_name = self._task.app_name if self._task else ""
-            coord = get_search_bar_coord(app_name)
-            parameters = {"point": coord}
-            self._history.add(ACTION_CLICK, parameters)
-            return AgentOutput(action=ACTION_CLICK, parameters=parameters)
-
-        # 3. 上一步是CLICK 且 还有待输入 → TYPE(peek_pending_text)
-        if self._task and self._task.has_pending_text():
-            if last_action == ACTION_CLICK:
-                text = self._task.peek_pending_text()
-                if text:
-                    parameters = {"text": text}
-                    self._task.commit_text()
-                    self._history.add(ACTION_TYPE, parameters)
-                    return AgentOutput(action=ACTION_TYPE, parameters=parameters)
-
-        # 4. step_count<=3 → 关闭广告/弹窗
+        # 2. step_count<=3 -> CLICK close ad/popup
         if step_count <= 3:
-            parameters = {"point": [900, 60]}
-            self._history.add(ACTION_CLICK, parameters)
-            return AgentOutput(action=ACTION_CLICK, parameters=parameters)
+            return (ACTION_CLICK, {"point": [900, 60]})
 
-        # 5. 还有待输入 → 点搜索框
+        # 3. Has pending text -> CLICK search box (not TYPE!)
         if self._task and self._task.has_pending_text():
-            app_name = self._task.app_name if self._task else ""
+            app_name = self._task.app_name or ""
             coord = get_search_bar_coord(app_name)
-            parameters = {"point": coord}
-            self._history.add(ACTION_CLICK, parameters)
-            return AgentOutput(action=ACTION_CLICK, parameters=parameters)
+            return (ACTION_CLICK, {"point": coord})
 
-        # 6. SCROLL向下滚动
-        parameters = {"start_point": [500, 800], "end_point": [500, 300]}
-        self._history.add(ACTION_SCROLL, parameters)
-        return AgentOutput(action=ACTION_SCROLL, parameters=parameters)
+        # 4. SCROLL down
+        return (ACTION_SCROLL, {"start_point": [500, 800], "end_point": [500, 300]})
 
     def _encode_image(self, image, image_format: str = "JPEG") -> str:
         """覆盖为JPEG编码(quality=90)，不缩小图片"""

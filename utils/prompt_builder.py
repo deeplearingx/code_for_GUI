@@ -45,12 +45,14 @@ SEARCH_BAR_COORDS: dict[str, list[int]] = {
 SYSTEM_PROMPT_TEMPLATE = """你是安卓手机 GUI Agent。根据用户任务、当前截图和历史动作，输出下一步操作。
 只能输出一个 JSON 对象，不要输出 Markdown，不要多余解释。
 
-合法 action：
-- CLICK: {{"point": [x, y]}}
-- TYPE: {{"text": "内容"}}
-- SCROLL: {{"start_point": [x1, y1], "end_point": [x2, y2]}}
-- OPEN: {{"app_name": "应用名"}}
-- COMPLETE: {{}}
+必须使用标准 JSON 格式：
+{{"action": "CLICK", "parameters": {{"point": [x, y]}}}}
+{{"action": "TYPE", "parameters": {{"text": "内容"}}}}
+{{"action": "SCROLL", "parameters": {{"start_point": [x1, y1], "end_point": [x2, y2]}}}}
+{{"action": "OPEN", "parameters": {{"app_name": "应用名"}}}}
+{{"action": "COMPLETE", "parameters": {{}}}}
+
+禁止使用 {{"CLICK": {{...}}}}、CLICK:{{...}}、CLICK(point=[...]) 等非标格式。
 
 坐标规则：
 - 0~1000 归一化坐标，左上[0,0]，右下[1000,1000]
@@ -66,6 +68,11 @@ SYSTEM_PROMPT_TEMPLATE = """你是安卓手机 GUI Agent。根据用户任务、
 4. 搜索结果出现 → 点最相关或第一个
 5. 找不到目标 → SCROLL
 6. 确认任务完成 → COMPLETE（不要过早）
+
+TYPE规则：
+- 只有输入框已激活（光标闪烁）时才输出TYPE
+- 不要连续输出TYPE，输入后应点搜索/发送/确定/下一个输入框
+- 不要自己编造输入内容，严格按照【待输入队列】中的内容输入
 """
 
 
@@ -98,9 +105,17 @@ def build_messages(
     user_parts: list[str] = []
 
     # 待输入队列提示
-    pending = task.peek_pending_text()
-    if pending:
-        user_parts.append(f"【待输入】下一步需要输入：{pending}")
+    if task.type_queue:
+        total = len(task.type_queue)
+        done = task.type_index
+        pending_list = task.type_queue[task.type_index:]
+        user_parts.append(
+            f"【待输入队列】\n"
+            f"全部待输入：{task.type_queue}\n"
+            f"当前待输入：{pending_list[0] if pending_list else '无'}\n"
+            f"已输入进度：{done}/{total}\n"
+            f"注意：只有输入框已经激活时才输出 TYPE；不要自己编造输入内容。"
+        )
 
     # 历史动作摘要
     if history_summary:

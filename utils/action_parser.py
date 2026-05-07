@@ -5,16 +5,117 @@ import re
 from typing import Optional, Tuple, Dict, Any
 
 
+VALID_ACTIONS = {"CLICK", "TYPE", "SCROLL", "OPEN", "COMPLETE"}
+
+_THINK_OPEN = re.compile(r"<think[^>]*>.*?</think>", re.DOTALL | re.IGNORECASE)
+_THINK_CLOSE = re.compile(r"</think>", re.IGNORECASE)
+_MARKDOWN_BLOCK = re.compile(r"```(?:json)?\s*")
+_MARKDOWN_CLOSE = re.compile(r"```\s*")
+_DOUBLE_BRACE_PREFIX = re.compile(
+    r"^(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*:\s*\{\{",
+    re.IGNORECASE,
+)
+_DOUBLE_BRACE_SUFFIX = re.compile(r"\}\}\s*$")
+_MISSING_COMMA_2 = re.compile(r"\[(\d+)\s+(\d+)\]")
+_MISSING_COMMA_4 = re.compile(r"\[(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\]")
+_TRAIL_COMMA_OBJ = re.compile(r",\s*}")
+_TRAIL_COMMA_ARR = re.compile(r",\s*]")
+
+
+def _pre_clean(raw: str) -> str:
+    """清洗模型输出：去标签、去markdown、修格式"""
+    text = raw
+
+    # 去掉 <think>...</think> 和 </think> 标签
+    text = _THINK_OPEN.sub("", text)
+    text = _THINK_CLOSE.sub("", text)
+
+    # 去掉 markdown code block
+    text = _MARKDOWN_BLOCK.sub("", text)
+    text = _MARKDOWN_CLOSE.sub("", text)
+
+    # 去掉动作前缀的双花括号（只在前缀匹配时才处理后缀，避免误伤嵌套JSON的}}）
+    if _DOUBLE_BRACE_PREFIX.search(text):
+        text = _DOUBLE_BRACE_PREFIX.sub(r"\1: {", text)
+        text = _DOUBLE_BRACE_SUFFIX.sub(r"}", text)
+
+    # 修复 [371 73] -> [371, 73]（数字间空格缺逗号）
+    text = _MISSING_COMMA_4.sub(r"[\1, \2, \3, \4]", text)
+    text = _MISSING_COMMA_2.sub(r"[\1, \2]", text)
+
+    # 去掉尾逗号
+    text = _TRAIL_COMMA_OBJ.sub("}", text)
+    text = _TRAIL_COMMA_ARR.sub("]", text)
+
+    return text
+
+
+def _parse_standard_json_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """解析标准格式 {"action": "CLICK", "parameters": {...}}"""
+    if not isinstance(obj, dict):
+        return None
+    if "action" not in obj:
+        return None
+    action = str(obj["action"]).upper()
+    if action not in VALID_ACTIONS:
+        return None
+    params = obj.get("parameters", {})
+    if not isinstance(params, dict):
+        params = {}
+    return (action, params)
+
+
+def _parse_action_key_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """解析 action-as-key 格式 {"CLICK": {"point": [x,y]}} / {"CLICK": [x,y]}"""
+    if not isinstance(obj, dict):
+        return None
+    for key in obj:
+        action = key.upper()
+        if action not in VALID_ACTIONS:
+            continue
+        value = obj[key]
+        if isinstance(value, dict):
+            return (action, value)
+        elif isinstance(value, list):
+            if action == "CLICK" and len(value) == 2:
+                try:
+                    return (action, {"point": [int(float(v)) for v in value]})
+                except (TypeError, ValueError):
+                    return (action, {"point": value})
+            elif action == "CLICK" and len(value) >= 2:
+                return (action, {"point": value[:2]})
+            elif action == "COMPLETE":
+                return (action, {})
+        elif value == {} or (isinstance(value, str) and not value):
+            return (action, {})
+    return None
+
+
 def _extract_json_bracket_balanced(text: str) -> Optional[Dict[str, Any]]:
-    """用栈匹配大括号提取JSON，支持嵌套"""
+    """用栈匹配大括号提取JSON，支持嵌套，string-aware"""
     start = text.find("{")
     if start == -1:
         return None
     stack = []
+    in_string = False
+    escape = False
     for i in range(start, len(text)):
-        if text[i] == "{":
+        ch = text[i]
+        if escape:
+            escape = False
+            continue
+        if ch == "\\":
+            if in_string:
+                escape = True
+            continue
+        if ch == '"':
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if ch == "{":
             stack.append(i)
-        elif text[i] == "}":
+        elif ch == "}":
             if not stack:
                 continue
             open_pos = stack.pop()
@@ -24,6 +125,62 @@ def _extract_json_bracket_balanced(text: str) -> Optional[Dict[str, Any]]:
                     return json.loads(candidate)
                 except (json.JSONDecodeError, ValueError):
                     continue
+    return None
+
+
+def _parse_action_colon_json(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """解析 CLICK: {"point": [x,y]} / TYPE: {"text": "..."} 格式"""
+    m = re.search(r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*:\s*(\{.+\})', text, re.IGNORECASE)
+    if m:
+        action = m.group(1).upper()
+        try:
+            params = json.loads(m.group(2))
+            return (action, params)
+        except (json.JSONDecodeError, ValueError):
+            pass
+    return None
+
+
+def _parse_func_call(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """解析 CLICK(point=[x,y]) / COMPLETE{} / TYPE{"text": "..."} 函数调用格式"""
+    # 标准函数调用：ACTION(params)
+    m = re.search(r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*\((.+?)\)', text, re.IGNORECASE)
+    if m:
+        action = m.group(1).upper()
+        params_str = m.group(2)
+        params: Dict[str, Any] = {}
+        for pair in re.finditer(r'(\w+)=\[([^\]]*)\]', params_str):
+            key = pair.group(1)
+            vals = pair.group(2).split(",")
+            params[key] = [int(float(v.strip())) for v in vals]
+        for pair in re.finditer(r'(\w+)="([^"]*)"', params_str):
+            params[pair.group(1)] = pair.group(2)
+        for pair in re.finditer(r"(\w+)='([^']*)'", params_str):
+            params[pair.group(1)] = pair.group(2)
+        return (action, params)
+
+    # COMPLETE 空花括号
+    m3 = re.search(r'(COMPLETE)\s*\{\s*\}', text, re.IGNORECASE)
+    if m3:
+        return ("COMPLETE", {})
+
+    # 无括号格式：TYPE{"text": "..."} / CLICK{"point": [x,y]}
+    m2 = re.search(
+        r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*\{(\{.*\}|.*?)\}',
+        text,
+        re.IGNORECASE,
+    )
+    if m2:
+        action = m2.group(1).upper()
+        inner = m2.group(2).strip()
+        if not inner:
+            return (action, {})
+        try:
+            params = json.loads("{" + inner + "}")
+            return (action, params)
+        except (json.JSONDecodeError, ValueError):
+            pass
+
     return None
 
 
@@ -90,65 +247,24 @@ def _parse_raw_format(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
     return None
 
 
-def _parse_action_as_key(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
-    """解析 {"CLICK": {"point": [x,y]}} / {"TYPE": {"text": "..."}} 等格式"""
-    for action_name in ("CLICK", "TYPE", "SCROLL", "OPEN", "COMPLETE"):
-        pattern = rf'{{"{action_name}"\s*:\s*(\{{[^}}]*\}})}}'
-        m = re.search(pattern, text)
-        if m:
-            try:
-                inner = json.loads(m.group(1))
-                return (action_name, inner)
-            except (json.JSONDecodeError, ValueError):
-                fixed = re.sub(r'\[(\d+)\s+(\d+)\]', r'[\1, \2]', m.group(1))
-                try:
-                    inner = json.loads(fixed)
-                    return (action_name, inner)
-                except (json.JSONDecodeError, ValueError):
-                    pass
-    return None
-
-
-def _parse_action_colon_json(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
-    """解析 CLICK: {"point": [x,y]} / TYPE: {"text": "..."} 格式"""
-    m = re.search(r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*:\s*(\{.+\})', text, re.IGNORECASE)
-    if m:
-        action = m.group(1).upper()
-        try:
-            params = json.loads(m.group(2))
-            return (action, params)
-        except (json.JSONDecodeError, ValueError):
-            pass
-    return None
-
-
-def _parse_func_call(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
-    """解析 CLICK(point=[x,y]) / COMPLETE{} 函数调用格式"""
-    m = re.search(r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*\((.+?)\)', text, re.IGNORECASE)
-    if m:
-        action = m.group(1).upper()
-        params_str = m.group(2)
-        params: Dict[str, Any] = {}
-        for pair in re.finditer(r'(\w+)=\[([^\]]*)\]', params_str):
-            key = pair.group(1)
-            vals = pair.group(2).split(",")
-            params[key] = [int(float(v.strip())) for v in vals]
-        for pair in re.finditer(r'(\w+)="([^"]*)"', params_str):
-            params[pair.group(1)] = pair.group(2)
-        for pair in re.finditer(r"(\w+)='([^']*)'", params_str):
-            params[pair.group(1)] = pair.group(2)
-        return (action, params)
-    m2 = re.search(r'(COMPLETE)\s*\{\s*\}', text, re.IGNORECASE)
-    if m2:
-        return ("COMPLETE", {})
-    return None
-
-
 def _parse_point_tag(text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
     """解析 <point>x y</point> 格式"""
     m = re.search(r"<point>(\d+)\s+(\d+)</point>", text)
     if m:
         return ("CLICK", {"point": [int(m.group(1)), int(m.group(2))]})
+    return None
+
+
+def _try_parse_json_obj(obj: Any) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """对已解析的 JSON 对象尝试对象级判断"""
+    if not isinstance(obj, dict):
+        return None
+    parsed = _parse_standard_json_obj(obj)
+    if parsed:
+        return parsed
+    parsed = _parse_action_key_obj(obj)
+    if parsed:
+        return parsed
     return None
 
 
@@ -158,56 +274,52 @@ def parse(raw_text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
     if not raw:
         return None
 
-    # 1. 直接JSON
+    # 0. 预清洗
+    clean = _pre_clean(raw)
+    clean = clean.strip()
+    if not clean:
+        return None
+
+    # 1. 直接JSON → 对象级判断
     try:
-        obj = json.loads(raw)
-        if isinstance(obj, dict) and "action" in obj:
-            action = obj["action"].upper()
-            params = obj.get("parameters", {})
-            if not isinstance(params, dict):
-                params = {}
-            return (action, params)
+        obj = json.loads(clean)
+        parsed = _try_parse_json_obj(obj)
+        if parsed:
+            return parsed
     except (json.JSONDecodeError, ValueError):
         pass
 
-    # 2. 括号平衡提取JSON
-    obj = _extract_json_bracket_balanced(raw)
-    if obj and isinstance(obj, dict) and "action" in obj:
-        action = obj["action"].upper()
-        params = obj.get("parameters", {})
-        if not isinstance(params, dict):
-            params = {}
-        return (action, params)
+    # 2. 括号平衡提取JSON → 对象级判断
+    obj = _extract_json_bracket_balanced(clean)
+    if obj is not None:
+        parsed = _try_parse_json_obj(obj)
+        if parsed:
+            return parsed
 
-    # 3. {"ACTION": {params}} 格式（doubao常见）
-    result = _parse_action_as_key(raw)
+    # 3. ACTION: {json} 格式
+    result = _parse_action_colon_json(clean)
     if result:
         return result
 
-    # 4. ACTION: {json} 格式（doubao常见）
-    result = _parse_action_colon_json(raw)
+    # 4. ACTION(params) / ACTION{} / ACTION{params} 函数调用格式
+    result = _parse_func_call(clean)
     if result:
         return result
 
-    # 5. ACTION(params) 函数调用格式 / COMPLETE{}
-    result = _parse_func_call(raw)
+    # 5. Action行格式
+    result = _parse_action_line(clean)
     if result:
         return result
 
-    # 6. Action行格式
-    result = _parse_action_line(raw)
+    # 6. 原始格式（CLICK/TYPE/OPEN/SCROLL）
+    result = _parse_raw_format(clean)
     if result:
         return result
 
-    # 7-10. 原始格式（CLICK/TYPE/OPEN/SCROLL）
-    result = _parse_raw_format(raw)
+    # 7. <point>标签
+    result = _parse_point_tag(clean)
     if result:
         return result
 
-    # 11. <point>标签
-    result = _parse_point_tag(raw)
-    if result:
-        return result
-
-    # 12. 全部失败
+    # 8. 全部失败
     return None
