@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls *)",
+      "Bash(rtk git *)",
+      "Bash(rtk find *)",
+      "Bash(python *)",
+      "Bash(rtk read *)",
+      "Bash(export DEBUG_API_URL=\"https://api.longcat.chat/openai\")",
+      "Bash(export DEBUG_MODEL_ID=\"LongCat-Flash-Chat\")",
+      "Bash(conda run *)",
+      "Bash(conda env *)",
+      "Bash(/home/ly/miniconda3/bin/conda env *)",
+      "Bash(wsl *)",
+      "Bash(rtk grep *)",
+      "Bash(rtk wc *)",
+      "Read(///wsl.localhost/Ubuntu/home/ly/**)",
+      "Bash(export VLM_API_KEY=$\\(cat /home/ly/.bashrc)",
+      "Bash(rtk curl *)",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(m['id']\\) for m in data.get\\('data',[]\\)]\")",
+      "Bash(/home/ly/miniconda3/envs/zx/bin/python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(m['id']\\) for m in data.get\\('data',[]\\)]\")"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "code-review-graph"
+  ]
+}

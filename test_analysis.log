@@ -1,0 +1,1330 @@
+2026-05-07 18:05:16,144 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:05:16,992 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:05:16,992 - ERROR - [Checker] CLICK failed: (500, 100) not in ([725, 945], [25, 67])
+2026-05-07 18:05:17,215 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:05:17,216 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:17,216 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:17,485 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:17,485 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:17,485 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:17,485 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:17,718 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:17,718 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:17,718 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:17,941 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:17,941 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:18,189 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:18,189 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:18,189 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:18,438 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:18,438 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:18,673 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:18,673 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:18,673 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:18,920 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:18,920 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:19,124 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:19,124 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:23,469 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 1/11 = 0.09
+2026-05-07 18:05:23,471 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:05:23,743 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:05:23,743 - ERROR - [Checker] CLICK failed: (900, 60) not in ([758, 950], [21, 57])
+2026-05-07 18:05:24,013 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:05:24,013 - ERROR - [Checker] CLICK failed: (900, 60) not in ([847, 939], [880, 938])
+2026-05-07 18:05:24,257 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:24,257 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:24,489 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:24,489 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:24,734 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:24,734 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:24,734 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:24,974 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:24,974 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:25,207 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:25,208 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:25,415 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:25,415 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:28,955 - INFO - [No. 2: step_baidumap_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:05:28,957 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:05:29,242 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:05:29,243 - ERROR - [Checker] CLICK failed: (500, 100) not in ([756, 958], [22, 60])
+2026-05-07 18:05:29,527 - INFO - Agent Output: action=TYPE, params={'text': '国际医学中心去西安回民街'}
+2026-05-07 18:05:29,528 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:29,776 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:05:29,777 - ERROR - [Checker] CLICK failed: (500, 100) not in ([100, 833], [445, 497])
+2026-05-07 18:05:30,022 - INFO - Agent Output: action=TYPE, params={'text': '西安回民街'}
+2026-05-07 18:05:30,022 - ERROR - [Checker] TYPE: text mismatch, expect '.*国际医学中心', got '西安回民街'
+2026-05-07 18:05:30,244 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:30,244 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:30,244 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:30,471 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:30,471 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:30,725 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:30,725 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:30,725 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:30,959 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:30,960 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:30,960 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:31,233 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:31,233 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:35,598 - INFO - [No. 3: step_baidumap_onekey_0010] Score: 1/10 = 0.10
+2026-05-07 18:05:35,600 - INFO - Agent Output: action=OPEN, params={'app_name': '哔哩哔哩'}
+2026-05-07 18:05:35,974 - INFO - Agent Output: action=CLICK, params={'point': [800, 80]}
+2026-05-07 18:05:35,974 - ERROR - [Checker] CLICK failed: (800, 80) not in ([185, 718], [56, 99])
+2026-05-07 18:05:36,261 - INFO - Agent Output: action=TYPE, params={'text': '索采莲曲并收藏综合列表里第一个视频'}
+2026-05-07 18:05:36,261 - ERROR - [Checker] TYPE: text mismatch, expect '采莲曲', got '索采莲曲并收藏综合列表里第一个视频'
+2026-05-07 18:05:36,261 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:36,296 - INFO - [Checker] Action mismatch: expect [CLICK], got []
+2026-05-07 18:05:36,532 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:36,532 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:36,781 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:36,782 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:37,057 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:37,057 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:40,078 - INFO - [No. 4: step_bilibili_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:05:40,080 - INFO - Agent Output: action=OPEN, params={'app_name': '抖音'}
+2026-05-07 18:05:40,361 - INFO - Agent Output: action=CLICK, params={'point': [200, 80]}
+2026-05-07 18:05:40,362 - ERROR - [Checker] CLICK failed: (200, 80) not in ([856, 939], [906, 938])
+2026-05-07 18:05:40,592 - INFO - Agent Output: action=TYPE, params={'text': '索跳舞的视频并查看'}
+2026-05-07 18:05:40,592 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:40,830 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:40,830 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:41,094 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:41,094 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:41,094 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:41,284 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:41,284 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:41,487 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:41,487 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:41,678 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:41,679 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:41,907 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:41,907 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:44,725 - INFO - [No. 5: step_douyin_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:05:44,727 - INFO - Agent Output: action=OPEN, params={'app_name': '快手'}
+2026-05-07 18:05:44,994 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:05:44,994 - ERROR - [Checker] CLICK failed: (500, 100) not in ([881, 945], [53, 85])
+2026-05-07 18:05:45,234 - INFO - Agent Output: action=TYPE, params={'text': '索动画片筛选1日内的1-5分钟作品'}
+2026-05-07 18:05:45,235 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:45,235 - ERROR - [Checker] TYPE: text mismatch, expect '动画片', got '索动画片筛选1日内的1-5分钟作品'
+2026-05-07 18:05:45,456 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:45,456 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:45,677 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:45,677 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:45,677 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:45,884 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:45,884 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:46,127 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:46,127 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:46,343 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:46,343 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:46,565 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:46,565 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:46,795 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:46,795 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:49,850 - INFO - [No. 6: step_kuaishou_onekey_0003] Score: 1/10 = 0.10
+2026-05-07 18:05:49,851 - INFO - Agent Output: action=OPEN, params={'app_name': '芒果TV'}
+2026-05-07 18:05:50,118 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:05:50,118 - ERROR - [Checker] CLICK failed: (500, 100) not in ([750, 947], [59, 98])
+2026-05-07 18:05:50,356 - INFO - Agent Output: action=TYPE, params={'text': '我的下载里的新还珠格格第2集'}
+2026-05-07 18:05:50,356 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:50,634 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:50,634 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:50,883 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:50,883 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:51,143 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:51,143 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:51,374 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:51,374 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:05:54,278 - INFO - [No. 7: step_mangguo_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:05:54,280 - INFO - Agent Output: action=OPEN, params={'app_name': '美团'}
+2026-05-07 18:05:54,540 - INFO - Agent Output: action=CLICK, params={'point': [500, 120]}
+2026-05-07 18:05:54,540 - ERROR - [Checker] CLICK failed: (500, 120) not in ([50, 158], [155, 235])
+2026-05-07 18:05:54,790 - INFO - Agent Output: action=TYPE, params={'text': '干锅排骨'}
+2026-05-07 18:05:54,790 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:05:55,046 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:55,046 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:55,279 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:55,279 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:55,501 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:55,502 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:55,502 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:55,722 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:55,722 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:56,995 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:56,995 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:57,234 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:57,235 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:05:57,235 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:57,450 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:57,451 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:57,706 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:57,707 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:57,935 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:57,936 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:58,187 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:58,187 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:05:58,453 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:05:58,453 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:06:56,315 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:06:57,173 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:06:57,173 - ERROR - [Checker] CLICK failed: (500, 100) not in ([725, 945], [25, 67])
+2026-05-07 18:06:57,599 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:06:57,599 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:06:57,599 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:06:58,044 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:06:58,044 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:06:58,044 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:58,044 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:58,441 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:06:58,441 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:58,441 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:58,863 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:06:58,863 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:59,284 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:06:59,285 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:59,285 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:06:59,699 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:06:59,699 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:00,062 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:00,063 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:00,063 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:00,399 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:00,400 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:00,713 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:00,713 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:04,941 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 1/11 = 0.09
+2026-05-07 18:07:04,942 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:07:05,356 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:07:05,356 - ERROR - [Checker] CLICK failed: (900, 60) not in ([758, 950], [21, 57])
+2026-05-07 18:07:05,769 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:07:05,769 - ERROR - [Checker] CLICK failed: (900, 60) not in ([847, 939], [880, 938])
+2026-05-07 18:07:06,155 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:06,156 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:06,594 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:06,594 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:07,010 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:07,011 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:07,011 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:07,345 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:07,345 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:07,676 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:07,677 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:07,976 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:07,976 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:10,950 - INFO - [No. 2: step_baidumap_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:07:10,951 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:07:11,342 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:07:11,342 - ERROR - [Checker] CLICK failed: (500, 100) not in ([756, 958], [22, 60])
+2026-05-07 18:07:11,728 - INFO - Agent Output: action=TYPE, params={'text': '国际医学中心去西安回民街'}
+2026-05-07 18:07:11,729 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:12,110 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:07:12,111 - ERROR - [Checker] CLICK failed: (500, 100) not in ([100, 833], [445, 497])
+2026-05-07 18:07:12,486 - INFO - Agent Output: action=TYPE, params={'text': '西安回民街'}
+2026-05-07 18:07:12,486 - ERROR - [Checker] TYPE: text mismatch, expect '.*国际医学中心', got '西安回民街'
+2026-05-07 18:07:12,857 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:12,857 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:12,857 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:13,217 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:13,218 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:13,598 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:13,598 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:13,598 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:13,897 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:13,897 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:13,897 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:14,237 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:14,237 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:17,729 - INFO - [No. 3: step_baidumap_onekey_0010] Score: 1/10 = 0.10
+2026-05-07 18:07:17,730 - INFO - Agent Output: action=OPEN, params={'app_name': '哔哩哔哩'}
+2026-05-07 18:07:18,184 - INFO - Agent Output: action=CLICK, params={'point': [800, 80]}
+2026-05-07 18:07:18,184 - ERROR - [Checker] CLICK failed: (800, 80) not in ([185, 718], [56, 99])
+2026-05-07 18:07:18,603 - INFO - Agent Output: action=TYPE, params={'text': '索采莲曲并收藏综合列表里第一个视频'}
+2026-05-07 18:07:18,603 - ERROR - [Checker] TYPE: text mismatch, expect '采莲曲', got '索采莲曲并收藏综合列表里第一个视频'
+2026-05-07 18:07:18,603 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:18,630 - INFO - [Checker] Action mismatch: expect [CLICK], got []
+2026-05-07 18:07:19,045 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:19,046 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:19,417 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:19,417 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:19,794 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:19,795 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:22,328 - INFO - [No. 4: step_bilibili_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:07:22,329 - INFO - Agent Output: action=OPEN, params={'app_name': '抖音'}
+2026-05-07 18:07:22,723 - INFO - Agent Output: action=CLICK, params={'point': [200, 80]}
+2026-05-07 18:07:22,723 - ERROR - [Checker] CLICK failed: (200, 80) not in ([856, 939], [906, 938])
+2026-05-07 18:07:23,091 - INFO - Agent Output: action=TYPE, params={'text': '索跳舞的视频并查看'}
+2026-05-07 18:07:23,092 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:23,459 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:23,459 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:23,777 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:23,778 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:23,778 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:24,061 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:24,062 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:24,354 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:24,355 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:24,643 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:24,644 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:25,005 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:25,005 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:28,173 - INFO - [No. 5: step_douyin_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:07:28,174 - INFO - Agent Output: action=OPEN, params={'app_name': '快手'}
+2026-05-07 18:07:28,591 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:07:28,591 - ERROR - [Checker] CLICK failed: (500, 100) not in ([881, 945], [53, 85])
+2026-05-07 18:07:28,980 - INFO - Agent Output: action=TYPE, params={'text': '索动画片筛选1日内的1-5分钟作品'}
+2026-05-07 18:07:28,980 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:28,980 - ERROR - [Checker] TYPE: text mismatch, expect '动画片', got '索动画片筛选1日内的1-5分钟作品'
+2026-05-07 18:07:29,343 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:29,343 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:29,652 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:29,652 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:29,652 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:30,030 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:30,031 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:30,437 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:30,437 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:30,774 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:30,774 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:31,150 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:31,150 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:31,563 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:31,564 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:35,514 - INFO - [No. 6: step_kuaishou_onekey_0003] Score: 1/10 = 0.10
+2026-05-07 18:07:35,516 - INFO - Agent Output: action=OPEN, params={'app_name': '芒果TV'}
+2026-05-07 18:07:35,893 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:07:35,894 - ERROR - [Checker] CLICK failed: (500, 100) not in ([750, 947], [59, 98])
+2026-05-07 18:07:36,334 - INFO - Agent Output: action=TYPE, params={'text': '我的下载里的新还珠格格第2集'}
+2026-05-07 18:07:36,334 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:36,776 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:36,776 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:37,221 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:37,221 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:37,633 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:37,633 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:38,004 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:38,004 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:41,198 - INFO - [No. 7: step_mangguo_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:07:41,200 - INFO - Agent Output: action=OPEN, params={'app_name': '美团'}
+2026-05-07 18:07:41,667 - INFO - Agent Output: action=CLICK, params={'point': [500, 120]}
+2026-05-07 18:07:41,667 - ERROR - [Checker] CLICK failed: (500, 120) not in ([50, 158], [155, 235])
+2026-05-07 18:07:42,091 - INFO - Agent Output: action=TYPE, params={'text': '干锅排骨'}
+2026-05-07 18:07:42,092 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:42,541 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:42,542 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:42,909 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:42,910 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:43,214 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:43,215 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:43,215 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:43,602 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:43,602 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:44,010 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:44,010 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:44,295 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:44,295 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:44,295 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:44,660 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:44,660 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:45,018 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:45,018 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:45,348 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:45,349 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:45,754 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:45,754 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:46,142 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:46,142 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:52,038 - INFO - [No. 8: step_meituan_onekey_0001] Score: 1/14 = 0.07
+2026-05-07 18:07:52,040 - INFO - Agent Output: action=OPEN, params={'app_name': '去哪儿旅行'}
+2026-05-07 18:07:52,644 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:07:52,645 - ERROR - [Checker] CLICK failed: (500, 100) not in ([33, 327], [290, 368])
+2026-05-07 18:07:53,189 - INFO - Agent Output: action=TYPE, params={'text': '哪旅行看一下后天邯郸飞上海的航班'}
+2026-05-07 18:07:53,189 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:07:53,585 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:53,585 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:53,904 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:53,904 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:54,173 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:54,173 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:54,512 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:54,512 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:54,845 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:54,846 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:55,208 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:55,209 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:07:55,508 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:55,508 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:55,865 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:55,866 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:56,226 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:56,226 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:56,582 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:56,582 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:56,984 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:56,985 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:07:56,985 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:07:57,354 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:07:57,354 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:08:02,096 - INFO - [No. 9: step_quonekey_0030] Score: 1/15 = 0.07
+2026-05-07 18:08:02,099 - INFO - Agent Output: action=OPEN, params={'app_name': '腾讯视频'}
+2026-05-07 18:08:02,506 - INFO - Agent Output: action=CLICK, params={'point': [850, 80]}
+2026-05-07 18:08:02,992 - INFO - Agent Output: action=TYPE, params={'text': '索扫毒风暴并播放第三集'}
+2026-05-07 18:08:02,992 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:08:03,403 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:03,403 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:08:03,403 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:03,723 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:03,723 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:03,723 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:04,079 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:04,079 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:04,471 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:04,472 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:04,879 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:04,879 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:08:08,432 - INFO - [No. 10: step_tengxunshipin_onekey_0005] Score: 2/8 = 0.25
+2026-05-07 18:08:08,433 - INFO - Agent Output: action=OPEN, params={'app_name': '喜马拉雅'}
+2026-05-07 18:08:08,810 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:08:08,810 - ERROR - [Checker] CLICK failed: (500, 100) not in ([754, 954], [22, 59])
+2026-05-07 18:08:09,177 - INFO - Agent Output: action=TYPE, params={'text': '《三体》多人有声剧'}
+2026-05-07 18:08:09,177 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:08:09,580 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:09,580 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:09,971 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:09,971 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:08:10,289 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:10,289 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:10,635 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:10,635 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:08:11,021 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:08:11,021 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:08:13,650 - INFO - [No. 11: step_ximalaya_onekey_0001] Score: 1/8 = 0.12
+2026-05-07 18:08:13,650 - INFO - PASS List: []
+2026-05-07 18:08:13,650 - INFO - FAIL List: ['step_aiqiyi_onekey_0011', 'step_baidumap_onekey_0008', 'step_baidumap_onekey_0010', 'step_bilibili_onekey_0008', 'step_douyin_onekey_0008', 'step_kuaishou_onekey_0003', 'step_mangguo_onekey_0008', 'step_meituan_onekey_0001', 'step_quonekey_0030', 'step_tengxunshipin_onekey_0005', 'step_ximalaya_onekey_0001']
+2026-05-07 18:08:13,650 - INFO - Step Level Accuracy: 0.11
+2026-05-07 18:08:13,650 - INFO - Case Level Accuracy: 0.00
+2026-05-07 18:10:52,727 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:10:53,578 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:10:53,578 - ERROR - [Checker] CLICK failed: (500, 100) not in ([725, 945], [25, 67])
+2026-05-07 18:10:53,971 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:10:53,971 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:10:53,971 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:10:54,384 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:54,384 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:10:54,384 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:54,384 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:54,772 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:54,772 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:54,772 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:55,129 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:55,130 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:55,551 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:55,552 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:55,552 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:55,952 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:55,952 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:56,298 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:56,298 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:10:56,298 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:56,615 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:56,616 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:10:56,927 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:10:56,927 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:01,072 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 1/11 = 0.09
+2026-05-07 18:11:01,073 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:11:01,472 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:11:01,472 - ERROR - [Checker] CLICK failed: (900, 60) not in ([758, 950], [21, 57])
+2026-05-07 18:11:01,906 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:11:01,907 - ERROR - [Checker] CLICK failed: (900, 60) not in ([847, 939], [880, 938])
+2026-05-07 18:11:02,270 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:02,270 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:02,628 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:02,628 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:03,001 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:03,001 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:11:03,001 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:03,353 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:03,353 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:03,664 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:03,665 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:03,969 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:03,969 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:06,914 - INFO - [No. 2: step_baidumap_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:11:06,914 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:11:06,969 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:11:06,969 - ERROR - [Checker] CLICK failed: (500, 100) not in ([756, 958], [22, 60])
+2026-05-07 18:11:07,383 - INFO - Agent Output: action=TYPE, params={'text': '国际医学中心去西安回民街'}
+2026-05-07 18:11:07,383 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:11:07,810 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:11:07,810 - ERROR - [Checker] CLICK failed: (500, 100) not in ([100, 833], [445, 497])
+2026-05-07 18:11:08,189 - INFO - Agent Output: action=TYPE, params={'text': '西安回民街'}
+2026-05-07 18:11:08,189 - ERROR - [Checker] TYPE: text mismatch, expect '.*国际医学中心', got '西安回民街'
+2026-05-07 18:11:08,547 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:08,547 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:08,547 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:08,919 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:08,919 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:09,358 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:09,358 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:11:09,358 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:09,681 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:09,681 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:09,681 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:10,059 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:10,059 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:13,413 - INFO - [No. 3: step_baidumap_onekey_0010] Score: 1/10 = 0.10
+2026-05-07 18:11:13,414 - INFO - Agent Output: action=OPEN, params={'app_name': '哔哩哔哩'}
+2026-05-07 18:11:13,853 - INFO - Agent Output: action=CLICK, params={'point': [800, 80]}
+2026-05-07 18:11:13,853 - ERROR - [Checker] CLICK failed: (800, 80) not in ([185, 718], [56, 99])
+2026-05-07 18:11:14,251 - INFO - Agent Output: action=TYPE, params={'text': '索采莲曲并收藏综合列表里第一个视频'}
+2026-05-07 18:11:14,251 - ERROR - [Checker] TYPE: text mismatch, expect '采莲曲', got '索采莲曲并收藏综合列表里第一个视频'
+2026-05-07 18:11:14,251 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:11:14,277 - INFO - [Checker] Action mismatch: expect [CLICK], got []
+2026-05-07 18:11:14,650 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:14,650 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:15,026 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:15,027 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:15,439 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:15,440 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:18,029 - INFO - [No. 4: step_bilibili_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:11:18,030 - INFO - Agent Output: action=OPEN, params={'app_name': '抖音'}
+2026-05-07 18:11:18,513 - INFO - Agent Output: action=CLICK, params={'point': [200, 80]}
+2026-05-07 18:11:18,513 - ERROR - [Checker] CLICK failed: (200, 80) not in ([856, 939], [906, 938])
+2026-05-07 18:11:18,896 - INFO - Agent Output: action=TYPE, params={'text': '索跳舞的视频并查看'}
+2026-05-07 18:11:18,896 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:11:19,312 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:19,313 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:19,648 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:19,648 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:19,648 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:11:20,012 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:20,012 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:11:20,306 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:20,307 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:20,585 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:20,585 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:20,966 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:20,966 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:24,010 - INFO - [No. 5: step_douyin_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:11:24,011 - INFO - Agent Output: action=OPEN, params={'app_name': '快手'}
+2026-05-07 18:11:24,456 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:11:24,456 - ERROR - [Checker] CLICK failed: (500, 100) not in ([881, 945], [53, 85])
+2026-05-07 18:11:24,840 - INFO - Agent Output: action=TYPE, params={'text': '索动画片筛选1日内的1-5分钟作品'}
+2026-05-07 18:11:24,840 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:11:24,840 - ERROR - [Checker] TYPE: text mismatch, expect '动画片', got '索动画片筛选1日内的1-5分钟作品'
+2026-05-07 18:11:25,203 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:25,203 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:11:25,537 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:25,538 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:25,538 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:25,946 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:25,946 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:26,343 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:26,344 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:26,701 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:26,701 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:27,035 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:27,035 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:27,424 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:27,424 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:31,520 - INFO - [No. 6: step_kuaishou_onekey_0003] Score: 1/10 = 0.10
+2026-05-07 18:11:31,521 - INFO - Agent Output: action=OPEN, params={'app_name': '芒果TV'}
+2026-05-07 18:11:31,919 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:11:31,919 - ERROR - [Checker] CLICK failed: (500, 100) not in ([750, 947], [59, 98])
+2026-05-07 18:11:32,371 - INFO - Agent Output: action=TYPE, params={'text': '我的下载里的新还珠格格第2集'}
+2026-05-07 18:11:32,371 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:11:32,859 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:32,860 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:33,316 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:33,316 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:33,715 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:33,715 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:11:34,112 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:11:34,113 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:11:59,051 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:12:01,528 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:12:01,529 - ERROR - [Checker] CLICK failed: (500, 100) not in ([725, 945], [25, 67])
+2026-05-07 18:12:01,987 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:12:01,987 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:01,987 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:02,451 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:02,452 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:02,452 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:02,452 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:02,868 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:02,868 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:02,868 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:03,265 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:03,265 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:03,720 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:03,720 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:03,720 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:04,136 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:04,136 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:04,504 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:04,504 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:04,504 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:04,835 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:04,835 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:05,154 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:05,154 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:10,263 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 1/11 = 0.09
+2026-05-07 18:12:10,264 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:12:10,781 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:12:10,782 - ERROR - [Checker] CLICK failed: (900, 60) not in ([758, 950], [21, 57])
+2026-05-07 18:12:11,406 - INFO - Agent Output: action=CLICK, params={'point': [900, 60]}
+2026-05-07 18:12:11,406 - ERROR - [Checker] CLICK failed: (900, 60) not in ([847, 939], [880, 938])
+2026-05-07 18:12:11,948 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:11,949 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:12,489 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:12,489 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:13,037 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:13,037 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:13,037 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:13,515 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:13,516 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:13,830 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:13,830 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:14,194 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:14,194 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:17,467 - INFO - [No. 2: step_baidumap_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:12:17,468 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:12:17,882 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:12:17,882 - ERROR - [Checker] CLICK failed: (500, 100) not in ([756, 958], [22, 60])
+2026-05-07 18:12:18,319 - INFO - Agent Output: action=TYPE, params={'text': '国际医学中心去西安回民街'}
+2026-05-07 18:12:18,319 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:18,716 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:12:18,716 - ERROR - [Checker] CLICK failed: (500, 100) not in ([100, 833], [445, 497])
+2026-05-07 18:12:19,094 - INFO - Agent Output: action=TYPE, params={'text': '西安回民街'}
+2026-05-07 18:12:19,094 - ERROR - [Checker] TYPE: text mismatch, expect '.*国际医学中心', got '西安回民街'
+2026-05-07 18:12:19,450 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:19,450 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:19,450 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:19,837 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:19,837 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:20,208 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:20,208 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:20,208 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:20,524 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:20,524 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:20,524 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:20,901 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:20,901 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:24,541 - INFO - [No. 3: step_baidumap_onekey_0010] Score: 1/10 = 0.10
+2026-05-07 18:12:24,542 - INFO - Agent Output: action=OPEN, params={'app_name': '哔哩哔哩'}
+2026-05-07 18:12:24,981 - INFO - Agent Output: action=CLICK, params={'point': [800, 80]}
+2026-05-07 18:12:24,981 - ERROR - [Checker] CLICK failed: (800, 80) not in ([185, 718], [56, 99])
+2026-05-07 18:12:25,408 - INFO - Agent Output: action=TYPE, params={'text': '索采莲曲并收藏综合列表里第一个视频'}
+2026-05-07 18:12:25,408 - ERROR - [Checker] TYPE: text mismatch, expect '采莲曲', got '索采莲曲并收藏综合列表里第一个视频'
+2026-05-07 18:12:25,408 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:25,436 - INFO - [Checker] Action mismatch: expect [CLICK], got []
+2026-05-07 18:12:25,792 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:25,792 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:26,167 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:26,167 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:26,564 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:26,564 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:29,694 - INFO - [No. 4: step_bilibili_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:12:29,695 - INFO - Agent Output: action=OPEN, params={'app_name': '抖音'}
+2026-05-07 18:12:30,107 - INFO - Agent Output: action=CLICK, params={'point': [200, 80]}
+2026-05-07 18:12:30,108 - ERROR - [Checker] CLICK failed: (200, 80) not in ([856, 939], [906, 938])
+2026-05-07 18:12:30,496 - INFO - Agent Output: action=TYPE, params={'text': '索跳舞的视频并查看'}
+2026-05-07 18:12:30,496 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:30,909 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:30,909 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:31,249 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:31,249 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:31,249 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:31,561 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:31,561 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:31,926 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:31,926 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:32,247 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:32,247 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:32,592 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:32,592 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:35,465 - INFO - [No. 5: step_douyin_onekey_0008] Score: 1/9 = 0.11
+2026-05-07 18:12:35,466 - INFO - Agent Output: action=OPEN, params={'app_name': '快手'}
+2026-05-07 18:12:35,861 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:12:35,862 - ERROR - [Checker] CLICK failed: (500, 100) not in ([881, 945], [53, 85])
+2026-05-07 18:12:36,240 - INFO - Agent Output: action=TYPE, params={'text': '索动画片筛选1日内的1-5分钟作品'}
+2026-05-07 18:12:36,240 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:36,241 - ERROR - [Checker] TYPE: text mismatch, expect '动画片', got '索动画片筛选1日内的1-5分钟作品'
+2026-05-07 18:12:36,599 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:36,599 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:36,916 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:36,917 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:36,917 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:37,316 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:37,316 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:37,679 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:37,680 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:38,021 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:38,021 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:38,340 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:38,340 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:38,761 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:38,761 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:42,061 - INFO - [No. 6: step_kuaishou_onekey_0003] Score: 1/10 = 0.10
+2026-05-07 18:12:42,062 - INFO - Agent Output: action=OPEN, params={'app_name': '芒果TV'}
+2026-05-07 18:12:43,608 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:12:43,608 - ERROR - [Checker] CLICK failed: (500, 100) not in ([750, 947], [59, 98])
+2026-05-07 18:12:44,205 - INFO - Agent Output: action=TYPE, params={'text': '我的下载里的新还珠格格第2集'}
+2026-05-07 18:12:44,205 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:44,746 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:44,746 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:45,311 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:45,312 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:45,686 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:45,686 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:46,095 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:46,095 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:49,421 - INFO - [No. 7: step_mangguo_onekey_0008] Score: 1/7 = 0.14
+2026-05-07 18:12:49,422 - INFO - Agent Output: action=OPEN, params={'app_name': '美团'}
+2026-05-07 18:12:49,870 - INFO - Agent Output: action=CLICK, params={'point': [500, 120]}
+2026-05-07 18:12:49,870 - ERROR - [Checker] CLICK failed: (500, 120) not in ([50, 158], [155, 235])
+2026-05-07 18:12:50,312 - INFO - Agent Output: action=TYPE, params={'text': '干锅排骨'}
+2026-05-07 18:12:50,312 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:12:50,727 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:50,727 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:51,088 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:51,088 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:51,353 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:51,353 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:51,353 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:51,750 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:51,750 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:52,268 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:52,269 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:52,556 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:52,557 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:12:52,557 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:52,927 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:52,928 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:53,287 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:53,287 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:53,632 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:53,632 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:54,002 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:54,002 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:12:54,373 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:12:54,373 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:12:59,167 - INFO - [No. 8: step_meituan_onekey_0001] Score: 1/14 = 0.07
+2026-05-07 18:12:59,168 - INFO - Agent Output: action=OPEN, params={'app_name': '去哪儿旅行'}
+2026-05-07 18:12:59,622 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:12:59,622 - ERROR - [Checker] CLICK failed: (500, 100) not in ([33, 327], [290, 368])
+2026-05-07 18:13:00,003 - INFO - Agent Output: action=TYPE, params={'text': '哪旅行看一下后天邯郸飞上海的航班'}
+2026-05-07 18:13:00,003 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:13:00,395 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:00,395 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:00,726 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:00,726 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:13:00,976 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:00,977 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:01,325 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:01,325 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:01,660 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:01,660 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:01,971 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:01,971 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:13:02,265 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:02,265 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:02,617 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:02,617 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:02,999 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:02,999 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:03,356 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:03,356 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:03,728 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:03,728 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:03,728 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:13:04,107 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:04,108 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:13:09,221 - INFO - [No. 9: step_quonekey_0030] Score: 1/15 = 0.07
+2026-05-07 18:13:09,222 - INFO - Agent Output: action=OPEN, params={'app_name': '腾讯视频'}
+2026-05-07 18:13:09,611 - INFO - Agent Output: action=CLICK, params={'point': [850, 80]}
+2026-05-07 18:13:10,079 - INFO - Agent Output: action=TYPE, params={'text': '索扫毒风暴并播放第三集'}
+2026-05-07 18:13:10,079 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:13:10,469 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:10,469 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:13:10,469 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:10,809 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:10,809 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:10,809 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:11,176 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:11,176 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:11,552 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:11,552 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:11,951 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:11,952 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:13:15,468 - INFO - [No. 10: step_tengxunshipin_onekey_0005] Score: 2/8 = 0.25
+2026-05-07 18:13:15,470 - INFO - Agent Output: action=OPEN, params={'app_name': '喜马拉雅'}
+2026-05-07 18:13:15,851 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:13:15,852 - ERROR - [Checker] CLICK failed: (500, 100) not in ([754, 954], [22, 59])
+2026-05-07 18:13:16,252 - INFO - Agent Output: action=TYPE, params={'text': '《三体》多人有声剧'}
+2026-05-07 18:13:16,252 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:13:16,662 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:16,663 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:17,065 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:17,065 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:13:17,356 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:17,356 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:17,779 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:17,779 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:13:17,740 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:13:17,740 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:13:20,302 - INFO - [No. 11: step_ximalaya_onekey_0001] Score: 1/8 = 0.12
+2026-05-07 18:13:20,302 - INFO - PASS List: []
+2026-05-07 18:13:20,302 - INFO - FAIL List: ['step_aiqiyi_onekey_0011', 'step_baidumap_onekey_0008', 'step_baidumap_onekey_0010', 'step_bilibili_onekey_0008', 'step_douyin_onekey_0008', 'step_kuaishou_onekey_0003', 'step_mangguo_onekey_0008', 'step_meituan_onekey_0001', 'step_quonekey_0030', 'step_tengxunshipin_onekey_0005', 'step_ximalaya_onekey_0001']
+2026-05-07 18:13:20,302 - INFO - Step Level Accuracy: 0.11
+2026-05-07 18:13:20,302 - INFO - Case Level Accuracy: 0.00
+2026-05-07 18:14:01,961 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:14:04,949 - WARNING - 解析失败，原始输出: CLICK: {"point": [838, 45]}
+2026-05-07 18:14:09,191 - INFO - Agent Output: action=CLICK, params={'point': [836, 46]}
+2026-05-07 18:14:09,192 - INFO - Token usage: +1794 (input: 1748, output: 46), total: 1794/1200000
+2026-05-07 18:14:11,019 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [371 73], "content": "搜索框"}}
+2026-05-07 18:14:12,269 - INFO - Agent Output: action=CLICK, params={'point': [385, 70]}
+2026-05-07 18:14:12,270 - INFO - Token usage: +1805 (input: 1764, output: 41), total: 3599/1200000
+2026-05-07 18:14:14,091 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "狂飙"}}
+2026-05-07 18:14:17,064 - INFO - Agent Output: action=CLICK, params={'point': [63, 676]}
+2026-05-07 18:14:17,064 - INFO - Token usage: +1822 (input: 1780, output: 42), total: 5421/1200000
+2026-05-07 18:14:17,065 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:14:18,762 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [851, 128]}}
+2026-05-07 18:14:22,780 - INFO - Agent Output: action=CLICK, params={'point': [335, 208]}
+2026-05-07 18:14:22,782 - INFO - Token usage: +1848 (input: 1796, output: 52), total: 7269/1200000
+2026-05-07 18:14:22,782 - ERROR - [Checker] CLICK failed: (335, 208) not in ([758, 933], [105, 144])
+2026-05-07 18:14:31,895 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [361, 653]}}
+2026-05-07 18:14:33,711 - INFO - Agent Output: action=CLICK, params={'point': [361, 652]}
+2026-05-07 18:14:33,712 - INFO - Token usage: +1857 (input: 1813, output: 44), total: 9126/1200000
+2026-05-07 18:14:35,612 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [213, 345]}}
+2026-05-07 18:14:37,130 - INFO - Agent Output: action=CLICK, params={'point': [213, 344]}
+2026-05-07 18:14:37,130 - INFO - Token usage: +1879 (input: 1830, output: 49), total: 11005/1200000
+2026-05-07 18:14:37,130 - ERROR - [Checker] CLICK failed: (213, 344) not in ([114, 256], [868, 930])
+2026-05-07 18:14:41,249 - WARNING - 解析失败，原始输出: CLICK(point=[326, 918])
+2026-05-07 18:14:42,944 - INFO - Agent Output: action=CLICK, params={'point': [326, 922]}
+2026-05-07 18:14:42,944 - INFO - Token usage: +1888 (input: 1847, output: 41), total: 12893/1200000
+2026-05-07 18:14:44,548 - WARNING - 解析失败，原始输出: TYPE: {"text": "真是太好看了"}
+2026-05-07 18:14:46,254 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:14:46,254 - INFO - Token usage: +1905 (input: 1864, output: 41), total: 14798/1200000
+2026-05-07 18:14:46,254 - ERROR - [Checker] TYPE: text mismatch, expect '真是太好看了', got '了'
+2026-05-07 18:14:46,254 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:14:47,831 - WARNING - 解析失败，原始输出: CLICK(point=[883, 916])
+2026-05-07 18:14:49,016 - INFO - Agent Output: action=CLICK, params={'point': [880, 916]}
+2026-05-07 18:14:49,016 - INFO - Token usage: +1915 (input: 1864, output: 51), total: 16713/1200000
+2026-05-07 18:14:50,500 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:14:52,328 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:14:52,329 - INFO - Token usage: +1920 (input: 1882, output: 38), total: 18633/1200000
+2026-05-07 18:14:56,507 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 10/11 = 0.91
+2026-05-07 18:14:56,509 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:14:58,633 - WARNING - 解析失败，原始输出: CLICK: {"point": [862, 41]}
+2026-05-07 18:15:00,175 - INFO - Agent Output: action=CLICK, params={'point': [860, 42]}
+2026-05-07 18:15:00,175 - INFO - Token usage: +1784 (input: 1741, output: 43), total: 20417/1200000
+2026-05-07 18:15:01,860 - WARNING - 解析失败，原始输出: CLICK(point=[893, 913])
+2026-05-07 18:15:03,589 - INFO - Agent Output: action=CLICK, params={'point': [891, 910]}
+2026-05-07 18:15:03,590 - INFO - Token usage: +1817 (input: 1757, output: 60), total: 22234/1200000
+2026-05-07 18:15:05,291 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [500, 332]}}
+2026-05-07 18:15:06,998 - INFO - Agent Output: action=CLICK, params={'point': [500, 332]}
+2026-05-07 18:15:06,998 - INFO - Token usage: +1831 (input: 1774, output: 57), total: 24065/1200000
+2026-05-07 18:15:08,871 - WARNING - 解析失败，原始输出: {"CLICK": [{"point": [462, 71], "x": 462, "y": 71}]}
+2026-05-07 18:15:10,621 - INFO - Agent Output: action=CLICK, params={'point': [444, 72]}
+2026-05-07 18:15:10,622 - INFO - Token usage: +1835 (input: 1791, output: 44), total: 25900/1200000
+2026-05-07 18:15:12,219 - WARNING - 解析失败，原始输出: TYPE: {"text": "孟子义"}
+2026-05-07 18:15:13,877 - INFO - Agent Output: action=CLICK, params={'point': [316, 202]}
+2026-05-07 18:15:13,877 - INFO - Token usage: +1855 (input: 1807, output: 48), total: 27755/1200000
+2026-05-07 18:15:13,877 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:15:15,497 - WARNING - 解析失败，原始输出: CLICK(point=[855, 185])
+2026-05-07 18:15:17,171 - INFO - Agent Output: action=CLICK, params={'point': [856, 183]}
+2026-05-07 18:15:17,171 - INFO - Token usage: +1874 (input: 1824, output: 50), total: 29629/1200000
+2026-05-07 18:15:18,698 - WARNING - 解析失败，原始输出: COMPLETE: {}
+2026-05-07 18:15:23,110 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:15:23,111 - INFO - Token usage: +1888 (input: 1841, output: 47), total: 31517/1200000
+2026-05-07 18:15:25,787 - INFO - [No. 2: step_baidumap_onekey_0008] Score: 8/8 = 1.00
+2026-05-07 18:15:25,789 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:15:27,564 - WARNING - 解析失败，原始输出: CLICK: {"point": [863 44]}
+2026-05-07 18:15:32,423 - INFO - Agent Output: action=CLICK, params={'point': [858, 41]}
+2026-05-07 18:15:32,423 - INFO - Token usage: +1806 (input: 1765, output: 41), total: 33323/1200000
+2026-05-07 18:15:34,171 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [497, 447]}}
+2026-05-07 18:15:35,971 - INFO - Agent Output: action=CLICK, params={'point': [500, 450]}
+2026-05-07 18:15:35,971 - INFO - Token usage: +1825 (input: 1781, output: 44), total: 35148/1200000
+2026-05-07 18:15:37,669 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [450, 466]}}
+2026-05-07 18:15:39,354 - INFO - Agent Output: action=CLICK, params={'point': [450, 468]}
+2026-05-07 18:15:39,354 - INFO - Token usage: +1841 (input: 1798, output: 43), total: 36989/1200000
+2026-05-07 18:15:40,930 - WARNING - 解析失败，原始输出: TYPE{"text": "国际医学中心"}
+2026-05-07 18:15:42,709 - INFO - Agent Output: action=TYPE, params={'text': '国际医学中心去西安回民街'}
+2026-05-07 18:15:42,710 - INFO - Token usage: +1854 (input: 1815, output: 39), total: 38843/1200000
+2026-05-07 18:15:42,710 - ERROR - [Checker] TYPE: text mismatch, expect '.*国际医学中心', got '国际医学中心去西安回民街'
+2026-05-07 18:15:44,682 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [400, 166]}}
+2026-05-07 18:15:46,395 - INFO - Agent Output: action=CLICK, params={'point': [300, 158]}
+2026-05-07 18:15:46,395 - INFO - Token usage: +1880 (input: 1826, output: 54), total: 40723/1200000
+2026-05-07 18:15:46,395 - ERROR - [Checker] CLICK failed: (300, 158) not in ([793, 964], [53, 115])
+2026-05-07 18:15:50,361 - WARNING - 解析失败，原始输出: CLICK(point=[[300, 548]])
+2026-05-07 18:15:51,990 - INFO - Agent Output: action=CLICK, params={'point': [326, 550]}
+2026-05-07 18:15:51,990 - INFO - Token usage: +1883 (input: 1843, output: 40), total: 42606/1200000
+2026-05-07 18:15:53,731 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "西安回民街"}}
+2026-05-07 18:15:55,575 - INFO - Agent Output: action=CLICK, params={'point': [380, 343]}
+2026-05-07 18:15:55,575 - INFO - Token usage: +1901 (input: 1860, output: 41), total: 44507/1200000
+2026-05-07 18:15:55,576 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:15:57,096 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:15:59,067 - INFO - Agent Output: action=CLICK, params={'point': [790, 900]}
+2026-05-07 18:15:59,067 - INFO - Token usage: +1931 (input: 1877, output: 54), total: 46438/1200000
+2026-05-07 18:15:59,067 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [CLICK]
+2026-05-07 18:16:02,831 - INFO - [No. 3: step_baidumap_onekey_0010] Score: 7/9 = 0.78
+2026-05-07 18:16:02,832 - INFO - Agent Output: action=OPEN, params={'app_name': '哔哩哔哩'}
+2026-05-07 18:16:04,556 - WARNING - 解析失败，原始输出: CLICK: {"point": [400, 78]}
+2026-05-07 18:16:08,138 - INFO - Agent Output: action=CLICK, params={'point': [800, 80]}
+2026-05-07 18:16:08,139 - ERROR - [Checker] CLICK failed: (800, 80) not in ([185, 718], [56, 99])
+2026-05-07 18:16:09,786 - WARNING - 解析失败，原始输出: TYPE{"text": "采莲曲"}
+2026-05-07 18:16:11,529 - INFO - Agent Output: action=TYPE, params={'text': '索采莲曲并收藏综合列表里第一个视频'}
+2026-05-07 18:16:11,529 - INFO - Token usage: +1816 (input: 1779, output: 37), total: 48254/1200000
+2026-05-07 18:16:11,529 - ERROR - [Checker] TYPE: text mismatch, expect '采莲曲', got '索采莲曲并收藏综合列表里第一个视频'
+2026-05-07 18:16:11,529 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:16:11,557 - INFO - [Checker] Action mismatch: expect [CLICK], got []
+2026-05-07 18:16:13,263 - INFO - Agent Output: action=CLICK, params={'point': [261, 233]}
+2026-05-07 18:16:13,264 - INFO - Token usage: +1740 (input: 1723, output: 17), total: 49994/1200000
+2026-05-07 18:16:14,970 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [686, 469]}}
+2026-05-07 18:16:16,672 - INFO - Agent Output: action=CLICK, params={'point': [685, 464]}
+2026-05-07 18:16:16,672 - INFO - Token usage: +1850 (input: 1795, output: 55), total: 51844/1200000
+2026-05-07 18:16:18,242 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:16:19,523 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:16:19,523 - INFO - Token usage: +1855 (input: 1812, output: 43), total: 53699/1200000
+2026-05-07 18:16:22,127 - INFO - [No. 4: step_bilibili_onekey_0008] Score: 4/7 = 0.57
+2026-05-07 18:16:22,127 - INFO - Agent Output: action=OPEN, params={'app_name': '抖音'}
+2026-05-07 18:16:26,234 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [923 70], "type": "tap"}}
+2026-05-07 18:16:28,111 - INFO - Agent Output: action=CLICK, params={'point': [891, 923]}
+2026-05-07 18:16:28,111 - INFO - Token usage: +1789 (input: 1737, output: 52), total: 55488/1200000
+2026-05-07 18:16:32,637 - WARNING - 解析失败，原始输出: CLICK(point=[872, 525])
+2026-05-07 18:16:34,481 - INFO - Agent Output: action=CLICK, params={'point': [871, 526]}
+2026-05-07 18:16:34,481 - INFO - Token usage: +1802 (input: 1754, output: 48), total: 57290/1200000
+2026-05-07 18:16:36,429 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [794, 76]}}
+2026-05-07 18:16:38,327 - INFO - Agent Output: action=CLICK, params={'point': [794, 75]}
+2026-05-07 18:16:38,327 - INFO - Token usage: +1829 (input: 1771, output: 58), total: 59119/1200000
+2026-05-07 18:16:39,881 - WARNING - 解析失败，原始输出: TYPE{"text": "跳舞"}
+2026-05-07 18:16:41,786 - INFO - Agent Output: action=TYPE, params={'text': '索跳舞的视频并查看'}
+2026-05-07 18:16:41,787 - INFO - Token usage: +1833 (input: 1787, output: 46), total: 60952/1200000
+2026-05-07 18:16:41,787 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:16:41,787 - ERROR - [Checker] TYPE: text mismatch, expect '跳舞', got '索跳舞的视频并查看'
+2026-05-07 18:16:43,475 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [914 72], "text": "跳舞"}}
+2026-05-07 18:16:45,436 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:16:45,436 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:16:47,429 - WARNING - 解析失败，原始输出: CLICK(point=[178 337])
+2026-05-07 18:16:50,017 - INFO - Agent Output: action=CLICK, params={'point': [176, 337]}
+2026-05-07 18:16:50,017 - INFO - Token usage: +1863 (input: 1816, output: 47), total: 62815/1200000
+2026-05-07 18:16:50,017 - ERROR - [Checker] CLICK failed: (176, 337) not in ([864, 962], [59, 81])
+2026-05-07 18:16:51,589 - WARNING - 解析失败，原始输出: CLICK(point=[250, 385]})
+2026-05-07 18:16:53,342 - INFO - Agent Output: action=CLICK, params={'point': [250, 385]}
+2026-05-07 18:16:53,342 - INFO - Token usage: +1881 (input: 1833, output: 48), total: 64696/1200000
+2026-05-07 18:16:54,909 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:16:56,537 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:16:56,537 - INFO - Token usage: +1885 (input: 1850, output: 35), total: 66581/1200000
+2026-05-07 18:16:59,961 - INFO - [No. 5: step_douyin_onekey_0008] Score: 6/9 = 0.67
+2026-05-07 18:16:59,966 - INFO - Agent Output: action=OPEN, params={'app_name': '快手'}
+2026-05-07 18:17:01,644 - WARNING - 解析失败，原始输出: CLICK: {{"point": [912, 71]}}
+2026-05-07 18:17:04,466 - INFO - Agent Output: action=CLICK, params={'point': [910, 72]}
+2026-05-07 18:17:04,466 - INFO - Token usage: +1783 (input: 1744, output: 39), total: 68364/1200000
+2026-05-07 18:17:05,576 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "动画片"}}
+2026-05-07 18:17:10,137 - INFO - Agent Output: action=CLICK, params={'point': [300, 72]}
+2026-05-07 18:17:10,137 - INFO - Token usage: +1799 (input: 1760, output: 39), total: 70163/1200000
+2026-05-07 18:17:11,782 - WARNING - 解析失败，原始输出: TYPE: {"text": "动画片"}
+2026-05-07 18:17:13,593 - INFO - Agent Output: action=TYPE, params={'text': '索动画片筛选1日内的1-5分钟作品'}
+2026-05-07 18:17:13,593 - INFO - Token usage: +1815 (input: 1776, output: 39), total: 71978/1200000
+2026-05-07 18:17:13,593 - ERROR - [Checker] TYPE: text mismatch, expect '动画片', got '索动画片筛选1日内的1-5分钟作品'
+2026-05-07 18:17:15,736 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [904, 72]}}
+2026-05-07 18:17:17,284 - INFO - Agent Output: action=CLICK, params={'point': [906, 72]}
+2026-05-07 18:17:17,284 - INFO - Token usage: +1826 (input: 1775, output: 51), total: 73804/1200000
+2026-05-07 18:17:17,284 - ERROR - [Checker] CLICK failed: (906, 72) not in ([27, 977], [104, 158])
+2026-05-07 18:17:19,008 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [928, 125]}}
+2026-05-07 18:17:23,737 - INFO - Agent Output: action=CLICK, params={'point': [928, 125]}
+2026-05-07 18:17:23,737 - INFO - Token usage: +1841 (input: 1791, output: 50), total: 75645/1200000
+2026-05-07 18:17:25,386 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [383, 600]}}
+2026-05-07 18:17:26,998 - INFO - Agent Output: action=CLICK, params={'point': [384, 600]}
+2026-05-07 18:17:26,998 - INFO - Token usage: +1860 (input: 1808, output: 52), total: 77505/1200000
+2026-05-07 18:17:31,821 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [612, 702]}}
+2026-05-07 18:17:33,485 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:17:33,485 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:17:35,170 - INFO - Agent Output: action=CLICK, params={'point': [722, 900]}
+2026-05-07 18:17:35,171 - INFO - Token usage: +1817 (input: 1800, output: 17), total: 79322/1200000
+2026-05-07 18:17:37,014 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [934, 125]}}
+2026-05-07 18:18:01,415 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:18:03,782 - WARNING - 解析失败，原始输出: CLICK: {"point": [844 46]}
+2026-05-07 18:18:05,327 - INFO - Agent Output: action=CLICK, params={'point': [838, 46]}
+2026-05-07 18:18:05,328 - INFO - Token usage: +1795 (input: 1748, output: 47), total: 1795/1200000
+2026-05-07 18:18:07,078 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [381, 70], "app_name": "爱奇艺"}}
+2026-05-07 18:18:08,748 - INFO - Agent Output: action=CLICK, params={'point': [361, 70]}
+2026-05-07 18:18:08,749 - INFO - Token usage: +1800 (input: 1764, output: 36), total: 3595/1200000
+2026-05-07 18:18:11,819 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "狂飙"}}
+2026-05-07 18:18:13,072 - INFO - Agent Output: action=CLICK, params={'point': [64, 676]}
+2026-05-07 18:18:13,073 - INFO - Token usage: +1823 (input: 1780, output: 43), total: 5418/1200000
+2026-05-07 18:18:13,073 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:18:14,784 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [853, 127]}}
+2026-05-07 18:18:16,693 - INFO - Agent Output: action=CLICK, params={'point': [450, 211]}
+2026-05-07 18:18:16,694 - INFO - Token usage: +1843 (input: 1796, output: 47), total: 7261/1200000
+2026-05-07 18:18:16,694 - ERROR - [Checker] CLICK failed: (450, 211) not in ([758, 933], [105, 144])
+2026-05-07 18:18:18,467 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [352, 653]}}
+2026-05-07 18:18:20,110 - INFO - Agent Output: action=CLICK, params={'point': [361, 653]}
+2026-05-07 18:18:20,110 - INFO - Token usage: +1857 (input: 1813, output: 44), total: 9118/1200000
+2026-05-07 18:18:21,483 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [213, 344]}}
+2026-05-07 18:18:23,176 - INFO - Agent Output: action=CLICK, params={'point': [212, 346]}
+2026-05-07 18:18:23,176 - INFO - Token usage: +1873 (input: 1830, output: 43), total: 10991/1200000
+2026-05-07 18:18:23,176 - ERROR - [Checker] CLICK failed: (212, 346) not in ([114, 256], [868, 930])
+2026-05-07 18:18:24,449 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [350, 920]}}
+2026-05-07 18:18:26,134 - INFO - Agent Output: action=CLICK, params={'point': [339, 921]}
+2026-05-07 18:18:26,135 - INFO - Token usage: +1889 (input: 1847, output: 42), total: 12880/1200000
+2026-05-07 18:18:27,744 - WARNING - 解析失败，原始输出: TYPE: {"text": "真是太好看了"}
+2026-05-07 18:18:29,895 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:18:29,896 - INFO - Token usage: +1913 (input: 1864, output: 49), total: 14793/1200000
+2026-05-07 18:18:29,896 - ERROR - [Checker] TYPE: text mismatch, expect '真是太好看了', got '了'
+2026-05-07 18:18:29,896 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:18:31,499 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [883, 916]}}
+2026-05-07 18:18:33,374 - INFO - Agent Output: action=CLICK, params={'point': [884, 917]}
+2026-05-07 18:18:33,375 - INFO - Token usage: +1916 (input: 1864, output: 52), total: 16709/1200000
+2026-05-07 18:18:34,467 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:18:36,468 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:18:36,469 - INFO - Token usage: +1924 (input: 1882, output: 42), total: 18633/1200000
+2026-05-07 18:18:41,415 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 10/11 = 0.91
+2026-05-07 18:18:41,417 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:18:42,864 - WARNING - 解析失败，原始输出: CLICK: {"point": [858 42]}
+2026-05-07 18:18:44,514 - INFO - Agent Output: action=CLICK, params={'point': [856, 42]}
+2026-05-07 18:18:44,515 - INFO - Token usage: +1784 (input: 1741, output: 43), total: 20417/1200000
+2026-05-07 18:18:45,766 - WARNING - 解析失败，原始输出: CLICK(point=[886, 910])
+2026-05-07 18:18:47,474 - INFO - Agent Output: action=CLICK, params={'point': [891, 906]}
+2026-05-07 18:18:47,475 - INFO - Token usage: +1812 (input: 1757, output: 55), total: 22229/1200000
+2026-05-07 18:18:49,198 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [497, 329]}}
+2026-05-07 18:18:53,897 - INFO - Agent Output: action=CLICK, params={'point': [500, 332]}
+2026-05-07 18:18:53,897 - INFO - Token usage: +1837 (input: 1774, output: 63), total: 24066/1200000
+2026-05-07 18:18:56,267 - WARNING - 解析失败，原始输出: {"CLICK": [293, 74]}</think_never_used_51bce0c785ca2f68081bfa7d91973934>
+2026-05-07 18:18:57,933 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:18:57,933 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:19:00,046 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "孟子义"}}
+2026-05-07 18:19:01,386 - INFO - Agent Output: action=CLICK, params={'point': [315, 201]}
+2026-05-07 18:19:01,386 - INFO - Token usage: +1872 (input: 1821, output: 51), total: 25938/1200000
+2026-05-07 18:19:01,386 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:19:03,078 - WARNING - 解析失败，原始输出: CLICK(point=[856, 185])
+2026-05-07 18:19:04,793 - INFO - Agent Output: action=CLICK, params={'point': [856, 184]}
+2026-05-07 18:19:04,793 - INFO - Token usage: +1886 (input: 1838, output: 48), total: 27824/1200000
+2026-05-07 18:19:06,559 - WARNING - 解析失败，原始输出: COMPLETE:{}
+2026-05-07 18:19:08,623 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:19:08,623 - INFO - Token usage: +1899 (input: 1855, output: 44), total: 29723/1200000
+2026-05-07 18:19:11,344 - INFO - [No. 2: step_baidumap_onekey_0008] Score: 7/8 = 0.88
+2026-05-07 18:19:11,346 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:19:12,843 - WARNING - 解析失败，原始输出: CLICK: {"point": [861 42]}
+2026-05-07 18:19:14,089 - INFO - Agent Output: action=CLICK, params={'point': [858, 42]}
+2026-05-07 18:19:14,090 - INFO - Token usage: +1807 (input: 1765, output: 42), total: 31530/1200000
+2026-05-07 18:19:15,934 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [494, 450]}}
+2026-05-07 18:19:18,101 - INFO - Agent Output: action=CLICK, params={'point': [494, 445]}
+2026-05-07 18:19:18,101 - INFO - Token usage: +1832 (input: 1781, output: 51), total: 33362/1200000
+2026-05-07 18:19:19,830 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [466, 467]}}
+2026-05-07 18:19:21,024 - INFO - Agent Output: action=TYPE, params={'text': '国际医学中心去西安回民街'}
+2026-05-07 18:19:21,024 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:19:22,624 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "国际医学中心"}}
+2026-05-07 18:19:24,662 - INFO - Agent Output: action=CLICK, params={'point': [500, 100]}
+2026-05-07 18:19:24,662 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:19:26,382 - WARNING - 解析失败，原始输出: CLICK(point=[300, 164])
+2026-05-07 18:19:28,475 - INFO - Agent Output: action=CLICK, params={'point': [300, 157]}
+2026-05-07 18:19:28,476 - INFO - Token usage: +1876 (input: 1826, output: 50), total: 35238/1200000
+2026-05-07 18:19:28,476 - ERROR - [Checker] CLICK failed: (300, 157) not in ([793, 964], [53, 115])
+2026-05-07 18:19:29,751 - WARNING - 解析失败，原始输出: CLICK(point=[400, 550])
+2026-05-07 18:19:31,733 - INFO - Agent Output: action=CLICK, params={'point': [312, 548]}
+2026-05-07 18:19:31,734 - INFO - Token usage: +1901 (input: 1843, output: 58), total: 37139/1200000
+2026-05-07 18:19:33,320 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "西安回民街"}}
+2026-05-07 18:19:34,896 - INFO - Agent Output: action=TYPE, params={'text': '西安回民街'}
+2026-05-07 18:19:34,896 - INFO - Token usage: +1895 (input: 1860, output: 35), total: 39034/1200000
+2026-05-07 18:19:34,896 - ERROR - [Checker] TYPE: text mismatch, expect '.*回民街', got '西安回民街'
+2026-05-07 18:19:34,896 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:19:37,213 - WARNING - 解析失败，原始输出: CLICK(point=[[300, 168]])
+2026-05-07 18:19:38,912 - INFO - Agent Output: action=CLICK, params={'point': [370, 166]}
+2026-05-07 18:19:38,912 - INFO - Token usage: +1910 (input: 1859, output: 51), total: 40944/1200000
+2026-05-07 18:19:38,912 - ERROR - [Checker] CLICK failed: (370, 166) not in ([804, 960], [53, 118])
+2026-05-07 18:19:40,564 - WARNING - 解析失败，原始输出: {"COMPLETE":{}}
+2026-05-07 18:19:42,370 - INFO - Agent Output: action=CLICK, params={'point': [790, 900]}
+2026-05-07 18:19:42,370 - INFO - Token usage: +1941 (input: 1877, output: 64), total: 42885/1200000
+2026-05-07 18:19:42,370 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [CLICK]
+2026-05-07 18:19:45,856 - INFO - [No. 3: step_baidumap_onekey_0010] Score: 6/10 = 0.60
+2026-05-07 18:19:45,858 - INFO - Agent Output: action=OPEN, params={'app_name': '哔哩哔哩'}
+2026-05-07 18:19:47,756 - WARNING - 解析失败，原始输出: CLICK: {"point": [430, 79],}
+2026-05-07 18:19:49,416 - INFO - Agent Output: action=CLICK, params={'point': [420, 80]}
+2026-05-07 18:19:49,417 - INFO - Token usage: +1804 (input: 1763, output: 41), total: 44689/1200000
+2026-05-07 18:19:51,873 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "采莲曲"}}
+2026-05-07 18:19:53,569 - INFO - Agent Output: action=TYPE, params={'text': '索采莲曲并收藏综合列表里第一个视频'}
+2026-05-07 18:19:53,569 - INFO - Token usage: +1816 (input: 1779, output: 37), total: 46505/1200000
+2026-05-07 18:19:53,569 - ERROR - [Checker] TYPE: text mismatch, expect '采莲曲', got '索采莲曲并收藏综合列表里第一个视频'
+2026-05-07 18:19:53,569 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:19:53,598 - INFO - [Checker] Action mismatch: expect [CLICK], got []
+2026-05-07 18:19:55,366 - INFO - Agent Output: action=CLICK, params={'point': [261, 232]}
+2026-05-07 18:19:55,366 - INFO - Token usage: +1740 (input: 1723, output: 17), total: 48245/1200000
+2026-05-07 18:19:57,094 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [685, 467]}}
+2026-05-07 18:19:58,535 - INFO - Agent Output: action=CLICK, params={'point': [688, 467]}
+2026-05-07 18:19:58,536 - INFO - Token usage: +1852 (input: 1795, output: 57), total: 50097/1200000
+2026-05-07 18:20:00,159 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:20:01,678 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:20:01,679 - INFO - Token usage: +1840 (input: 1812, output: 28), total: 51937/1200000
+2026-05-07 18:20:04,370 - INFO - [No. 4: step_bilibili_onekey_0008] Score: 5/7 = 0.71
+2026-05-07 18:20:04,371 - INFO - Agent Output: action=OPEN, params={'app_name': '抖音'}
+2026-05-07 18:20:05,944 - WARNING - 解析失败，原始输出: CLICK: {{"point": [922 72], "point_y": 72}}
+2026-05-07 18:20:07,616 - INFO - Agent Output: action=CLICK, params={'point': [894, 922]}
+2026-05-07 18:20:07,616 - INFO - Token usage: +1800 (input: 1737, output: 63), total: 53737/1200000
+2026-05-07 18:20:09,211 - WARNING - 解析失败，原始输出: CLICK(point=[870, 526])
+2026-05-07 18:20:11,462 - INFO - Agent Output: action=CLICK, params={'point': [872, 528]}
+2026-05-07 18:20:11,462 - INFO - Token usage: +1801 (input: 1754, output: 47), total: 55538/1200000
+2026-05-07 18:20:12,668 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [795, 76]}}
+2026-05-07 18:20:14,453 - INFO - Agent Output: action=CLICK, params={'point': [796, 76]}
+2026-05-07 18:20:14,453 - INFO - Token usage: +1827 (input: 1771, output: 56), total: 57365/1200000
+2026-05-07 18:20:16,275 - WARNING - 解析失败，原始输出: TYPE{"text": "跳舞"}
+2026-05-07 18:20:17,624 - INFO - Agent Output: action=CLICK, params={'point': [176, 337]}
+2026-05-07 18:20:17,625 - INFO - Token usage: +1840 (input: 1787, output: 53), total: 59205/1200000
+2026-05-07 18:20:17,625 - ERROR - [Checker] CLICK failed: (176, 337) not in ([216, 835], [50, 94])
+2026-05-07 18:20:17,625 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:20:18,736 - WARNING - 解析失败，原始输出: TYPE {"text": "跳舞"}
+2026-05-07 18:20:20,675 - INFO - Agent Output: action=TYPE, params={'text': '索跳舞的视频并查看'}
+2026-05-07 18:20:20,675 - INFO - Token usage: +1839 (input: 1804, output: 35), total: 61044/1200000
+2026-05-07 18:20:20,675 - ERROR - [Checker] TYPE: text mismatch, expect '跳舞', got '索跳舞的视频并查看'
+2026-05-07 18:20:22,704 - WARNING - 解析失败，原始输出: CLICK(point=[178, 336])
+2026-05-07 18:20:24,617 - INFO - Agent Output: action=CLICK, params={'point': [178, 338]}
+2026-05-07 18:20:24,617 - INFO - Token usage: +1859 (input: 1803, output: 56), total: 62903/1200000
+2026-05-07 18:20:24,617 - ERROR - [Checker] CLICK failed: (178, 338) not in ([864, 962], [59, 81])
+2026-05-07 18:20:26,554 - WARNING - 解析失败，原始输出: CLICK(point=[250 395]
+2026-05-07 18:20:27,782 - INFO - Agent Output: action=CLICK, params={'point': [250, 385]}
+2026-05-07 18:20:27,782 - INFO - Token usage: +1861 (input: 1820, output: 41), total: 64764/1200000
+2026-05-07 18:20:28,930 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:20:30,907 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:20:30,907 - INFO - Token usage: +1870 (input: 1837, output: 33), total: 66634/1200000
+2026-05-07 18:20:33,634 - INFO - [No. 5: step_douyin_onekey_0008] Score: 6/9 = 0.67
+2026-05-07 18:20:33,635 - INFO - Agent Output: action=OPEN, params={'app_name': '快手'}
+2026-05-07 18:20:35,460 - WARNING - 解析失败，原始输出: CLICK: {"point": [912, 71]}
+2026-05-07 18:20:37,108 - INFO - Agent Output: action=CLICK, params={'point': [912, 72]}
+2026-05-07 18:20:37,109 - INFO - Token usage: +1785 (input: 1744, output: 41), total: 68419/1200000
+2026-05-07 18:20:38,703 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "动画片"}}
+2026-05-07 18:20:40,066 - INFO - Agent Output: action=TYPE, params={'text': '索动画片筛选1日内的1-5分钟作品'}
+2026-05-07 18:20:40,067 - INFO - Token usage: +1793 (input: 1760, output: 33), total: 70212/1200000
+2026-05-07 18:20:40,067 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:20:40,067 - ERROR - [Checker] TYPE: text mismatch, expect '动画片', got '索动画片筛选1日内的1-5分钟作品'
+2026-05-07 18:20:42,757 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [300, 75]}}
+2026-05-07 18:20:44,174 - INFO - Agent Output: action=CLICK, params={'point': [400, 75]}
+2026-05-07 18:20:44,175 - INFO - Token usage: +1819 (input: 1759, output: 60), total: 72031/1200000
+2026-05-07 18:20:44,175 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:20:47,219 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [904, 72]}}
+2026-05-07 18:20:52,494 - INFO - Agent Output: action=CLICK, params={'point': [904, 73]}
+2026-05-07 18:20:52,494 - INFO - Token usage: +1826 (input: 1775, output: 51), total: 73857/1200000
+2026-05-07 18:20:52,494 - ERROR - [Checker] CLICK failed: (904, 73) not in ([27, 977], [104, 158])
+2026-05-07 18:20:54,227 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [924, 126]}}
+2026-05-07 18:20:56,093 - INFO - Agent Output: action=CLICK, params={'point': [928, 124]}
+2026-05-07 18:20:56,093 - INFO - Token usage: +1849 (input: 1791, output: 58), total: 75706/1200000
+2026-05-07 18:20:57,658 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [384, 600]}}
+2026-05-07 18:20:59,660 - INFO - Agent Output: action=CLICK, params={'point': [384, 600]}
+2026-05-07 18:20:59,661 - INFO - Token usage: +1852 (input: 1808, output: 44), total: 77558/1200000
+2026-05-07 18:21:01,300 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [612, 702]}}
+2026-05-07 18:21:03,027 - INFO - Agent Output: action=CLICK, params={'point': [612, 703]}
+2026-05-07 18:21:03,027 - INFO - Token usage: +1883 (input: 1825, output: 58), total: 79441/1200000
+2026-05-07 18:21:04,607 - WARNING - 解析失败，原始输出: CLICK(point=[722, 900])
+2026-05-07 18:21:06,475 - INFO - Agent Output: action=CLICK, params={'point': [726, 900]}
+2026-05-07 18:21:06,476 - INFO - Token usage: +1901 (input: 1842, output: 59), total: 81342/1200000
+2026-05-07 18:21:08,052 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:21:09,490 - INFO - Agent Output: action=CLICK, params={'point': [931, 124]}
+2026-05-07 18:21:09,490 - INFO - Token usage: +1906 (input: 1860, output: 46), total: 83248/1200000
+2026-05-07 18:21:09,490 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [CLICK]
+2026-05-07 18:21:12,276 - INFO - [No. 6: step_kuaishou_onekey_0003] Score: 7/10 = 0.70
+2026-05-07 18:21:12,278 - INFO - Agent Output: action=OPEN, params={'app_name': '芒果TV'}
+2026-05-07 18:21:13,897 - WARNING - 解析失败，原始输出: CLICK: {"point": [860 75]}
+2026-05-07 18:21:15,550 - INFO - Agent Output: action=CLICK, params={'point': [848, 77]}
+2026-05-07 18:21:15,551 - INFO - Token usage: +1806 (input: 1759, output: 47), total: 85054/1200000
+2026-05-07 18:21:18,103 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [894 916]}}
+2026-05-07 18:21:20,050 - INFO - Agent Output: action=CLICK, params={'point': [895, 917]}
+2026-05-07 18:21:20,050 - INFO - Token usage: +1822 (input: 1775, output: 47), total: 86876/1200000
+2026-05-07 18:21:21,878 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [185, 661]}}
+2026-05-07 18:21:23,688 - INFO - Agent Output: action=CLICK, params={'point': [186, 662]}
+2026-05-07 18:21:23,689 - INFO - Token usage: +1845 (input: 1792, output: 53), total: 88721/1200000
+2026-05-07 18:21:29,395 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [438 107]}}
+2026-05-07 18:21:30,909 - INFO - Agent Output: action=CLICK, params={'point': [450, 108]}
+2026-05-07 18:21:30,909 - INFO - Token usage: +1865 (input: 1809, output: 56), total: 90586/1200000
+2026-05-07 18:21:32,648 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [166, 253]}}
+2026-05-07 18:21:34,835 - INFO - Agent Output: action=CLICK, params={'point': [444, 255]}
+2026-05-07 18:21:34,836 - INFO - Token usage: +1874 (input: 1826, output: 48), total: 92460/1200000
+2026-05-07 18:21:36,505 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [81, 633]}}
+2026-05-07 18:21:38,361 - INFO - Agent Output: action=SCROLL, params={'start_point': [80, 629], 'end_point': [240, 629]}
+2026-05-07 18:21:38,362 - INFO - Token usage: +1911 (input: 1843, output: 68), total: 94371/1200000
+2026-05-07 18:21:38,362 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [SCROLL]
+2026-05-07 18:21:41,442 - INFO - [No. 7: step_mangguo_onekey_0008] Score: 6/7 = 0.86
+2026-05-07 18:21:41,444 - INFO - Agent Output: action=OPEN, params={'app_name': '美团'}
+2026-05-07 18:21:43,221 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [110, 190]}}
+2026-05-07 18:21:44,854 - INFO - Agent Output: action=CLICK, params={'point': [118, 190]}
+2026-05-07 18:21:44,854 - INFO - Token usage: +1809 (input: 1765, output: 44), total: 96180/1200000
+2026-05-07 18:21:46,571 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "窑村干锅猪蹄（科技大学店）"}}
+2026-05-07 18:21:48,267 - INFO - Agent Output: action=TYPE, params={'text': '干锅排骨'}
+2026-05-07 18:21:48,267 - INFO - Token usage: +1833 (input: 1782, output: 51), total: 98013/1200000
+2026-05-07 18:21:48,267 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:21:49,932 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [884 72]}}
+2026-05-07 18:21:51,803 - INFO - Agent Output: action=CLICK, params={'point': [223, 210]}
+2026-05-07 18:21:51,803 - INFO - Token usage: +1845 (input: 1781, output: 64), total: 99858/1200000
+2026-05-07 18:21:51,803 - ERROR - [Checker] CLICK failed: (223, 210) not in ([116, 804], [53, 90])
+2026-05-07 18:21:53,424 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [226, 209]}}
+2026-05-07 18:21:55,181 - INFO - Agent Output: action=CLICK, params={'point': [226, 210]}
+2026-05-07 18:21:55,181 - INFO - Token usage: +1859 (input: 1798, output: 61), total: 101717/1200000
+2026-05-07 18:21:55,181 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:21:56,684 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [344, 130]}}
+2026-05-07 18:22:02,077 - INFO - Agent Output: action=CLICK, params={'point': [330, 130]}
+2026-05-07 18:22:02,078 - INFO - Token usage: +1857 (input: 1815, output: 42), total: 103574/1200000
+2026-05-07 18:22:03,795 - INFO - Agent Output: action=CLICK, params={'point': [440, 185]}
+2026-05-07 18:22:03,795 - INFO - Token usage: +1794 (input: 1777, output: 17), total: 105368/1200000
+2026-05-07 18:22:05,500 - WARNING - 解析失败，原始输出: {"CLICK": [110, 629]}
+2026-05-07 18:22:07,520 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 400]}
+2026-05-07 18:22:07,520 - INFO - Token usage: +1934 (input: 1849, output: 85), total: 107302/1200000
+2026-05-07 18:22:07,521 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:22:11,667 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "干锅排骨"}}
+2026-05-07 18:22:13,136 - INFO - Agent Output: action=SCROLL, params={'start_point': [500, 800], 'end_point': [500, 300]}
+2026-05-07 18:22:13,137 - INFO - [Checker] Action mismatch: expect [TYPE], got [SCROLL]
+2026-05-07 18:22:13,137 - INFO - [Checker] Action mismatch: expect [CLICK], got [SCROLL]
+2026-05-07 18:22:14,929 - WARNING - 解析失败，原始输出: {"CLICK: {"point": [892 201]}}
+2026-05-07 18:22:16,164 - INFO - Agent Output: action=CLICK, params={'point': [888, 201]}
+2026-05-07 18:22:16,164 - INFO - Token usage: +1961 (input: 1910, output: 51), total: 109263/1200000
+2026-05-07 18:22:18,257 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [791 678]}}
+2026-05-07 18:22:20,023 - INFO - Agent Output: action=CLICK, params={'point': [788, 678]}
+2026-05-07 18:22:20,024 - INFO - Token usage: +1976 (input: 1928, output: 48), total: 111239/1200000
+2026-05-07 18:22:21,636 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [500, 766]}}
+2026-05-07 18:22:33,402 - INFO - Agent Output: action=CLICK, params={'point': [500, 766]}
+2026-05-07 18:22:33,402 - INFO - Token usage: +2260 (input: 1935, output: 325), total: 113499/1200000
+2026-05-07 18:22:35,224 - WARNING - 解析失败，原始输出: {"click": {"point": [838, 908]}}
+2026-05-07 18:22:36,841 - INFO - Agent Output: action=CLICK, params={'point': [838, 908]}
+2026-05-07 18:22:36,841 - INFO - Token usage: +1980 (input: 1935, output: 45), total: 115479/1200000
+2026-05-07 18:22:38,440 - WARNING - 解析失败，原始输出: COMPLETE{}
+2026-05-07 18:22:39,650 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:22:39,650 - INFO - Token usage: +1986 (input: 1942, output: 44), total: 117465/1200000
+2026-05-07 18:22:44,037 - INFO - [No. 8: step_meituan_onekey_0001] Score: 9/14 = 0.64
+2026-05-07 18:22:44,043 - INFO - Agent Output: action=OPEN, params={'app_name': '去哪儿旅行'}
+2026-05-07 18:22:46,071 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [171, 335]}}
+2026-05-07 18:22:47,800 - INFO - Agent Output: action=CLICK, params={'point': [171, 336]}
+2026-05-07 18:22:47,800 - INFO - Token usage: +1813 (input: 1765, output: 48), total: 119278/1200000
+2026-05-07 18:22:49,496 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [898, 83]}}
+2026-05-07 18:22:55,152 - INFO - Agent Output: action=CLICK, params={'point': [147, 291]}
+2026-05-07 18:22:55,152 - INFO - Token usage: +1832 (input: 1782, output: 50), total: 121110/1200000
+2026-05-07 18:23:00,052 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [362, 488]}}
+2026-05-07 18:23:01,837 - INFO - Agent Output: action=CLICK, params={'point': [362, 488]}
+2026-05-07 18:23:01,837 - INFO - Token usage: +1848 (input: 1799, output: 49), total: 122958/1200000
+2026-05-07 18:23:01,837 - ERROR - [Checker] CLICK failed: (362, 488) not in ([125, 939], [144, 186])
+2026-05-07 18:23:03,885 - WARNING - 解析失败，原始输出: TYPE{"text": "邯郸"}
+2026-05-07 18:23:05,137 - INFO - Agent Output: action=TYPE, params={'text': '哪旅行看一下后天邯郸飞上海的航班'}
+2026-05-07 18:23:05,137 - INFO - Token usage: +1855 (input: 1816, output: 39), total: 124813/1200000
+2026-05-07 18:23:05,137 - ERROR - [Checker] TYPE: text mismatch, expect '邯郸', got '哪旅行看一下后天邯郸飞上海的航班'
+2026-05-07 18:23:06,826 - WARNING - 解析失败，原始输出: CLICK(point=[180, 185])
+2026-05-07 18:23:08,617 - INFO - Agent Output: action=CLICK, params={'point': [183, 184]}
+2026-05-07 18:23:08,617 - INFO - Token usage: +1857 (input: 1815, output: 42), total: 126670/1200000
+2026-05-07 18:23:10,536 - WARNING - 解析失败，原始输出: CLICK(point=[781 293])
+2026-05-07 18:23:12,038 - INFO - Agent Output: action=CLICK, params={'point': [785, 291]}
+2026-05-07 18:23:12,038 - INFO - Token usage: +1879 (input: 1832, output: 47), total: 128549/1200000
+2026-05-07 18:23:13,697 - WARNING - 解析失败，原始输出: {"click": {"point": [141, 603]}}
+2026-05-07 18:23:15,317 - INFO - Agent Output: action=CLICK, params={'point': [140, 606]}
+2026-05-07 18:23:15,317 - INFO - Token usage: +1898 (input: 1849, output: 49), total: 130447/1200000
+2026-05-07 18:23:15,318 - ERROR - [Checker] CLICK failed: (140, 606) not in ([133, 954], [142, 187])
+2026-05-07 18:23:17,029 - WARNING - 解析失败，原始输出: TYPE(text="邯郸")
+2026-05-07 18:23:18,537 - INFO - Agent Output: action=TYPE, params={'text': '上海'}
+2026-05-07 18:23:18,537 - INFO - Token usage: +1906 (input: 1866, output: 40), total: 132353/1200000
+2026-05-07 18:23:22,276 - WARNING - 解析失败，原始输出: CLICK(point=[300, 186])
+2026-05-07 18:23:26,912 - INFO - Agent Output: action=CLICK, params={'point': [300, 184]}
+2026-05-07 18:23:26,912 - INFO - Token usage: +1933 (input: 1876, output: 57), total: 134286/1200000
+2026-05-07 18:23:28,530 - WARNING - 解析失败，原始输出: CLICK(point=[213, 354])
+2026-05-07 18:23:30,191 - INFO - Agent Output: action=CLICK, params={'point': [200, 352]}
+2026-05-07 18:23:30,191 - INFO - Token usage: +1947 (input: 1894, output: 53), total: 136233/1200000
+2026-05-07 18:23:31,956 - WARNING - 解析失败，原始输出: {"CLICK": [905, 312]}
+2026-05-07 18:23:33,639 - INFO - Agent Output: action=CLICK, params={'point': [904, 307]}
+2026-05-07 18:23:33,640 - INFO - Token usage: +1954 (input: 1900, output: 54), total: 138187/1200000
+2026-05-07 18:23:35,258 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [500, 616]}}
+2026-05-07 18:23:36,885 - INFO - Agent Output: action=CLICK, params={'point': [500, 618]}
+2026-05-07 18:23:36,886 - INFO - Token usage: +1948 (input: 1900, output: 48), total: 140135/1200000
+2026-05-07 18:23:38,565 - WARNING - 解析失败，原始输出: {"COMPLETE": {}}
+2026-05-07 18:23:40,470 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:23:40,471 - INFO - Token usage: +1971 (input: 1900, output: 71), total: 142106/1200000
+2026-05-07 18:23:40,471 - INFO - [Checker] Action mismatch: expect [CLICK], got [COMPLETE]
+2026-05-07 18:23:44,635 - INFO - [No. 9: step_quonekey_0030] Score: 11/14 = 0.79
+2026-05-07 18:23:44,637 - INFO - Agent Output: action=OPEN, params={'app_name': '腾讯视频'}
+2026-05-07 18:23:46,343 - WARNING - 解析失败，原始输出: CLICK: {"point": [900, 81]}
+2026-05-07 18:23:48,015 - INFO - Agent Output: action=CLICK, params={'point': [894, 80]}
+2026-05-07 18:23:48,015 - INFO - Token usage: +1804 (input: 1756, output: 48), total: 143910/1200000
+2026-05-07 18:23:49,667 - WARNING - 解析失败，原始输出: TYPE: {"text": "扫毒风暴"}
+2026-05-07 18:23:51,281 - INFO - Agent Output: action=TYPE, params={'text': '索扫毒风暴并播放第三集'}
+2026-05-07 18:23:51,282 - INFO - Token usage: +1809 (input: 1772, output: 37), total: 145719/1200000
+2026-05-07 18:23:51,282 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:23:52,961 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [526, 517]}}
+2026-05-07 18:23:54,197 - INFO - Agent Output: action=CLICK, params={'point': [528, 516]}
+2026-05-07 18:23:54,198 - INFO - Token usage: +1833 (input: 1771, output: 62), total: 147552/1200000
+2026-05-07 18:23:54,198 - INFO - [Checker] Action mismatch: expect [TYPE], got [CLICK]
+2026-05-07 18:23:56,372 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [916, 85]}}
+2026-05-07 18:23:57,998 - INFO - Agent Output: action=CLICK, params={'point': [300, 168]}
+2026-05-07 18:23:57,998 - INFO - Token usage: +1841 (input: 1788, output: 53), total: 149393/1200000
+2026-05-07 18:24:00,188 - WARNING - 解析失败，原始输出: CLICK(point=[426, 456])
+2026-05-07 18:24:02,054 - INFO - Agent Output: action=CLICK, params={'point': [426, 456]}
+2026-05-07 18:24:02,054 - INFO - Token usage: +1860 (input: 1805, output: 55), total: 151253/1200000
+2026-05-07 18:24:02,054 - ERROR - [Checker] CLICK failed: (426, 456) not in ([64, 633], [364, 416])
+2026-05-07 18:24:03,741 - WARNING - 解析失败，原始输出: {"click": {"point": [472, 668]}}
+2026-05-07 18:24:08,890 - INFO - Agent Output: action=CLICK, params={'point': [472, 666]}
+2026-05-07 18:24:08,890 - INFO - Token usage: +1878 (input: 1822, output: 56), total: 153131/1200000
+2026-05-07 18:24:10,763 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [214, 667]}}
+2026-05-07 18:24:12,441 - INFO - Agent Output: action=CLICK, params={'point': [213, 668]}
+2026-05-07 18:24:12,441 - INFO - Token usage: +1881 (input: 1839, output: 42), total: 155012/1200000
+2026-05-07 18:24:12,441 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [CLICK]
+2026-05-07 18:24:15,333 - INFO - [No. 10: step_tengxunshipin_onekey_0005] Score: 5/8 = 0.62
+2026-05-07 18:24:15,335 - INFO - Agent Output: action=OPEN, params={'app_name': '喜马拉雅'}
+2026-05-07 18:24:16,896 - WARNING - 解析失败，原始输出: CLICK: {"point": [850, 42]}
+2026-05-07 18:24:18,464 - INFO - Agent Output: action=CLICK, params={'point': [850, 42]}
+2026-05-07 18:24:18,464 - INFO - Token usage: +1789 (input: 1746, output: 43), total: 156801/1200000
+2026-05-07 18:24:20,178 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [936, 573]}}
+2026-05-07 18:24:22,193 - INFO - Agent Output: action=CLICK, params={'point': [936, 573]}
+2026-05-07 18:24:22,193 - INFO - Token usage: +1811 (input: 1762, output: 49), total: 158612/1200000
+2026-05-07 18:24:23,874 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [350, 75]}}
+2026-05-07 18:24:25,500 - INFO - Agent Output: action=CLICK, params={'point': [320, 75]}
+2026-05-07 18:24:25,500 - INFO - Token usage: +1818 (input: 1779, output: 39), total: 160430/1200000
+2026-05-07 18:24:27,066 - WARNING - 解析失败，原始输出: {"TYPE": {"text": "三体多人有声剧"}}
+2026-05-07 18:24:28,861 - INFO - Agent Output: action=TYPE, params={'text': '《三体》多人有声剧'}
+2026-05-07 18:24:28,862 - INFO - Token usage: +1834 (input: 1795, output: 39), total: 162264/1200000
+2026-05-07 18:24:32,205 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [862, 140]}}
+2026-05-07 18:24:33,923 - INFO - Agent Output: action=CLICK, params={'point': [862, 140]}
+2026-05-07 18:24:33,924 - INFO - Token usage: +1838 (input: 1794, output: 44), total: 164102/1200000
+2026-05-07 18:24:35,628 - WARNING - 解析失败，原始输出: CLICK(point=[641 417])
+2026-05-07 18:24:37,495 - INFO - Agent Output: action=CLICK, params={'point': [644, 418]}
+2026-05-07 18:24:37,496 - INFO - Token usage: +1860 (input: 1811, output: 49), total: 165962/1200000
+2026-05-07 18:24:39,279 - WARNING - 解析失败，原始输出: {"CLICK": {"point": [753, 135]}}
+2026-05-07 18:24:41,013 - INFO - Agent Output: action=CLICK, params={'point': [755, 136]}
+2026-05-07 18:24:41,013 - INFO - Token usage: +1879 (input: 1828, output: 51), total: 167841/1200000
+2026-05-07 18:24:41,013 - INFO - [Checker] Action mismatch: expect [COMPLETE], got [CLICK]
+2026-05-07 18:24:43,583 - INFO - [No. 11: step_ximalaya_onekey_0001] Score: 7/8 = 0.88
+2026-05-07 18:24:43,583 - INFO - PASS List: []
+2026-05-07 18:24:43,583 - INFO - FAIL List: ['step_aiqiyi_onekey_0011', 'step_baidumap_onekey_0008', 'step_baidumap_onekey_0010', 'step_bilibili_onekey_0008', 'step_douyin_onekey_0008', 'step_kuaishou_onekey_0003', 'step_mangguo_onekey_0008', 'step_meituan_onekey_0001', 'step_quonekey_0030', 'step_tengxunshipin_onekey_0005', 'step_ximalaya_onekey_0001']
+2026-05-07 18:24:43,583 - INFO - Step Level Accuracy: 0.75
+2026-05-07 18:24:43,583 - INFO - Case Level Accuracy: 0.00
+2026-05-07 18:27:50,431 - INFO - Agent Output: action=OPEN, params={'app_name': '爱奇艺'}
+2026-05-07 18:27:52,627 - INFO - Agent Output: action=CLICK, params={'point': [839, 43]}
+2026-05-07 18:27:52,627 - INFO - Token usage: +1707 (input: 1693, output: 14), total: 1707/1200000
+2026-05-07 18:27:54,457 - INFO - Agent Output: action=CLICK, params={'point': [383, 69]}
+2026-05-07 18:27:54,457 - INFO - Token usage: +1738 (input: 1709, output: 29), total: 3445/1200000
+2026-05-07 18:27:55,716 - INFO - Agent Output: action=TYPE, params={'text': '了'}
+2026-05-07 18:27:55,716 - INFO - Token usage: +1734 (input: 1725, output: 9), total: 5179/1200000
+2026-05-07 18:27:55,716 - ERROR - [Checker] TYPE: text mismatch, expect '狂飙', got '了'
+2026-05-07 18:27:55,716 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:27:55,716 - INFO - [Checker] Action mismatch: expect [CLICK], got [TYPE]
+2026-05-07 18:27:57,436 - INFO - Agent Output: action=CLICK, params={'point': [850, 126]}
+2026-05-07 18:27:57,436 - INFO - Token usage: +1741 (input: 1724, output: 17), total: 6920/1200000
+2026-05-07 18:27:59,019 - INFO - Agent Output: action=CLICK, params={'point': [363, 652]}
+2026-05-07 18:27:59,019 - INFO - Token usage: +1753 (input: 1741, output: 12), total: 8673/1200000
+2026-05-07 18:28:00,726 - INFO - Agent Output: action=CLICK, params={'point': [213, 345]}
+2026-05-07 18:28:00,727 - INFO - Token usage: +1775 (input: 1758, output: 17), total: 10448/1200000
+2026-05-07 18:28:00,727 - ERROR - [Checker] CLICK failed: (213, 345) not in ([114, 256], [868, 930])
+2026-05-07 18:28:04,013 - INFO - Agent Output: action=CLICK, params={'point': [311, 922]}
+2026-05-07 18:28:04,013 - INFO - Token usage: +1792 (input: 1775, output: 17), total: 12240/1200000
+2026-05-07 18:28:05,601 - INFO - Agent Output: action=TYPE, params={'text': '真是太好看了'}
+2026-05-07 18:28:05,601 - INFO - Token usage: +1804 (input: 1792, output: 12), total: 14044/1200000
+2026-05-07 18:28:07,389 - INFO - Agent Output: action=CLICK, params={'point': [500, 500]}
+2026-05-07 18:28:07,389 - INFO - Token usage: +1818 (input: 1805, output: 13), total: 15862/1200000
+2026-05-07 18:28:07,389 - ERROR - [Checker] CLICK failed: (500, 500) not in ([810, 964], [898, 934])
+2026-05-07 18:28:08,909 - WARNING - 解析失败，原始输出: COMPLETE: {}
+2026-05-07 18:28:10,748 - INFO - Agent Output: action=COMPLETE, params={}
+2026-05-07 18:28:10,748 - INFO - Token usage: +1907 (input: 1878, output: 29), total: 17769/1200000
+2026-05-07 18:28:14,552 - INFO - [No. 1: step_aiqiyi_onekey_0011] Score: 9/11 = 0.82
+2026-05-07 18:28:14,553 - INFO - Agent Output: action=OPEN, params={'app_name': '百度地图'}
+2026-05-07 18:28:15,870 - INFO - Agent Output: action=CLICK, params={'point': [858, 42]}
+2026-05-07 18:28:15,870 - INFO - Token usage: +1708 (input: 1686, output: 22), total: 19477/1200000
+2026-05-07 18:28:17,732 - INFO - Agent Output: action=CLICK, params={'point': [880, 914]}
+2026-05-07 18:28:17,732 - INFO - Token usage: +1719 (input: 1702, output: 17), total: 21196/1200000
+2026-05-07 18:28:19,395 - INFO - Agent Output: action=CLICK, params={'point': [500, 332]}
+2026-05-07 18:28:19,395 - INFO - Token usage: +1736 (input: 1719, output: 17), total: 22932/1200000
+2026-05-07 18:28:20,718 - WARNING - 解析失败，原始输出: {"CLICK": [326, 71]}
+2026-05-07 18:28:22,516 - INFO - Agent Output: action=CLICK, params={'point': [450, 72]}
+2026-05-07 18:28:22,516 - INFO - Token usage: +1832 (input: 1791, output: 41), total: 24764/1200000
+2026-05-07 18:28:23,727 - INFO - Agent Output: action=TYPE, params={'text': '孟子义'}
+2026-05-07 18:28:23,727 - INFO - Token usage: +1762 (input: 1752, output: 10), total: 26526/1200000
