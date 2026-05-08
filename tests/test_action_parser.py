@@ -71,6 +71,8 @@ check('func-call TYPE', parse('TYPE(text="跳舞")'), ('TYPE', {'text': '跳舞'
 
 check('func-call TYPE single quote', parse("TYPE(text='跳舞')"), ('TYPE', {'text': '跳舞'}))
 
+check('func-call TYPE double braces preserved', parse("TYPE(text='{{name}}')"), ('TYPE', {'text': '{{name}}'}))
+
 check('func-call COMPLETE empty braces', parse('COMPLETE{}'), ('COMPLETE', {}))
 
 check('func-call TYPE no-paren braces', parse('TYPE{"text": "跳舞"}'), ('TYPE', {'text': '跳舞'}))
@@ -119,9 +121,21 @@ check('double brace prefix', parse('CLICK: {{"point": [838, 45]}}'), ('CLICK', {
 
 check('double brace TYPE', parse('TYPE: {{"text": "测试"}}'), ('TYPE', {'text': '测试'}))
 
+check('double brace full object', parse('{{"action": "CLICK", "parameters": {"point": [354, 71]}}}'), ('CLICK', {'point': [354, 71]}))
+
+check('double brace nested parameters object', parse('{{"action": "CLICK", "parameters": {{"point": [275, 73]}}}}'), ('CLICK', {'point': [275, 73]}))
+
+check('double brace full object preserves inner text', parse('{{"action": "TYPE", "parameters": {"text": "{{name}}"}}}'), ('TYPE', {'text': '{{name}}'}))
+
+check('nested action-key parameters', parse('{"TYPE": {"parameters": {"text": "邯郸"}}}'), ('TYPE', {'text': '邯郸'}))
+
+check('embedded action field click', parse('{"action": "CLICK(point=[[354, 71]]", "parameters": {}}'), ('CLICK', {'point': [354, 71]}))
+
 check('bracket-balanced embedded', parse('Let me think. {"action": "CLICK", "parameters": {"point": [500, 300]}} That looks right.'), ('CLICK', {'point': [500, 300]}))
 
 check('bracket-balanced action-key embedded', parse('根据分析 {"CLICK": {"point": [100, 200]}} 点击搜索框'), ('CLICK', {'point': [100, 200]}))
+
+check('embedded malformed nested double brace object', parse('分析后给出结果：{{"action":"CLICK","parameters":{{"point":[275,73]}}}}'), ('CLICK', {'point': [275, 73]}))
 
 check('string-aware braces', parse('分析：这个 {"thought": "内容有{花括号}", "action": "CLICK", "parameters": {"point": [100, 200]}}'), ('CLICK', {'point': [100, 200]}))
 

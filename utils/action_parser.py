@@ -20,6 +20,18 @@ _MISSING_COMMA_2 = re.compile(r"\[(\d+)\s+(\d+)\]")
 _MISSING_COMMA_4 = re.compile(r"\[(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\]")
 _TRAIL_COMMA_OBJ = re.compile(r",\s*}")
 _TRAIL_COMMA_ARR = re.compile(r",\s*]")
+_DOUBLE_BRACE_OBJECT = re.compile(r"^\s*\{\{([\s\S]*)\}\}\s*$")
+
+
+def _normalize_nested_double_brace_object(text: str) -> str:
+    stripped = text.strip()
+    if not _DOUBLE_BRACE_OBJECT.match(stripped):
+        return text
+
+    normalized = stripped[1:-1]
+    normalized = re.sub(r'("parameters"\s*:\s*)\{\{', r'\1{', normalized, count=1)
+    normalized = re.sub(r'\}\}(\s*\})\s*$', r'}\1', normalized, count=1)
+    return normalized
 
 
 def _pre_clean(raw: str) -> str:
@@ -34,10 +46,17 @@ def _pre_clean(raw: str) -> str:
     text = _MARKDOWN_BLOCK.sub("", text)
     text = _MARKDOWN_CLOSE.sub("", text)
 
+    text = _normalize_nested_double_brace_object(text)
+
     # 去掉动作前缀的双花括号（只在前缀匹配时才处理后缀，避免误伤嵌套JSON的}}）
     if _DOUBLE_BRACE_PREFIX.search(text):
         text = _DOUBLE_BRACE_PREFIX.sub(r"\1: {", text)
         text = _DOUBLE_BRACE_SUFFIX.sub(r"}", text)
+
+    # 整对象双花括号：{{"action": ...}} -> {"action": ...}
+    m = _DOUBLE_BRACE_OBJECT.match(text)
+    if m:
+        text = "{" + m.group(1).strip() + "}"
 
     # 修复 [371 73] -> [371, 73]（数字间空格缺逗号）
     text = _MISSING_COMMA_4.sub(r"[\1, \2, \3, \4]", text)
@@ -50,32 +69,30 @@ def _pre_clean(raw: str) -> str:
     return text
 
 
-def _extract_action_from_value(action_val: str) -> Optional[Tuple[str, Dict[str, Any]]]:
-    """Handle hybrid format where action value contains func-call: "CLICK(point=[[354, 71]]"."""
-    text = action_val.strip()
-    # CLICK(point=[x,y]) or CLICK(point=[[x,y]] (malformed, missing closing paren)
-    m = re.search(r'(CLICK|TYPE|SCROLL|OPEN|COMPLETE)\s*\((.+?)(?:\)|$)', text, re.IGNORECASE)
+def _parse_embedded_action_value(action_text: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """Parse embedded action text like CLICK(point=[[354, 71]]) inside an action field."""
+    text = str(action_text).strip()
+
+    m = re.search(
+        r"(CLICK)\s*\(\s*point\s*=\s*\[\[?\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*\]?\]?",
+        text,
+        re.IGNORECASE,
+    )
     if m:
-        action = m.group(1).upper()
-        params_str = m.group(2)
-        params: Dict[str, Any] = {}
-        for pair in re.finditer(r'(\w+)=\[([^\]]*(?:\[[^\]]*\])?)\]', params_str):
-            key = pair.group(1)
-            inner = pair.group(2).strip("[]")
-            vals = [v.strip() for v in inner.split(",")]
-            try:
-                params[key] = [int(float(v)) for v in vals if v]
-            except (TypeError, ValueError):
-                params[key] = vals
-        for pair in re.finditer(r'(\w+)="([^"]*)"', params_str):
-            params[pair.group(1)] = pair.group(2)
-        for pair in re.finditer(r"(\w+)='([^']*)'", params_str):
-            params[pair.group(1)] = pair.group(2)
-        return (action, params)
-    # CLICK[[x,y]]
+        return ("CLICK", {"point": [int(float(m.group(2))), int(float(m.group(3)))]})
+
+    m = re.search(
+        r"(TYPE)\s*\(\s*text\s*=\s*['\"]([^'\"]+)['\"]",
+        text,
+        re.IGNORECASE,
+    )
+    if m:
+        return ("TYPE", {"text": m.group(2)})
+
     m = re.search(r'(CLICK)\s*\[\[(\d+)\s*,\s*(\d+)\]\]', text, re.IGNORECASE)
     if m:
         return (m.group(1).upper(), {"point": [int(m.group(2)), int(m.group(3))]})
+
     return None
 
 
@@ -87,10 +104,8 @@ def _parse_standard_json_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[st
         return None
     action = str(obj["action"]).upper()
     if action not in VALID_ACTIONS:
-        # Hybrid: action value contains func-call syntax like "CLICK(point=[[354, 71]]"
-        extracted = _extract_action_from_value(str(obj["action"]))
+        extracted = _parse_embedded_action_value(str(obj["action"]))
         if extracted:
-            # Merge parameters from the object if present
             obj_params = obj.get("parameters", {})
             if isinstance(obj_params, dict):
                 for k, v in obj_params.items():
@@ -131,6 +146,8 @@ def _parse_action_key_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[str, 
             continue
         value = obj[key]
         if isinstance(value, dict):
+            if "parameters" in value and isinstance(value["parameters"], dict):
+                return (action, value["parameters"])
             return (action, value)
         elif isinstance(value, list):
             if action == "CLICK" and len(value) == 2:
@@ -145,6 +162,28 @@ def _parse_action_key_obj(obj: Dict[str, Any]) -> Optional[Tuple[str, Dict[str, 
         elif value == {} or (isinstance(value, str) and not value):
             return (action, {})
     return None
+
+
+def _load_json_candidate(candidate: str) -> Optional[Dict[str, Any]]:
+    try:
+        obj = json.loads(candidate)
+        if isinstance(obj, dict):
+            return obj
+    except (json.JSONDecodeError, ValueError):
+        pass
+
+    normalized = _normalize_nested_double_brace_object(candidate)
+    if normalized == candidate:
+        return None
+
+    try:
+        obj = json.loads(normalized)
+        if isinstance(obj, dict):
+            return obj
+    except (json.JSONDecodeError, ValueError):
+        pass
+    return None
+
 
 
 def _extract_json_bracket_balanced(text: str) -> Optional[Dict[str, Any]]:
@@ -177,10 +216,9 @@ def _extract_json_bracket_balanced(text: str) -> Optional[Dict[str, Any]]:
             open_pos = stack.pop()
             if not stack:
                 candidate = text[open_pos:i + 1]
-                try:
-                    return json.loads(candidate)
-                except (json.JSONDecodeError, ValueError):
-                    continue
+                obj = _load_json_candidate(candidate)
+                if obj is not None:
+                    return obj
     return None
 
 

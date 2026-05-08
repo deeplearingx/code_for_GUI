@@ -48,6 +48,11 @@ class HistoryManager:
     def get_last_action(self) -> Optional[str]:
         return self._last_action
 
+    def get_recent_actions(self, count: int) -> list[str]:
+        if count <= 0:
+            return []
+        return [step.split("(", 1)[0] for step in self._steps[-count:]]
+
     def get_summary(self) -> str:
         if not self._steps:
             return ""

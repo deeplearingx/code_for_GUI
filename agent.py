@@ -11,6 +11,7 @@ from utils.action_parser import parse as parse_action
 from utils.action_validator import validate as validate_action, ValidationResult
 from utils.prompt_builder import build_messages, build_retry_prompt, get_search_bar_coord
 from utils.history_manager import HistoryManager
+from utils.completion_policy import RECENT_ACTION_WINDOW, should_force_complete
 
 logger = logging.getLogger(__name__)
 
@@ -19,10 +20,12 @@ class Agent(BaseAgent):
     def _initialize(self) -> None:
         self._task: Optional[TaskInfo] = None
         self._history = HistoryManager()
+        self._fallback_ready_to_type = False
 
     def reset(self) -> None:
         self._task = None
         self._history.reset()
+        self._fallback_ready_to_type = False
 
     def act(self, input_data: AgentInput) -> AgentOutput:
         step_count = input_data.step_count
@@ -35,6 +38,7 @@ class Agent(BaseAgent):
         if step_count == 1 and self._task.app_name:
             action = ACTION_OPEN
             parameters = {"app_name": self._task.app_name}
+            self._fallback_ready_to_type = False
             self._history.add(action, parameters)
             return AgentOutput(action=action, parameters=parameters)
 
@@ -65,7 +69,11 @@ class Agent(BaseAgent):
             raw_output = response.choices[0].message.content or ""
         except (AttributeError, IndexError) as e:
             logger.warning(f"提取模型输出失败: {e}")
-            return self._fallback(input_data)
+            action, parameters = self._fallback(input_data)
+            if action == ACTION_TYPE and self._task is not None:
+                self._task.commit_text()
+            self._history.add(action, parameters)
+            return AgentOutput(action=action, parameters=parameters)
 
         # 解析模型输出
         parsed = parse_action(raw_output)
@@ -90,6 +98,12 @@ class Agent(BaseAgent):
             logger.info(f"校验需重试: {result.retry_reason}")
             return self._retry_or_fallback(input_data, messages, result.retry_reason)
 
+        recent_actions = self._history.get_recent_actions(RECENT_ACTION_WINDOW)
+        if should_force_complete(self._task, step_count, last_action, result.action, recent_actions):
+            self._fallback_ready_to_type = False
+            self._history.add(ACTION_COMPLETE, {})
+            return AgentOutput(action=ACTION_COMPLETE, parameters={})
+
         # 重复点击检测
         if result.action == ACTION_CLICK and self._history.is_stuck():
             logger.info("检测到重复点击，追加提示重试")
@@ -101,6 +115,8 @@ class Agent(BaseAgent):
         # TYPE commit：只有最终返回TYPE动作时才commit
         if result.action == ACTION_TYPE and self._task is not None:
             self._task.commit_text()
+
+        self._fallback_ready_to_type = False
 
         # 更新历史
         self._history.add(result.action, result.parameters)
@@ -152,23 +168,45 @@ class Agent(BaseAgent):
                 )
 
                 if result.ok:
-                    # TYPE commit
-                    if result.action == ACTION_TYPE and self._task is not None:
-                        self._task.commit_text()
+                    last_action = self._history.get_last_action()
 
-                    self._history.add(result.action, result.parameters)
-                    usage = None
-                    try:
-                        usage = self.extract_usage_info(response)
-                    except Exception:
-                        pass
+                    recent_actions = self._history.get_recent_actions(RECENT_ACTION_WINDOW)
+                    if should_force_complete(
+                        self._task,
+                        input_data.step_count,
+                        last_action,
+                        result.action,
+                        recent_actions,
+                    ):
+                        self._fallback_ready_to_type = False
+                        self._history.add(ACTION_COMPLETE, {})
+                        return AgentOutput(
+                            action=ACTION_COMPLETE,
+                            parameters={},
+                            raw_output=raw_output,
+                        )
 
-                    return AgentOutput(
-                        action=result.action,
-                        parameters=result.parameters,
-                        raw_output=raw_output,
-                        usage=usage,
-                    )
+                    if result.action == ACTION_CLICK and self._history.is_stuck():
+                        logger.info("重试后仍检测到重复点击，继续走fallback")
+                    else:
+                        # TYPE commit
+                        if result.action == ACTION_TYPE and self._task is not None:
+                            self._task.commit_text()
+
+                        self._fallback_ready_to_type = False
+                        self._history.add(result.action, result.parameters)
+                        usage = None
+                        try:
+                            usage = self.extract_usage_info(response)
+                        except Exception:
+                            pass
+
+                        return AgentOutput(
+                            action=result.action,
+                            parameters=result.parameters,
+                            raw_output=raw_output,
+                            usage=usage,
+                        )
         except Exception as e:
             logger.warning(f"重试API调用失败: {e}")
 
@@ -190,19 +228,29 @@ class Agent(BaseAgent):
 
         # 2. step_count<=3 -> CLICK close ad/popup
         if step_count <= 3:
+            self._fallback_ready_to_type = False
             return (ACTION_CLICK, {"point": [900, 60]})
 
-        # 3. Has pending text -> CLICK search box (not TYPE!)
+        # 3. Has pending text -> TYPE only after fallback search-box click
         if self._task and self._task.has_pending_text():
+            pending_text = self._task.peek_pending_text()
+            if self._fallback_ready_to_type and self._history.get_last_action() == ACTION_CLICK and pending_text is not None:
+                self._fallback_ready_to_type = False
+                return (ACTION_TYPE, {"text": pending_text})
             app_name = self._task.app_name or ""
             coord = get_search_bar_coord(app_name)
+            self._fallback_ready_to_type = True
             return (ACTION_CLICK, {"point": coord})
 
         # 4. SCROLL down
+        self._fallback_ready_to_type = False
         return (ACTION_SCROLL, {"start_point": [500, 800], "end_point": [500, 300]})
 
     def _encode_image(self, image, image_format: str = "JPEG") -> str:
-        """覆盖为JPEG编码(quality=90)，不缩小图片"""
+        """JPEG编码，兼容 RGBA/P/LA 等模式"""
+        if image.mode != "RGB":
+            image = image.convert("RGB")
+
         buffered = io.BytesIO()
         image.save(buffered, format="JPEG", quality=90)
         base64_str = base64.b64encode(buffered.getvalue()).decode("utf-8")

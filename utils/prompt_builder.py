@@ -88,8 +88,6 @@ TYPE规则：
 def build_system_prompt(task: TaskInfo) -> str:
     parts = [SYSTEM_PROMPT_TEMPLATE]
 
-    parts.append(f"\n## 当前任务\n{task.instruction}")
-
     if task.app_name:
         parts.append(f"\n## 目标App\n{task.app_name}")
 
@@ -112,6 +110,8 @@ def build_messages(
     system_prompt = build_system_prompt(task)
 
     user_parts: list[str] = []
+
+    user_parts.append(f"【用户任务】\n{task.instruction}")
 
     # 待输入队列提示
     if task.type_queue:
@@ -151,8 +151,8 @@ def build_retry_prompt(reason: str) -> str:
     """构建重试时的额外提示"""
     return (
         f"⚠️ 上次输出被拒绝：{reason}\n"
-        "请严格按照JSON格式输出下一步操作，不要提前COMPLETE。"
-        "输出格式：{{\"thought\": \"...\", \"action\": \"...\", \"parameters\": {{...}}}}"
+        "请严格按照标准JSON输出下一步操作，不要提前COMPLETE。"
+        "输出格式：{\"action\": \"CLICK|TYPE|SCROLL|OPEN|COMPLETE\", \"parameters\": {...}}"
     )
 
 

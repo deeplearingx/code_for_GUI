@@ -18,7 +18,12 @@
       "Bash(export VLM_API_KEY=$\\(cat /home/ly/.bashrc)",
       "Bash(rtk curl *)",
       "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(m['id']\\) for m in data.get\\('data',[]\\)]\")",
-      "Bash(/home/ly/miniconda3/envs/zx/bin/python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(m['id']\\) for m in data.get\\('data',[]\\)]\")"
+      "Bash(/home/ly/miniconda3/envs/zx/bin/python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(m['id']\\) for m in data.get\\('data',[]\\)]\")",
+      "Bash(git *)",
+      "Bash(DEBUG_API_URL='https://wishub-x6.ctyun.cn/v1/chat/completions' DEBUG_MODEL_ID='651c9b454b58458f9b604e67c03ab73f' VLM_API_KEY='d283ee6ccf634eefba59ba479e349c41' python *)",
+      "Bash(DEBUG_API_URL='https://wishub-x6.ctyun.cn/v1' DEBUG_MODEL_ID='651c9b454b58458f9b604e67c03ab73f' VLM_API_KEY='d283ee6ccf634eefba59ba479e349c41' python *)",
+      "Bash(rtk python *)",
+      "Bash(GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0='//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student' rtk git *)"
     ]
   },
   "enableAllProjectMcpServers": true,

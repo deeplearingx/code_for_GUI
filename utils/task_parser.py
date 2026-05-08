@@ -125,14 +125,30 @@ def _parse_meituan(instruction: str, task: TaskInfo) -> None:
     clean = instruction
     for alias in _ALIAS_TO_STANDARD:
         clean = clean.replace(alias, "")
+    clean = re.sub(r"^(?:(?:在|去|用|打开|进入)\s*)+", "", clean)
     # Priority: buy from shop
-    m = re.search(r"购买(.+?)(?:店铺|店|商家)(?:里|中|的)(.+?)(?:，|。|$)", clean)
+    m = re.search(r"购买(.+?)(?:店铺|商家)(?:里|中|的)(.+?)(?:，|。|$)", clean)
+    if not m:
+        m = re.search(r"(.+?)(?:店铺|商家)(?:里|中)(.+?)(?:，|。|$)", clean)
     if not m:
         # Fallback: at/go-to shop
-        m = re.search(r"(?:在|去)([^，。去在的]+?)(?:店铺|店|商家)(?:里|中|的)(.+?)(?:，|。|$)", clean)
+        m = re.search(r"(?:在|去)([^，。去在的]+?)(?:店铺|商家)(?:里|中|的)(.+?)(?:，|。|$)", clean)
     if m:
         shop, item = m.group(1).strip(), m.group(2).strip()
         # Strip leading 的/了/order prefixes from item
+        item = re.sub(r"^[的了]", "", item)
+        item = re.sub(r"^(?:点一份|点个|点一杯|买一份|买一个|点)", "", item)
+        task.shop_name = shop
+        task.type_queue.append(shop)
+        task.item_name = item
+        task.type_queue.append(item)
+        return
+
+    m = re.search(r"(.+)店里(.+?)(?:，|。|$)", clean)
+    if m:
+        shop, item = m.group(1).strip(), m.group(2).strip()
+        if not shop.endswith(("店", "）")):
+            shop = f"{shop}店"
         item = re.sub(r"^[的了]", "", item)
         item = re.sub(r"^(?:点一份|点个|点一杯|买一份|买一个|点)", "", item)
         task.shop_name = shop
@@ -166,8 +182,12 @@ def _parse_baidu_map(instruction: str, task: TaskInfo) -> None:
     task.task_type = "baidu_map"
     # Taxi from A to B / from A to B
     m = re.search(r"(?:打车|叫车)?从(.+?)(?:去|到|前往)(.+?)(?:，|。|地址|$)", instruction)
+    if not m:
+        m = re.search(r"(?:在)?(?:百度地图)?\s*(.+?)(?:去|到|前往)(.+?)(?:，|。|地址|$)", instruction)
     if m:
         origin, dest = m.group(1).strip(), m.group(2).strip()
+        origin = re.sub(r"^(?:在)?百度地图", "", origin).strip()
+        origin = re.sub(r"^(?:导航|规划|搜索|查路线|路线规划)", "", origin).strip()
         if origin:
             task.origin = origin
             task.type_queue.append(origin)
@@ -191,6 +211,7 @@ def _strip_action_suffix(keyword: str) -> str:
     keyword = re.sub(r"并(?:播放|看|收藏|查看|打开|进入|下载|分享|关注|点赞|评论|购买|添加).*", "", keyword)
     keyword = re.sub(r"筛选.*", "", keyword)
     keyword = re.sub(r"然后.*", "", keyword)
+    keyword = re.sub(r"的(?:视频|作品|内容)$", "", keyword)
     return keyword.strip()
 
 
@@ -200,6 +221,8 @@ def _parse_video_search(instruction: str, task: TaskInfo) -> None:
     keyword = _extract_book_title(instruction)
     if not keyword:
         keyword = _extract_after_trigger(instruction, ("搜索一下", "搜一下", "搜索", "搜一搜", "看", "播放", "找", "搜"))
+    if not keyword and re.search(r".+的(?:视频|作品|内容)$", instruction):
+        keyword = instruction.strip()
     # Strip action suffix before episode (e.g. "扫毒风暴并播放第三集" -> "扫毒风暴第三集")
     if keyword:
         keyword = _strip_action_suffix(keyword)
@@ -224,9 +247,11 @@ def _parse_travel(instruction: str, task: TaskInfo) -> None:
         text = text.replace(alias, "")
     text = re.sub(r"(今天|明天|后天|大后天|今晚|明晚)", "", text)
     text = re.sub(r"^(?:在|去|用|打开|进入)[^一-鿿]*", "", text)
-    text = re.sub(r"^(?:查|看|搜|搜索|查找|查询)", "", text)
+    text = re.sub(r"^(?:帮我|我想|想|我要|给我)?(?:查|看|搜|搜索|查找|查询)", "", text)
     # Flight pattern
     m = re.search(r"([一-鿿]{2,10})(?:飞|出发到|到)([一-鿿]{2,10})(?:的航班|航班|机票)", text)
+    if not m:
+        m = re.search(r"([一-鿿]{2,10})到([一-鿿]{2,10})的?(?:航班|机票)", text)
     if m:
         origin, dest = m.group(1).strip(), m.group(2).strip()
         # Strip trailing 的 from destination
@@ -259,6 +284,20 @@ def _parse_travel(instruction: str, task: TaskInfo) -> None:
         task.type_queue.append(dest)
 
 
+def _looks_like_meituan(instruction: str) -> bool:
+    return not _find_app_name(instruction) and bool(
+        re.search(r".+店里(?:点一份|点个|点一杯|买一份|买一个|点).+", instruction)
+    )
+
+
+
+def _looks_like_travel(instruction: str) -> bool:
+    return not _find_app_name(instruction) and bool(
+        re.search(r"[一-鿿]{2,10}到[一-鿿]{2,10}的?(?:航班|机票)", instruction)
+    )
+
+
+
 def parse_task(instruction: str) -> TaskInfo:
     task = TaskInfo(instruction=instruction)
     task.app_name = _find_app_name(instruction)
@@ -274,13 +313,13 @@ def parse_task(instruction: str) -> TaskInfo:
         return task
 
     # App branches
-    if task.app_name == "美团":
+    if task.app_name == "美团" or _looks_like_meituan(instruction):
         _parse_meituan(instruction, task)
     elif task.app_name == "百度地图":
         _parse_baidu_map(instruction, task)
-    elif task.app_name in ("哔哩哔哩", "腾讯视频", "爱奇艺", "芒果TV", "喜马拉雅"):
+    elif task.app_name in ("哔哩哔哩", "腾讯视频", "爱奇艺", "芒果TV", "喜马拉雅", "抖音", "快手"):
         _parse_video_search(instruction, task)
-    elif task.app_name == "去哪儿旅行":
+    elif task.app_name == "去哪儿旅行" or _looks_like_travel(instruction):
         _parse_travel(instruction, task)
     else:
         # Generic search fallback

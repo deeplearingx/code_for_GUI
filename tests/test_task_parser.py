@@ -50,6 +50,13 @@ check('meituan at shop' 'task_type', parse_task('去美团外卖在张亮麻辣�
 check('meituan at shop' 'shop_name', parse_task('去美团外卖在张亮麻辣烫店铺里点一份鱼豆腐').shop_name, '张亮麻辣烫')
 check('meituan at shop' 'item_name', parse_task('去美团外卖在张亮麻辣烫店铺里点一份鱼豆腐').item_name, '鱼豆腐')
 
+# meituan natural shop phrase
+check('meituan natural shop phrase' 'shop_name', parse_task('窑村干锅猪蹄（科技大学店）店里点一份干锅排骨').shop_name, '窑村干锅猪蹄（科技大学店）')
+check('meituan natural shop phrase' 'item_name', parse_task('窑村干锅猪蹄（科技大学店）店里点一份干锅排骨').item_name, '干锅排骨')
+check('meituan natural shop phrase' 'type_queue', parse_task('窑村干锅猪蹄（科技大学店）店里点一份干锅排骨').type_queue, ['窑村干锅猪蹄（科技大学店）', '干锅排骨'])
+check('meituan branch name ending shop' 'shop_name', parse_task('海底捞万达店里点一份肥牛').shop_name, '海底捞万达店')
+check('meituan branch name ending shop' 'item_name', parse_task('海底捞万达店里点一份肥牛').item_name, '肥牛')
+
 # baidu_map from A to B
 check('baidu_map from A to B' 'task_type', parse_task('在百度地图从北京大学到天安门').task_type, 'baidu_map')
 check('baidu_map from A to B' 'origin', parse_task('在百度地图从北京大学到天安门').origin, '北京大学')
@@ -60,6 +67,13 @@ check('baidu_map from A to B' 'type_queue', parse_task('在百度地图从北京
 check('baidu_map taxi' 'task_type', parse_task('在百度地图打车从公司去机场').task_type, 'baidu_map')
 check('baidu_map taxi' 'origin', parse_task('在百度地图打车从公司去机场').origin, '公司')
 check('baidu_map taxi' 'destination', parse_task('在百度地图打车从公司去机场').destination, '机场')
+
+# baidu_map natural route phrase
+check('baidu_map natural route phrase' 'origin', parse_task('在百度地图国际医学中心到回民街').origin, '国际医学中心')
+check('baidu_map natural route phrase' 'destination', parse_task('在百度地图国际医学中心到回民街').destination, '回民街')
+check('baidu_map natural route phrase' 'type_queue', parse_task('在百度地图国际医学中心到回民街').type_queue, ['国际医学中心', '回民街'])
+check('baidu_map navigation phrase' 'origin', parse_task('在百度地图导航国际医学中心到回民街').origin, '国际医学中心')
+check('baidu_map navigation phrase' 'destination', parse_task('在百度地图导航国际医学中心到回民街').destination, '回民街')
 
 # video book title
 check('video book title' 'task_type', parse_task('在哔哩哔哩搜索《采莲曲》').task_type, 'video_search')
@@ -75,6 +89,12 @@ check('video search + episode' 'episode', parse_task('在腾讯视频搜索庆�
 check('video search long trigger' 'task_type', parse_task('在爱奇艺搜索一下狂飙').task_type, 'video_search')
 check('video search long trigger' 'search_keyword', parse_task('在爱奇艺搜索一下狂飙').search_keyword, '狂飙')
 
+# douyin suffix stripping
+check('douyin video suffix' 'app_name', parse_task('在抖音搜索甄嬛传的视频').app_name, '抖音')
+check('douyin video suffix' 'task_type', parse_task('在抖音搜索甄嬛传的视频').task_type, 'video_search')
+check('douyin video suffix' 'search_keyword', parse_task('在抖音搜索甄嬛传的视频').search_keyword, '甄嬛传')
+check('douyin video suffix' 'type_queue', parse_task('在抖音搜索甄嬛传的视频').type_queue, ['甄嬛传'])
+
 # travel flight
 check('travel flight' 'task_type', parse_task('在去哪儿旅行查北京飞上海的航班').task_type, 'travel')
 check('travel flight' 'origin', parse_task('在去哪儿旅行查北京飞上海的航班').origin, '北京')
@@ -85,6 +105,20 @@ check('travel flight' 'type_queue', parse_task('在去哪儿旅行查北京飞�
 check('travel from A to B' 'task_type', parse_task('在去哪儿旅行从成都到重庆').task_type, 'travel')
 check('travel from A to B' 'origin', parse_task('在去哪儿旅行从成都到重庆').origin, '成都')
 check('travel from A to B' 'destination', parse_task('在去哪儿旅行从成都到重庆').destination, '重庆')
+
+# travel natural flight phrase
+check('travel natural flight phrase' 'task_type', parse_task('在去哪儿旅行看邯郸到上海的航班').task_type, 'travel')
+check('travel natural flight phrase' 'origin', parse_task('在去哪儿旅行看邯郸到上海的航班').origin, '邯郸')
+check('travel natural flight phrase' 'destination', parse_task('在去哪儿旅行看邯郸到上海的航班').destination, '上海')
+check('travel natural flight phrase' 'type_queue', parse_task('在去哪儿旅行看邯郸到上海的航班').type_queue, ['邯郸', '上海'])
+
+# travel natural flight phrase without app
+check('travel natural flight no app' 'task_type', parse_task('邯郸到上海的航班').task_type, 'travel')
+check('travel natural flight no app' 'origin', parse_task('邯郸到上海的航班').origin, '邯郸')
+check('travel natural flight no app' 'destination', parse_task('邯郸到上海的航班').destination, '上海')
+check('travel natural flight no app' 'type_queue', parse_task('邯郸到上海的航班').type_queue, ['邯郸', '上海'])
+check('travel natural flight with prefix' 'origin', parse_task('帮我看邯郸到上海的航班').origin, '邯郸')
+check('travel natural flight with prefix' 'destination', parse_task('帮我看邯郸到上海的航班').destination, '上海')
 
 # app alias B站
 check('app alias B站' 'app_name', parse_task('在B站搜索舞蹈视频').app_name, '哔哩哔哩')
@@ -97,6 +131,10 @@ check('app alias 12306' 'app_name', parse_task('在铁路12306买票').app_name,
 # app alias 美团外卖
 check('app alias 美团外卖' 'app_name', parse_task('用美团外卖点餐').app_name, '美团')
 check('app alias 美团外卖' 'task_type', parse_task('用美团外卖点餐').task_type, 'meituan')
+
+# other app should not be hijacked by meituan heuristic
+check('other app not hijacked' 'app_name', parse_task('在大众点评海底捞店里点一份肥牛').app_name, '大众点评')
+check('other app not hijacked' 'task_type', parse_task('在大众点评海底捞店里点一份肥牛').task_type, 'general')
 
 # generic search
 check('generic search' 'task_type', parse_task('搜索天气预报').task_type, 'general')
