@@ -43,7 +43,7 @@ def decide_post_open_action(
             ACTION_CLICK,
             {"point": get_anchor(task.app_name, "flow_entry")},
             "post_open_baidu_map_flow_entry",
-            "medium",
+            "high",
         )
     if task.task_type == "meituan":
         return (
