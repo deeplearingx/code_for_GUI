@@ -26,13 +26,15 @@ APP_TIPS: dict[str, str] = {
 SEARCH_BAR_COORDS: dict[str, list[int]] = {
     "美团": [500, 120],
     "百度地图": [500, 100],
-    "哔哩哔哩": [800, 80],
+    # B站公开流的搜索框在顶部中间区域，不是右上角图标。
+    "哔哩哔哩": [500, 80],
     "腾讯视频": [850, 80],
     "抖音": [200, 80],
     "快手": [500, 100],
-    "爱奇艺": [500, 100],
-    "芒果TV": [500, 100],
-    "喜马拉雅": [500, 100],
+    # 爱奇艺搜索输入框更靠近顶部，y=100 会落到结果/内容区域。
+    "爱奇艺": [500, 70],
+    "芒果TV": [500, 80],
+    "喜马拉雅": [500, 80],
     "去哪儿旅行": [500, 100],
     "淘宝": [500, 120],
     "京东": [500, 120],
@@ -44,7 +46,8 @@ SEARCH_BAR_COORDS: dict[str, list[int]] = {
 
 FLOW_CONTINUE_COORDS: dict[str, list[int]] = {
     "美团": [500, 260],
-    "百度地图": [500, 220],
+    # 百度地图公开流第一步应点顶部路线/打车入口，旧的 [500,220] 容易落到首页内容区。
+    "百度地图": [850, 40],
     "去哪儿旅行": [500, 220],
     "default": [500, 220],
 }
@@ -222,7 +225,6 @@ def get_travel_date_option_coord(date_hint: str) -> list[int]:
 
 def get_travel_date_confirm_coord() -> list[int]:
     return list(TRAVEL_DATE_CONFIRM_COORD)
-
 
 
 def get_travel_search_button_coord() -> list[int]:
