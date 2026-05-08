@@ -13,7 +13,7 @@ APP_TIPS: dict[str, str] = {
     "爱奇艺": "爱奇艺：搜索框→输关键词→搜索→第一个结果→选集数或收藏",
     "芒果TV": "芒果TV：搜索→输关键词→搜索→第一个结果→执行目标操作",
     "喜马拉雅": "喜马拉雅：搜索→输关键词→搜索→第一个结果→执行目标操作",
-    "去哪儿旅行": "去哪儿旅行：选出发地→选目的地→选日期→搜索→选第一个航班/火车",
+    "去哪儿旅行": "去哪儿旅行：点出发地→点顶部搜索栏→输入并选第一个结果→点目的地→点顶部搜索栏→输入并选第一个结果",
     "抖音": "抖音：点搜索→输关键词→搜索→点第一个结果",
     "快手": "快手：点搜索→输关键词→搜索→点第一个结果",
     "淘宝": "淘宝：点搜索→输关键词→搜索→点第一个商品",
@@ -41,6 +41,35 @@ SEARCH_BAR_COORDS: dict[str, list[int]] = {
     "铁路12306": [500, 100],
     "default": [500, 100],
 }
+
+FLOW_CONTINUE_COORDS: dict[str, list[int]] = {
+    "美团": [500, 260],
+    "百度地图": [500, 220],
+    "去哪儿旅行": [500, 220],
+    "default": [500, 220],
+}
+
+FLOW_INPUT_COORDS: dict[str, list[int]] = {
+    "去哪儿旅行": [252, 291],
+    "default": [500, 220],
+}
+
+TRAVEL_FIELD_COORDS: dict[int, list[int]] = {
+    0: [252, 291],
+    1: [741, 290],
+}
+
+TRAVEL_SEARCH_BAR_COORD = [500, 165]
+TRAVEL_RESULT_COORD = [500, 180]
+TRAVEL_DATE_ENTRY_COORD = [277, 361]
+TRAVEL_DATE_OPTION_COORDS: dict[str, list[int]] = {
+    "今天": [433, 224],
+    "明天": [574, 224],
+    "后天": [902, 303],
+    "大后天": [293, 284],
+}
+TRAVEL_DATE_CONFIRM_COORD = [503, 842]
+TRAVEL_SEARCH_BUTTON_COORD = [494, 611]
 
 SYSTEM_PROMPT_TEMPLATE = """你是安卓手机 GUI Agent。根据用户任务、当前截图和历史动作，输出下一步操作。
 只能输出一个 JSON 对象，不要输出 Markdown，不要多余解释。
@@ -158,3 +187,43 @@ def build_retry_prompt(reason: str) -> str:
 
 def get_search_bar_coord(app_name: str) -> list[int]:
     return SEARCH_BAR_COORDS.get(app_name, SEARCH_BAR_COORDS["default"])
+
+
+def get_flow_continue_coord(app_name: str) -> list[int]:
+    return FLOW_CONTINUE_COORDS.get(app_name, FLOW_CONTINUE_COORDS["default"])
+
+
+def get_flow_input_coord(app_name: str) -> list[int]:
+    return FLOW_INPUT_COORDS.get(app_name, FLOW_INPUT_COORDS["default"])
+
+
+def get_travel_field_coord(type_index: int) -> list[int]:
+    return TRAVEL_FIELD_COORDS.get(type_index, TRAVEL_FIELD_COORDS[1])
+
+
+def get_travel_search_bar_coord() -> list[int]:
+    return list(TRAVEL_SEARCH_BAR_COORD)
+
+
+def get_travel_result_coord() -> list[int]:
+    return list(TRAVEL_RESULT_COORD)
+
+
+
+def get_travel_date_entry_coord() -> list[int]:
+    return list(TRAVEL_DATE_ENTRY_COORD)
+
+
+
+def get_travel_date_option_coord(date_hint: str) -> list[int]:
+    return list(TRAVEL_DATE_OPTION_COORDS.get(date_hint, TRAVEL_DATE_OPTION_COORDS["后天"]))
+
+
+
+def get_travel_date_confirm_coord() -> list[int]:
+    return list(TRAVEL_DATE_CONFIRM_COORD)
+
+
+
+def get_travel_search_button_coord() -> list[int]:
+    return list(TRAVEL_SEARCH_BUTTON_COORD)

@@ -53,6 +53,9 @@ class HistoryManager:
             return []
         return [step.split("(", 1)[0] for step in self._steps[-count:]]
 
+    def get_last_click_point(self) -> Optional[list[int]]:
+        return self._last_click_point
+
     def get_summary(self) -> str:
         if not self._steps:
             return ""

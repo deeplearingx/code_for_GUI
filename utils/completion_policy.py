@@ -4,14 +4,25 @@ from typing import Any, Optional
 
 
 VIDEO_COMPLETE_TYPES = {"video_search", "comment"}
+FLOW_COMPLETE_TYPES = {"baidu_map", "meituan", "travel"}
 RECENT_ACTION_WINDOW = 3
 MIN_VIDEO_COMPLETE_STEP = 8
 
 
 
-def _has_recent_type_then_two_clicks(recent_actions: list[str]) -> bool:
-    tail = recent_actions[-RECENT_ACTION_WINDOW:]
-    return tail == ["TYPE", "CLICK", "CLICK"]
+def _has_recent_type_then_completion_clicks(action_sequence: list[str]) -> bool:
+    return action_sequence[-3:] == ["TYPE", "CLICK", "CLICK"] or action_sequence[-4:] == ["TYPE", "CLICK", "CLICK", "CLICK"]
+
+
+
+def _build_action_sequence(
+    recent_actions: Optional[list[str]],
+    current_action: Optional[str],
+) -> list[str]:
+    sequence = list(recent_actions or [])
+    if current_action is not None:
+        sequence.append(current_action)
+    return sequence
 
 
 
@@ -35,7 +46,7 @@ def should_force_complete(
     if current_action != "CLICK":
         return False
 
-    history_tail = recent_actions or []
+    action_sequence = _build_action_sequence(recent_actions, current_action)
     if task.task_type in VIDEO_COMPLETE_TYPES:
-        return _has_recent_type_then_two_clicks(history_tail)
+        return _has_recent_type_then_completion_clicks(action_sequence)
     return False

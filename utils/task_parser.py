@@ -50,6 +50,7 @@ class TaskInfo:
     shop_name: str = ""
     item_name: str = ""
     episode: str = ""
+    travel_date_hint: str = ""
     type_queue: list[str] = field(default_factory=list)
     type_index: int = 0
 
@@ -215,6 +216,16 @@ def _strip_action_suffix(keyword: str) -> str:
     return keyword.strip()
 
 
+def _strip_short_video_suffix(keyword: str) -> str:
+    return re.sub(r"(?:的)?视频$", "", keyword).strip()
+
+
+def _strip_video_download_prefix(keyword: str) -> str:
+    if keyword.startswith("我的下载里的") and re.search(r"第\d+集$", keyword):
+        return keyword[len("我的下载里的"):].strip()
+    return keyword.strip()
+
+
 def _parse_video_search(instruction: str, task: TaskInfo) -> None:
     task.task_type = "video_search"
     # Priority: book title marks
@@ -226,6 +237,10 @@ def _parse_video_search(instruction: str, task: TaskInfo) -> None:
     # Strip action suffix before episode (e.g. "扫毒风暴并播放第三集" -> "扫毒风暴第三集")
     if keyword:
         keyword = _strip_action_suffix(keyword)
+    if keyword and task.app_name in ("抖音", "快手"):
+        keyword = _strip_short_video_suffix(keyword)
+    if keyword:
+        keyword = _strip_video_download_prefix(keyword)
     # Strip episode suffix from keyword (e.g. "庆余年第5集" -> "庆余年")
     if keyword:
         keyword = re.sub(r"第\d+集$", "", keyword).strip()
@@ -239,15 +254,40 @@ def _parse_video_search(instruction: str, task: TaskInfo) -> None:
         task.episode = episode
 
 
+def _extract_travel_date_hint(text: str) -> str:
+    date_hint_aliases = {
+        "大后天": "大后天",
+        "后天": "后天",
+        "明晚": "明天",
+        "明天": "明天",
+        "今晚": "今天",
+        "今天": "今天",
+    }
+    for hint, normalized in date_hint_aliases.items():
+        if hint in text:
+            return normalized
+    return ""
+
+
+
+def _clean_travel_prefix(text: str) -> str:
+    cleaned = text
+    for alias in _ALIAS_TO_STANDARD:
+        cleaned = cleaned.replace(alias, "")
+    cleaned = re.sub(r"(今天|今晚|明天|明晚|后天|大后天)", "", cleaned)
+    cleaned = re.sub(r"^(?:(?:帮我|给我|我想|想|我要)\s*)+", "", cleaned)
+    cleaned = re.sub(r"^(?:(?:在|去|用|打开|进入)\s*)+", "", cleaned)
+    cleaned = re.sub(r"^(?:(?:看一下|查一下|搜一下|搜索一下|查找一下|查询一下|看|查|搜|搜索|查找|查询)\s*)+", "", cleaned)
+    cleaned = re.sub(r"^(?:(?:在|去|用)\s*)+", "", cleaned)
+    cleaned = re.sub(r"^(?:(?:看一下|查一下|搜一下|搜索一下|查找一下|查询一下)\s*)+", "", cleaned)
+    return cleaned.strip()
+
+
+
 def _parse_travel(instruction: str, task: TaskInfo) -> None:
     task.task_type = "travel"
-    # Strip app name, time words, and common prepositions to avoid matching them as cities
-    text = instruction
-    for alias in _ALIAS_TO_STANDARD:
-        text = text.replace(alias, "")
-    text = re.sub(r"(今天|明天|后天|大后天|今晚|明晚)", "", text)
-    text = re.sub(r"^(?:在|去|用|打开|进入)[^一-鿿]*", "", text)
-    text = re.sub(r"^(?:帮我|我想|想|我要|给我)?(?:查|看|搜|搜索|查找|查询)", "", text)
+    task.travel_date_hint = _extract_travel_date_hint(instruction)
+    text = _clean_travel_prefix(instruction)
     # Flight pattern
     m = re.search(r"([一-鿿]{2,10})(?:飞|出发到|到)([一-鿿]{2,10})(?:的航班|航班|机票)", text)
     if not m:

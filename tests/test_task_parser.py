@@ -94,6 +94,15 @@ check('douyin video suffix' 'app_name', parse_task('在抖音搜索甄嬛传的�
 check('douyin video suffix' 'task_type', parse_task('在抖音搜索甄嬛传的视频').task_type, 'video_search')
 check('douyin video suffix' 'search_keyword', parse_task('在抖音搜索甄嬛传的视频').search_keyword, '甄嬛传')
 check('douyin video suffix' 'type_queue', parse_task('在抖音搜索甄嬛传的视频').type_queue, ['甄嬛传'])
+check('douyin bare video suffix' 'search_keyword', parse_task('在抖音搜索跳舞视频').search_keyword, '跳舞')
+check('douyin bare video suffix' 'type_queue', parse_task('在抖音搜索跳舞视频').type_queue, ['跳舞'])
+
+# video search cleanup for fallback-only runs
+check('video search strips collection action tail' 'search_keyword', parse_task('在爱奇艺搜索采莲曲并收藏综合列表里第一个视频').search_keyword, '采莲曲')
+check('video search strips collection action tail' 'type_queue', parse_task('在爱奇艺搜索采莲曲并收藏综合列表里第一个视频').type_queue, ['采莲曲'])
+check('video search strips download container prefix' 'search_keyword', parse_task('在芒果TV搜索我的下载里的新还珠格格第2集').search_keyword, '新还珠格格')
+check('video search strips download container prefix' 'episode', parse_task('在芒果TV搜索我的下载里的新还珠格格第2集').episode, '第2集')
+check('video search strips download container prefix' 'type_queue', parse_task('在芒果TV搜索我的下载里的新还珠格格第2集').type_queue, ['新还珠格格'])
 
 # travel flight
 check('travel flight' 'task_type', parse_task('在去哪儿旅行查北京飞上海的航班').task_type, 'travel')
@@ -119,6 +128,26 @@ check('travel natural flight no app' 'destination', parse_task('邯郸到上海�
 check('travel natural flight no app' 'type_queue', parse_task('邯郸到上海的航班').type_queue, ['邯郸', '上海'])
 check('travel natural flight with prefix' 'origin', parse_task('帮我看邯郸到上海的航班').origin, '邯郸')
 check('travel natural flight with prefix' 'destination', parse_task('帮我看邯郸到上海的航班').destination, '上海')
+check('travel app prefix cleanup one' 'origin', parse_task('帮我在去哪儿旅行看一下邯郸到上海的航班').origin, '邯郸')
+check('travel app prefix cleanup one' 'destination', parse_task('帮我在去哪儿旅行看一下邯郸到上海的航班').destination, '上海')
+check('travel app prefix cleanup one' 'type_queue', parse_task('帮我在去哪儿旅行看一下邯郸到上海的航班').type_queue, ['邯郸', '上海'])
+check('travel app prefix cleanup two' 'origin', parse_task('去哪儿旅行查一下邯郸到上海机票').origin, '邯郸')
+check('travel app prefix cleanup two' 'destination', parse_task('去哪儿旅行查一下邯郸到上海机票').destination, '上海')
+check('travel app prefix cleanup two' 'type_queue', parse_task('去哪儿旅行查一下邯郸到上海机票').type_queue, ['邯郸', '上海'])
+check('travel app prefix cleanup three' 'origin', parse_task('我想在去哪儿看一下北京到成都的航班').origin, '北京')
+check('travel app prefix cleanup three' 'destination', parse_task('我想在去哪儿看一下北京到成都的航班').destination, '成都')
+check('travel app prefix cleanup three' 'type_queue', parse_task('我想在去哪儿看一下北京到成都的航班').type_queue, ['北京', '成都'])
+check('travel date hint task_type', parse_task('在去哪儿旅行查后天北京到上海的航班，最便宜的是多钱').task_type, 'travel')
+check('travel date hint origin', parse_task('在去哪儿旅行查后天北京到上海的航班，最便宜的是多钱').origin, '北京')
+check('travel date hint destination', parse_task('在去哪儿旅行查后天北京到上海的航班，最便宜的是多钱').destination, '上海')
+check('travel date hint type_queue', parse_task('在去哪儿旅行查后天北京到上海的航班，最便宜的是多钱').type_queue, ['北京', '上海'])
+check('travel date hint value', parse_task('在去哪儿旅行查后天北京到上海的航班，最便宜的是多钱').travel_date_hint, '后天')
+check('travel tonight origin cleanup', parse_task('在去哪儿旅行查今晚北京到上海的航班').origin, '北京')
+check('travel tonight destination cleanup', parse_task('在去哪儿旅行查今晚北京到上海的航班').destination, '上海')
+check('travel tonight date hint normalize', parse_task('在去哪儿旅行查今晚北京到上海的航班').travel_date_hint, '今天')
+check('travel tomorrow night origin cleanup', parse_task('在去哪儿旅行查明晚北京到上海的航班').origin, '北京')
+check('travel tomorrow night destination cleanup', parse_task('在去哪儿旅行查明晚北京到上海的航班').destination, '上海')
+check('travel tomorrow night date hint normalize', parse_task('在去哪儿旅行查明晚北京到上海的航班').travel_date_hint, '明天')
 
 # app alias B站
 check('app alias B站' 'app_name', parse_task('在B站搜索舞蹈视频').app_name, '哔哩哔哩')
