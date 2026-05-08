@@ -65,8 +65,8 @@ check('fallback types pending text after click', second_fallback, ('TYPE', {'tex
 
 popup_agent = Agent()
 popup_agent.act(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=1))
-popup_close = popup_agent._fallback(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=2))
-check('fallback popup close is click', popup_close[0], 'CLICK')
+popup_close = popup_agent._fallback(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=2, extra={'popup_confidence': 0.9}))
+check('fallback popup close uses top right close point', popup_close, ('CLICK', {'point': [900, 60]}))
 popup_agent._history.add(popup_close[0], popup_close[1])
 after_popup = popup_agent._fallback(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=3))
 check('fallback clicks search bar after early popup close', after_popup, ('CLICK', {'point': get_search_bar_coord('抖音')}))
@@ -76,6 +76,24 @@ check('fallback types after search click following popup close', after_popup_typ
 
 def always_fail_api(_messages, **_kwargs):
     raise RuntimeError('forced api failure for fallback test')
+
+travel_open_agent = Agent()
+travel_open_agent._call_api = always_fail_api
+travel_open_agent.act(AgentInput(instruction='在去哪儿旅行查北京到上海的航班', current_image=image, step_count=1))
+travel_open_first_click = travel_open_agent._fallback(AgentInput(instruction='在去哪儿旅行查北京到上海的航班', current_image=image, step_count=2))
+check('travel fallback prefers origin field after open', travel_open_first_click, ('CLICK', {'point': get_travel_field_coord(0)}))
+
+baidu_open_agent = Agent()
+baidu_open_agent._call_api = always_fail_api
+baidu_open_agent.act(AgentInput(instruction='在百度地图从北京大学到天安门', current_image=image, step_count=1))
+baidu_open_first_click = baidu_open_agent._fallback(AgentInput(instruction='在百度地图从北京大学到天安门', current_image=image, step_count=2))
+check('baidu map fallback prefers flow entry after open', baidu_open_first_click, ('CLICK', {'point': get_flow_continue_coord('百度地图')}))
+
+meituan_open_agent = Agent()
+meituan_open_agent._call_api = always_fail_api
+meituan_open_agent.act(AgentInput(instruction='在美团购买窑村干锅猪蹄店铺里的干锅排骨', current_image=image, step_count=1))
+meituan_open_first_click = meituan_open_agent._fallback(AgentInput(instruction='在美团购买窑村干锅猪蹄店铺里的干锅排骨', current_image=image, step_count=2))
+check('meituan fallback prefers flow entry after open', meituan_open_first_click, ('CLICK', {'point': get_flow_continue_coord('美团')}))
 
 
 def check_flow_fallback_sequence(label_prefix, instruction, app_name, first_text, second_text):
@@ -186,6 +204,22 @@ travel_search_tolerance_agent._fallback_ready_to_type = True
 travel_search_tolerance_agent._history.add('CLICK', {'point': [495, 170]})
 travel_search_tolerance = travel_search_tolerance_agent._fallback(AgentInput(instruction='在去哪儿旅行查北京到上海的航班', current_image=image, step_count=5))
 check('travel fallback accepts near search bar click for type', travel_search_tolerance, ('TYPE', {'text': '北京'}))
+
+generic_type_guard_agent = Agent()
+generic_type_guard_agent._call_api = always_fail_api
+generic_type_guard_agent.act(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=1))
+generic_type_guard_agent._fallback_ready_to_type = True
+generic_type_guard_agent._history.add('CLICK', {'point': [900, 60]})
+generic_type_guard_blocked = generic_type_guard_agent._fallback(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=5))
+check('generic fallback blocks type after wrong click', generic_type_guard_blocked, ('CLICK', {'point': get_search_bar_coord('抖音')}))
+
+generic_type_tolerance_agent = Agent()
+generic_type_tolerance_agent._call_api = always_fail_api
+generic_type_tolerance_agent.act(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=1))
+generic_type_tolerance_agent._fallback_ready_to_type = True
+generic_type_tolerance_agent._history.add('CLICK', {'point': [205, 85]})
+generic_type_tolerance = generic_type_tolerance_agent._fallback(AgentInput(instruction='在抖音搜索狂飙', current_image=image, step_count=5))
+check('generic fallback accepts near search bar click for type', generic_type_tolerance, ('TYPE', {'text': '狂飙'}))
 
 generic_travel_agent = Agent()
 generic_travel_agent._call_api = always_fail_api

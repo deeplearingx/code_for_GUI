@@ -9,7 +9,8 @@ sys.path.insert(0, _root)
 from agent import Agent
 from utils.action_policy import PolicyDecision, correct
 from utils.action_validator import ValidationResult
-from utils.prompt_builder import get_search_bar_coord, get_travel_field_coord, get_travel_search_bar_coord
+from utils.control_grounding import get_anchor
+from utils.prompt_builder import get_flow_continue_coord, get_travel_field_coord, get_travel_search_bar_coord
 from utils.task_parser import TaskInfo
 
 passed = 0
@@ -88,7 +89,7 @@ off_target_click = correct(
     recent_actions=['SCROLL'],
 )
 check('policy redirects off-target click to search bar', off_target_click.action, 'CLICK')
-check('policy redirects off-target click point', off_target_click.params, {'point': get_search_bar_coord('抖音')})
+check('policy redirects off-target click point', off_target_click.params, {'point': get_anchor('抖音', 'search_input')})
 check('policy off-target click marked changed', off_target_click.changed, True)
 check('policy off-target click reason', off_target_click.reason, 'activate_search_bar_before_type')
 check('policy off-target click confidence', off_target_click.confidence, 'high')
@@ -127,6 +128,90 @@ check('flow click keeps params', flow_click.params, {'point': [720, 640]})
 check('flow click stays unchanged', flow_click.changed, False)
 check('flow click reason', flow_click.reason, 'flow_task_preserve_validated_action')
 check('flow click confidence', flow_click.confidence, 'none')
+
+baidu_post_open_close_click = correct(
+    action='CLICK',
+    params={'point': [900, 60]},
+    task=TaskInfo(
+        instruction='在百度地图从北京大学到天安门',
+        app_name='百度地图',
+        task_type='baidu_map',
+        type_queue=['北京大学', '天安门'],
+    ),
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('baidu post-open close click redirects action', baidu_post_open_close_click.action, 'CLICK')
+check('baidu post-open close click redirects params', baidu_post_open_close_click.params, {'point': get_flow_continue_coord('百度地图')})
+check('baidu post-open close click marked changed', baidu_post_open_close_click.changed, True)
+check('baidu post-open close click reason', baidu_post_open_close_click.reason, 'post_open_flow_entry_correction')
+check('baidu post-open close click confidence', baidu_post_open_close_click.confidence, 'high')
+
+meituan_post_open_generic_click = correct(
+    action='CLICK',
+    params={'point': [800, 500]},
+    task=TaskInfo(
+        instruction='在美团购买窑村干锅猪蹄店铺里的干锅排骨',
+        app_name='美团',
+        task_type='meituan',
+        type_queue=['窑村干锅猪蹄', '干锅排骨'],
+    ),
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('meituan post-open generic click redirects action', meituan_post_open_generic_click.action, 'CLICK')
+check('meituan post-open generic click redirects params', meituan_post_open_generic_click.params, {'point': get_flow_continue_coord('美团')})
+check('meituan post-open generic click marked changed', meituan_post_open_generic_click.changed, True)
+
+travel_post_open_close_click = correct(
+    action='CLICK',
+    params={'point': [900, 60]},
+    task=TaskInfo(
+        instruction='在去哪儿旅行查北京到上海的航班',
+        app_name='去哪儿旅行',
+        task_type='travel',
+        type_queue=['北京', '上海'],
+    ),
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('travel post-open close click redirects action', travel_post_open_close_click.action, 'CLICK')
+check('travel post-open close click redirects params', travel_post_open_close_click.params, {'point': get_travel_field_coord(0)})
+check('travel post-open close click marked changed', travel_post_open_close_click.changed, True)
+
+travel_post_open_type = correct(
+    action='TYPE',
+    params={'text': '北京'},
+    task=TaskInfo(
+        instruction='在去哪儿旅行查北京到上海的航班',
+        app_name='去哪儿旅行',
+        task_type='travel',
+        type_queue=['北京', '上海'],
+    ),
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('travel post-open type redirects action', travel_post_open_type.action, 'CLICK')
+check('travel post-open type redirects params', travel_post_open_type.params, {'point': get_travel_field_coord(0)})
+check('travel post-open type marked changed', travel_post_open_type.changed, True)
+check('travel post-open type reason', travel_post_open_type.reason, 'post_open_flow_entry_correction')
+
+flow_click_without_pending_text = correct(
+    action='CLICK',
+    params={'point': [900, 60]},
+    task=TaskInfo(
+        instruction='在百度地图从北京大学到天安门',
+        app_name='百度地图',
+        task_type='baidu_map',
+        type_queue=['北京大学', '天安门'],
+        type_index=2,
+    ),
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('flow click without pending text keeps action', flow_click_without_pending_text.action, 'CLICK')
+check('flow click without pending text keeps params', flow_click_without_pending_text.params, {'point': [900, 60]})
+check('flow click without pending text stays unchanged', flow_click_without_pending_text.changed, False)
 
 travel_premature_type = correct(
     action='TYPE',
@@ -223,7 +308,7 @@ applied = agent._apply_action_policy(
     step_count=4,
 )
 check('agent helper applies corrected action', applied.action, 'CLICK')
-check('agent helper applies corrected params', applied.parameters, {'point': get_search_bar_coord('抖音')})
+check('agent helper applies corrected params', applied.parameters, {'point': get_anchor('抖音', 'search_input')})
 check('agent helper does not commit pending text', agent._task.type_index, 0)
 
 rejecting_agent = RejectingPolicyAgent()
@@ -240,6 +325,65 @@ reverted = rejecting_agent._apply_action_policy(
 )
 check('agent helper reverts invalid corrected action', reverted.action, 'TYPE')
 check('agent helper reverts invalid corrected params', reverted.parameters, {'text': '狂飙'})
+
+ximalaya_task = TaskInfo(
+    instruction='在喜马拉雅搜索三体',
+    app_name='喜马拉雅',
+    task_type='video_search',
+    type_queue=['三体'],
+)
+ximalaya_search_entry_click = correct(
+    action='CLICK',
+    params={'point': [853, 40]},
+    task=ximalaya_task,
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('policy keeps ximalaya search entry click action', ximalaya_search_entry_click.action, 'CLICK')
+check('policy keeps ximalaya search entry click params', ximalaya_search_entry_click.params, {'point': [853, 40]})
+check('policy keeps ximalaya search entry click unchanged', ximalaya_search_entry_click.changed, False)
+check('policy keeps ximalaya search entry click reason', ximalaya_search_entry_click.reason, 'post_open_search_entry_preserve')
+
+tencent_task = TaskInfo(
+    instruction='在腾讯视频搜索庆余年',
+    app_name='腾讯视频',
+    task_type='video_search',
+    type_queue=['庆余年'],
+)
+tencent_search_input_redirect = correct(
+    action='CLICK',
+    params={'point': [341, 78]},
+    task=tencent_task,
+    last_action='CLICK',
+    recent_actions=['OPEN', 'CLICK'],
+)
+check('policy redirects tencent off-target click to search input action', tencent_search_input_redirect.action, 'CLICK')
+check('policy redirects tencent off-target click to search input params', tencent_search_input_redirect.params, {'point': get_anchor('腾讯视频', 'search_input')})
+check('policy redirects tencent off-target click to search input changed', tencent_search_input_redirect.changed, True)
+
+tencent_post_open_off_target_click = correct(
+    action='CLICK',
+    params={'point': [341, 78]},
+    task=tencent_task,
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('policy redirects tencent post-open off-target click action', tencent_post_open_off_target_click.action, 'CLICK')
+check('policy redirects tencent post-open off-target click params', tencent_post_open_off_target_click.params, {'point': get_anchor('腾讯视频', 'search_entry')})
+check('policy redirects tencent post-open off-target click changed', tencent_post_open_off_target_click.changed, True)
+check('policy redirects tencent post-open off-target click reason', tencent_post_open_off_target_click.reason, 'activate_search_entry_before_type')
+
+tencent_post_open_input_click = correct(
+    action='CLICK',
+    params={'point': get_anchor('腾讯视频', 'search_input')},
+    task=tencent_task,
+    last_action='OPEN',
+    recent_actions=['OPEN'],
+)
+check('policy redirects tencent post-open input click action', tencent_post_open_input_click.action, 'CLICK')
+check('policy redirects tencent post-open input click params', tencent_post_open_input_click.params, {'point': get_anchor('腾讯视频', 'search_entry')})
+check('policy redirects tencent post-open input click changed', tencent_post_open_input_click.changed, True)
+check('policy redirects tencent post-open input click reason', tencent_post_open_input_click.reason, 'activate_search_entry_before_type')
 
 sep = '=' * 40
 print(f"\n{sep}")

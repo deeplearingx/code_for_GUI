@@ -25,7 +25,13 @@
       "Bash(rtk python *)",
       "Bash(GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0='//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student' rtk git *)",
       "Bash(gh search *)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(export DEBUG_API_URL='https://wishub-x6.ctyun.cn/v1' DEBUG_MODEL_ID='Doubao-Seed-1.6-0615' VLM_API_KEY='d283ee6ccf634eefba59ba479e349c41')",
+      "Bash(mkdir -p \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/submission_build/doc\" \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/submission_build/src/utils\")",
+      "Bash(cp \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/agent.py\" \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/submission_build/src/agent.py\")",
+      "Bash(cp \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/agent_base.py\" \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/submission_build/src/agent_base.py\")",
+      "Bash(cp \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/utils/action_parser.py\" \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/submission_build/src/utils/action_parser.py\")",
+      "Bash(cp \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/utils/action_validator.py\" \"//wsl.localhost/Ubuntu/home/ly/workspaces/code-for-student/submission_build/src/utils/action_validator.py\")"
     ]
   },
   "enableAllProjectMcpServers": true,
