@@ -32,6 +32,16 @@ def test_video_search_workflow() -> None:
             "search_entry",
             "search_activated",
         ),
+    ).parameters == {"control": "search_input"}
+    assert next_action(
+        video_task,
+        ScreenStateSnapshot(
+            ScreenState.SEARCH_INPUT_ACTIVE,
+            "庆余年",
+            "CLICK",
+            "search_input",
+            "search_activated",
+        ),
     ).action == "TYPE"
     assert next_action(
         video_task,

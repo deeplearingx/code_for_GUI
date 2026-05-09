@@ -96,6 +96,10 @@ check('douyin video suffix' 'search_keyword', parse_task('在抖音搜索甄嬛�
 check('douyin video suffix' 'type_queue', parse_task('在抖音搜索甄嬛传的视频').type_queue, ['甄嬛传'])
 check('douyin bare video suffix' 'search_keyword', parse_task('在抖音搜索跳舞视频').search_keyword, '跳舞')
 check('douyin bare video suffix' 'type_queue', parse_task('在抖音搜索跳舞视频').type_queue, ['跳舞'])
+check('kuaishou filter tail cleanup' 'app_name', parse_task('去快手搜索动画片筛选1日内的1-5分钟作品').app_name, '快手')
+check('kuaishou filter tail cleanup' 'task_type', parse_task('去快手搜索动画片筛选1日内的1-5分钟作品').task_type, 'video_search')
+check('kuaishou filter tail cleanup' 'search_keyword', parse_task('去快手搜索动画片筛选1日内的1-5分钟作品').search_keyword, '动画片')
+check('kuaishou filter tail cleanup' 'type_queue', parse_task('去快手搜索动画片筛选1日内的1-5分钟作品').type_queue, ['动画片'])
 
 # video search cleanup for fallback-only runs
 check('video search strips collection action tail' 'search_keyword', parse_task('在爱奇艺搜索采莲曲并收藏综合列表里第一个视频').search_keyword, '采莲曲')

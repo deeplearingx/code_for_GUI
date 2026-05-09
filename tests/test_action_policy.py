@@ -141,11 +141,11 @@ baidu_post_open_close_click = correct(
     last_action='OPEN',
     recent_actions=['OPEN'],
 )
-check('baidu post-open close click redirects action', baidu_post_open_close_click.action, 'CLICK')
-check('baidu post-open close click redirects params', baidu_post_open_close_click.params, {'point': get_flow_continue_coord('百度地图')})
-check('baidu post-open close click marked changed', baidu_post_open_close_click.changed, True)
-check('baidu post-open close click reason', baidu_post_open_close_click.reason, 'post_open_flow_entry_correction')
-check('baidu post-open close click confidence', baidu_post_open_close_click.confidence, 'high')
+check('baidu post-open close click keeps action', baidu_post_open_close_click.action, 'CLICK')
+check('baidu post-open close click keeps params', baidu_post_open_close_click.params, {'point': [900, 60]})
+check('baidu post-open close click stays unchanged', baidu_post_open_close_click.changed, False)
+check('baidu post-open close click reason', baidu_post_open_close_click.reason, 'flow_task_preserve_validated_action')
+check('baidu post-open close click confidence', baidu_post_open_close_click.confidence, 'none')
 
 meituan_post_open_generic_click = correct(
     action='CLICK',
@@ -159,9 +159,9 @@ meituan_post_open_generic_click = correct(
     last_action='OPEN',
     recent_actions=['OPEN'],
 )
-check('meituan post-open generic click redirects action', meituan_post_open_generic_click.action, 'CLICK')
-check('meituan post-open generic click redirects params', meituan_post_open_generic_click.params, {'point': get_flow_continue_coord('美团')})
-check('meituan post-open generic click marked changed', meituan_post_open_generic_click.changed, True)
+check('meituan post-open generic click keeps action', meituan_post_open_generic_click.action, 'CLICK')
+check('meituan post-open generic click keeps params', meituan_post_open_generic_click.params, {'point': [800, 500]})
+check('meituan post-open generic click stays unchanged', meituan_post_open_generic_click.changed, False)
 
 travel_post_open_close_click = correct(
     action='CLICK',
@@ -175,9 +175,10 @@ travel_post_open_close_click = correct(
     last_action='OPEN',
     recent_actions=['OPEN'],
 )
-check('travel post-open close click redirects action', travel_post_open_close_click.action, 'CLICK')
-check('travel post-open close click redirects params', travel_post_open_close_click.params, {'point': get_travel_field_coord(0)})
-check('travel post-open close click marked changed', travel_post_open_close_click.changed, True)
+check('travel post-open close click keeps action', travel_post_open_close_click.action, 'CLICK')
+check('travel post-open close click keeps params', travel_post_open_close_click.params, {'point': [900, 60]})
+check('travel post-open close click stays unchanged', travel_post_open_close_click.changed, False)
+check('travel post-open close click reason', travel_post_open_close_click.reason, 'validated_action')
 
 travel_post_open_type = correct(
     action='TYPE',

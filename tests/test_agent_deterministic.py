@@ -58,13 +58,16 @@ def test_video_search_uses_deterministic_steps() -> None:
     assert (step2.action, step2.parameters) == ("CLICK", {"point": [902, 78]})
 
     step3 = agent.act(AgentInput(instruction="在腾讯视频搜索庆余年", current_image=image, step_count=3))
-    assert (step3.action, step3.parameters) == ("TYPE", {"text": "庆余年"})
+    assert (step3.action, step3.parameters) == ("CLICK", {"point": [850, 80]})
 
     step4 = agent.act(AgentInput(instruction="在腾讯视频搜索庆余年", current_image=image, step_count=4))
-    assert (step4.action, step4.parameters) == ("CLICK", {"point": [500, 260]})
+    assert (step4.action, step4.parameters) == ("TYPE", {"text": "庆余年"})
 
     step5 = agent.act(AgentInput(instruction="在腾讯视频搜索庆余年", current_image=image, step_count=5))
-    assert (step5.action, step5.parameters) == ("COMPLETE", {})
+    assert (step5.action, step5.parameters) == ("CLICK", {"point": [500, 260]})
+
+    step6 = agent.act(AgentInput(instruction="在腾讯视频搜索庆余年", current_image=image, step_count=6))
+    assert (step6.action, step6.parameters) == ("COMPLETE", {})
 
 
 def test_unsupported_task_without_app_uses_model_path() -> None:

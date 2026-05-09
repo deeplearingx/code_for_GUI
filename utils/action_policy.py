@@ -130,6 +130,13 @@ def _is_travel_search_bar_click(last_action: Optional[str], last_click_point: Op
     return abs(last_click_point[0] - target_x) <= 40 and abs(last_click_point[1] - target_y) <= 40
 
 
+def _is_top_right_close_click(params: dict) -> bool:
+    point = params.get("point")
+    if not isinstance(point, list) or len(point) < 2:
+        return False
+    return point[0] >= 800 and point[1] <= 120
+
+
 def _should_redirect_flow_type(task: Any, action: str, last_action: Optional[str], last_click_point: Optional[list[int]]) -> bool:
     if action != "TYPE":
         return False
@@ -142,14 +149,25 @@ def _should_redirect_flow_type(task: Any, action: str, last_action: Optional[str
     return not _is_travel_search_bar_click(last_action, last_click_point)
 
 
-def _should_redirect_post_open_flow_click(task: Any, action: str, last_action: Optional[str]) -> bool:
+def _should_redirect_post_open_flow_click(task: Any, action: str, last_action: Optional[str], params: dict) -> bool:
     if action != "CLICK":
         return False
     if last_action != "OPEN":
         return False
     if not _is_flow_task(task):
         return False
-    return _has_pending_text(task)
+    if not _has_pending_text(task):
+        return False
+    if getattr(task, "task_type", "") != "travel":
+        return False
+    if _is_top_right_close_click(params):
+        return False
+    point = params.get("point")
+    if point == get_travel_field_coord(getattr(task, "type_index", 0)):
+        return False
+    if point == get_travel_search_bar_coord():
+        return False
+    return True
 
 
 def correct(
@@ -162,10 +180,10 @@ def correct(
 ) -> PolicyDecision:
     _ = recent_actions
 
-    if _is_flow_task(task) and last_action == "OPEN" and _has_pending_text(task) and action in {"CLICK", "TYPE"}:
+    if _is_flow_task(task) and last_action == "OPEN" and _has_pending_text(task) and action == "TYPE":
         return _redirect_to_flow_entry(task)
 
-    if _should_redirect_post_open_flow_click(task, action, last_action):
+    if _should_redirect_post_open_flow_click(task, action, last_action, params):
         return _redirect_to_flow_entry(task)
 
     if _is_flow_task(task) and action == "CLICK":

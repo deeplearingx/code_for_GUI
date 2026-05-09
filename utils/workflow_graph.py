@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
+from .grounder import has_distinct_control
 from .screen_state import ScreenState, ScreenStateSnapshot, supports_deterministic_flow
 from .task_parser import TaskInfo
 
@@ -14,6 +15,13 @@ class PlannedAction:
     action: str
     parameters: dict
     terminal: bool = False
+
+
+def _needs_search_input_activation(task: TaskInfo) -> bool:
+    if task.task_type != "video_search":
+        return True
+    return has_distinct_control(task.app_name, "search_entry", "search_input")
+
 
 
 def next_action(task: Optional[TaskInfo], snapshot: ScreenStateSnapshot) -> Optional[PlannedAction]:
@@ -53,6 +61,8 @@ def next_action(task: Optional[TaskInfo], snapshot: ScreenStateSnapshot) -> Opti
         if snapshot.state == ScreenState.SEARCH_ENTRY_VISIBLE:
             return PlannedAction("CLICK", {"control": "search_entry"})
         if snapshot.state == ScreenState.SEARCH_INPUT_ACTIVE and pending_text is not None:
+            if _needs_search_input_activation(task) and snapshot.last_control == "search_entry":
+                return PlannedAction("CLICK", {"control": "search_input"})
             return PlannedAction("TYPE", {"text": "__PENDING__"})
         if snapshot.state == ScreenState.RESULT_LIST:
             return PlannedAction("CLICK", {"control": "first_result"})
@@ -63,6 +73,8 @@ def next_action(task: Optional[TaskInfo], snapshot: ScreenStateSnapshot) -> Opti
     if snapshot.state == ScreenState.SEARCH_ENTRY_VISIBLE:
         return PlannedAction("CLICK", {"control": "search_entry"})
     if snapshot.state == ScreenState.SEARCH_INPUT_ACTIVE and pending_text is not None:
+        if snapshot.last_control == "search_entry":
+            return PlannedAction("CLICK", {"control": "search_input"})
         return PlannedAction("TYPE", {"text": "__PENDING__"})
     if snapshot.state == ScreenState.RESULT_LIST:
         return PlannedAction("CLICK", {"control": "first_result"})

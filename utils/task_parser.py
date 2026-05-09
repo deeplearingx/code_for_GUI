@@ -210,7 +210,7 @@ def _parse_baidu_map(instruction: str, task: TaskInfo) -> None:
 def _strip_action_suffix(keyword: str) -> str:
     """Strip trailing action suffixes like 并播放/并收藏/并查看/筛选... from search keyword."""
     keyword = re.sub(r"并(?:播放|看|收藏|查看|打开|进入|下载|分享|关注|点赞|评论|购买|添加).*", "", keyword)
-    keyword = re.sub(r"筛选.*", "", keyword)
+    keyword = re.sub(r"(?:筛选|只看|查看)(?:\d+日内|今日|今天|昨日|昨天|本周|近一周|最近)?的?.*", "", keyword)
     keyword = re.sub(r"然后.*", "", keyword)
     keyword = re.sub(r"的(?:视频|作品|内容)$", "", keyword)
     return keyword.strip()
