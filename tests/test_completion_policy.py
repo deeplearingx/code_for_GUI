@@ -10,8 +10,9 @@ sys.path.insert(0, _root)
 
 from agent import Agent
 from agent_base import AgentInput
-from utils.completion_policy import should_force_complete
+from utils.completion_policy import should_complete_from_state, should_force_complete
 from utils.prompt_builder import get_flow_continue_coord, get_search_bar_coord, get_travel_date_entry_coord, get_travel_date_option_coord, get_travel_field_coord, get_travel_result_coord, get_travel_search_bar_coord, get_travel_search_button_coord
+from utils.screen_state import ScreenState, ScreenStateSnapshot
 from utils.task_parser import TaskInfo
 
 passed = 0
@@ -39,19 +40,21 @@ pending_task = TaskInfo(instruction='在抖音搜索狂飙', task_type='video_se
 check('step too low', should_force_complete(video_task, 7, 'CLICK', 'CLICK', ['TYPE', 'CLICK', 'CLICK']), False)
 check('pending text remains', should_force_complete(pending_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK', 'CLICK']), False)
 check('last action open', should_force_complete(video_task, 8, 'OPEN', 'CLICK', ['TYPE', 'OPEN', 'CLICK']), False)
-check('video click completes when current click finishes exact boundary tail', should_force_complete(video_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), True)
-check('comment click completes when current click finishes exact boundary tail', should_force_complete(comment_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), True)
-check('video click completes when current click finishes longer tail', should_force_complete(video_task, 8, 'CLICK', 'CLICK', ['OPEN', 'TYPE', 'CLICK']), True)
+check('video state complete from detail page', should_complete_from_state(video_task, ScreenStateSnapshot(ScreenState.DETAIL_PAGE, None, 'CLICK', 'first_result', 'result_opened')), True)
+check('comment state complete from done state', should_complete_from_state(comment_task, ScreenStateSnapshot(ScreenState.DONE, None, 'CLICK', 'comment_submit', 'comment_submitted')), True)
+check('state completion blocks when pending text remains', should_complete_from_state(pending_task, ScreenStateSnapshot(ScreenState.DETAIL_PAGE, '狂飙', 'CLICK', 'first_result', 'result_opened')), False)
+check('video force complete still supports legacy click tail', should_force_complete(video_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), True)
+check('comment force complete still supports legacy click tail', should_force_complete(comment_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), True)
+check('video force complete accepts explicit detail state', should_force_complete(video_task, 5, 'CLICK', 'COMPLETE', ['TYPE', 'CLICK'], snapshot=ScreenStateSnapshot(ScreenState.DETAIL_PAGE, None, 'CLICK', 'first_result', 'result_opened')), True)
+check('comment force complete accepts explicit done state', should_force_complete(comment_task, 6, 'CLICK', 'COMPLETE', ['TYPE', 'CLICK'], snapshot=ScreenStateSnapshot(ScreenState.DONE, None, 'CLICK', 'comment_submit', 'comment_submitted')), True)
 check('video click does not force complete without recent type', should_force_complete(video_task, 9, 'CLICK', 'CLICK', ['OPEN', 'CLICK']), False)
 check('video click does not force complete when only earlier actions match', should_force_complete(video_task, 9, 'CLICK', 'CLICK', ['TYPE', 'CLICK', 'OPEN', 'CLICK']), False)
-check('video click completes when current click finishes longer click tail', should_force_complete(video_task, 9, 'CLICK', 'CLICK', ['TYPE', 'CLICK', 'CLICK']), True)
-check('comment click completes when current click finishes longer click tail', should_force_complete(comment_task, 9, 'CLICK', 'CLICK', ['TYPE', 'CLICK', 'CLICK']), True)
 check('baidu_map click does not complete on generic boundary tail', should_force_complete(baidu_map_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), False)
 check('meituan click does not complete on generic boundary tail', should_force_complete(meituan_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), False)
 check('travel click does not complete on generic boundary tail', should_force_complete(travel_task, 8, 'CLICK', 'CLICK', ['TYPE', 'CLICK']), False)
 check('flow task does not auto complete on clicks alone', should_force_complete(travel_task, 12, 'CLICK', 'CLICK', ['OPEN', 'CLICK']), False)
 check('flow task does not force complete when only earlier actions match', should_force_complete(travel_task, 12, 'CLICK', 'CLICK', ['TYPE', 'CLICK', 'OPEN', 'CLICK']), False)
-check('current non-click does not force complete', should_force_complete(video_task, 8, 'CLICK', 'TYPE', ['TYPE', 'CLICK', 'CLICK']), False)
+check('current non-click does not force complete without terminal state', should_force_complete(video_task, 8, 'CLICK', 'TYPE', ['TYPE', 'CLICK', 'CLICK']), False)
 check('previous non-click does not force complete', should_force_complete(video_task, 8, 'TYPE', 'CLICK', ['TYPE', 'CLICK', 'TYPE']), False)
 
 image = Image.new('RGB', (20, 20), color='white')

@@ -14,6 +14,9 @@ from utils.prompt_builder import build_messages, build_retry_prompt, get_flow_co
 from utils.early_screen_policy import decide_post_open_action
 from utils.history_manager import HistoryManager
 from utils.completion_policy import RECENT_ACTION_WINDOW, should_force_complete
+from utils.grounder import ground_action
+from utils.screen_state import ScreenState, recognize_screen_state, supports_deterministic_flow
+from utils.workflow_graph import next_action
 
 logger = logging.getLogger(__name__)
 
@@ -98,6 +101,53 @@ class Agent(BaseAgent):
         )
         return result
 
+    def _try_deterministic_action(self, input_data: AgentInput) -> Optional[AgentOutput]:
+        if not supports_deterministic_flow(self._task):
+            return None
+
+        step_count = input_data.step_count
+        screen_state = recognize_screen_state(self._task, self._history)
+        if screen_state.state == ScreenState.UNKNOWN:
+            return None
+
+        planned = next_action(self._task, screen_state)
+        if planned is None:
+            return None
+
+        grounded = ground_action(
+            planned.action,
+            planned.parameters,
+            self._task.app_name if self._task is not None else "",
+            pending_text=self._task.peek_pending_text() if self._task is not None else None,
+        )
+        result = validate_action(
+            action=grounded.action,
+            params=grounded.parameters,
+            task=self._task,
+            step_count=step_count,
+            last_action=self._history.get_last_action(),
+        )
+        if not result.ok:
+            return None
+
+        result = self._apply_action_policy(result, step_count)
+        if result.action == ACTION_COMPLETE or should_force_complete(
+            self._task,
+            step_count,
+            self._history.get_last_action(),
+            result.action,
+            self._history.get_recent_actions(RECENT_ACTION_WINDOW),
+            snapshot=screen_state,
+        ):
+            self._fallback_ready_to_type = False
+            self._history.add(ACTION_COMPLETE, {})
+            return AgentOutput(action=ACTION_COMPLETE, parameters={})
+        if result.action == ACTION_TYPE and self._task is not None:
+            self._task.commit_text()
+        self._fallback_ready_to_type = False
+        self._history.add(result.action, result.parameters)
+        return AgentOutput(action=result.action, parameters=result.parameters)
+
     def act(self, input_data: AgentInput) -> AgentOutput:
         step_count = input_data.step_count
 
@@ -112,6 +162,12 @@ class Agent(BaseAgent):
             self._fallback_ready_to_type = False
             self._history.add(action, parameters)
             return AgentOutput(action=action, parameters=parameters)
+
+        deterministic_output = self._try_deterministic_action(input_data)
+        if deterministic_output is not None:
+            return deterministic_output
+
+        screen_state = recognize_screen_state(self._task, self._history)
 
         # 构造messages
         image_url = self._encode_image(input_data.current_image)
@@ -172,7 +228,7 @@ class Agent(BaseAgent):
         result = self._apply_action_policy(result, step_count)
 
         recent_actions = self._history.get_recent_actions(RECENT_ACTION_WINDOW)
-        if should_force_complete(self._task, step_count, last_action, result.action, recent_actions):
+        if should_force_complete(self._task, step_count, last_action, result.action, recent_actions, snapshot=screen_state):
             self._fallback_ready_to_type = False
             self._history.add(ACTION_COMPLETE, {})
             return AgentOutput(action=ACTION_COMPLETE, parameters={})
@@ -245,12 +301,14 @@ class Agent(BaseAgent):
                     last_action = self._history.get_last_action()
 
                     recent_actions = self._history.get_recent_actions(RECENT_ACTION_WINDOW)
+                    retry_screen_state = recognize_screen_state(self._task, self._history)
                     if should_force_complete(
                         self._task,
                         input_data.step_count,
                         last_action,
                         result.action,
                         recent_actions,
+                        snapshot=retry_screen_state,
                     ):
                         self._fallback_ready_to_type = False
                         self._history.add(ACTION_COMPLETE, {})

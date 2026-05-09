@@ -1,0 +1,82 @@
+{
+  "family": "video_apps",
+  "defaults": {
+    "workflow_family": "video",
+    "controls": {
+      "search_entry": {
+        "aliases": ["搜索", "放大镜", "搜索入口"],
+        "preferred_region": "top_right",
+        "fallback_point": [500, 120],
+        "tolerance": 60
+      },
+      "search_input": {
+        "aliases": ["搜索框", "输入框", "顶部搜索框"],
+        "preferred_region": "top",
+        "fallback_point": [500, 100],
+        "tolerance": 80
+      },
+      "first_result": {
+        "aliases": ["第一个结果", "第一个搜索结果", "结果列表第一项"],
+        "preferred_region": "upper_middle",
+        "fallback_point": [500, 260],
+        "tolerance": 100
+      },
+      "comment_entry": {
+        "aliases": ["评论区", "评论框", "评论入口"],
+        "preferred_region": "bottom",
+        "fallback_point": [500, 930],
+        "tolerance": 120
+      },
+      "comment_submit": {
+        "aliases": ["发送", "发布", "发送评论"],
+        "preferred_region": "bottom_right",
+        "fallback_point": [930, 930],
+        "tolerance": 100
+      }
+    }
+  },
+  "apps": {
+    "腾讯视频": {
+      "tip": "腾讯视频：搜入口右上→输剧名→点搜索→进剧集→选对应集数",
+      "controls": {
+        "search_entry": {"fallback_point": [902, 78]},
+        "search_input": {"fallback_point": [850, 80]}
+      }
+    },
+    "芒果TV": {
+      "tip": "芒果TV：搜索→输关键词→搜索→第一个结果→执行目标操作",
+      "controls": {
+        "search_entry": {"fallback_point": [849, 79]},
+        "search_input": {"fallback_point": [500, 100]}
+      }
+    },
+    "喜马拉雅": {
+      "tip": "喜马拉雅：搜索→输关键词→搜索→第一个结果→执行目标操作",
+      "controls": {
+        "search_entry": {"fallback_point": [854, 40]},
+        "search_input": {"fallback_point": [500, 100]}
+      }
+    },
+    "哔哩哔哩": {
+      "tip": "B站：点搜索→输关键词→点搜索→综合列表第一个→收藏在详情页操作栏",
+      "controls": {
+        "search_entry": {"fallback_point": [912, 74]},
+        "search_input": {"fallback_point": [800, 80]}
+      }
+    },
+    "抖音": {
+      "tip": "抖音：点搜索→输关键词→搜索→点第一个结果",
+      "controls": {
+        "search_entry": {"fallback_point": [898, 922], "preferred_region": "bottom_right"},
+        "search_input": {"fallback_point": [200, 80]}
+      }
+    },
+    "快手": {
+      "tip": "快手：点搜索→输关键词→搜索→点第一个结果",
+      "controls": {
+        "search_entry": {"fallback_point": [913, 69]},
+        "search_input": {"fallback_point": [500, 100]}
+      }
+    }
+  }
+}

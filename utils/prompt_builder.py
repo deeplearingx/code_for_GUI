@@ -1,9 +1,9 @@
-"""Prompt构建模块 - 系统prompt、App流程提示、JSON输出协议、消息构造"""
+"""Prompt构建模块 - 系统prompt、JSON输出协议、消息构造"""
 
 from typing import Dict, Any, List
 
+from .grounder import get_anchor, get_app_profile, get_app_tip
 from .task_parser import TaskInfo
-
 
 APP_TIPS: dict[str, str] = {
     "美团": "美团任务流程：进外卖→搜店铺→进店铺→选商品→加购物车→去结算→默认地址",
@@ -56,6 +56,8 @@ FLOW_INPUT_COORDS: dict[str, list[int]] = {
     "去哪儿旅行": [252, 291],
     "default": [500, 220],
 }
+
+
 
 TRAVEL_FIELD_COORDS: dict[int, list[int]] = {
     0: [252, 291],
@@ -126,8 +128,10 @@ def build_system_prompt(task: TaskInfo) -> str:
     if task.task_type != "general":
         parts.append(f"\n## 任务类型\n{task.task_type}")
 
-    if task.app_name and task.app_name in APP_TIPS:
-        parts.append(f"\n## App流程提示\n{APP_TIPS[task.app_name]}")
+    if task.app_name:
+        app_tip = get_app_tip(task.app_name)
+        if app_tip:
+            parts.append(f"\n## App流程提示\n{app_tip}")
 
     return "\n".join(parts)
 
@@ -189,15 +193,19 @@ def build_retry_prompt(reason: str) -> str:
 
 
 def get_search_bar_coord(app_name: str) -> list[int]:
-    return SEARCH_BAR_COORDS.get(app_name, SEARCH_BAR_COORDS["default"])
+    return get_anchor(app_name, "search_input")
 
 
 def get_flow_continue_coord(app_name: str) -> list[int]:
-    return FLOW_CONTINUE_COORDS.get(app_name, FLOW_CONTINUE_COORDS["default"])
+    return get_anchor(app_name, "flow_entry")
 
 
 def get_flow_input_coord(app_name: str) -> list[int]:
-    return FLOW_INPUT_COORDS.get(app_name, FLOW_INPUT_COORDS["default"])
+    profile = get_app_profile(app_name)
+    controls = profile.get("controls") if isinstance(profile.get("controls"), dict) else {}
+    if "depart_field" in controls:
+        return get_anchor(app_name, "depart_field")
+    return get_anchor(app_name, "flow_entry")
 
 
 def get_travel_field_coord(type_index: int) -> list[int]:

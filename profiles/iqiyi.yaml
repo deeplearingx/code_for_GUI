@@ -1,0 +1,37 @@
+{
+  "app_name": "爱奇艺",
+  "workflow_family": "video",
+  "tip": "爱奇艺：搜索框→输关键词→搜索→第一个结果→选集数或收藏",
+  "controls": {
+    "search_entry": {
+      "aliases": ["搜索", "放大镜", "搜索入口"],
+      "preferred_region": "top_right",
+      "fallback_point": [835, 46],
+      "tolerance": 60
+    },
+    "search_input": {
+      "aliases": ["搜索框", "输入框", "顶部搜索框"],
+      "preferred_region": "top",
+      "fallback_point": [500, 100],
+      "tolerance": 80
+    },
+    "first_result": {
+      "aliases": ["第一个结果", "第一个搜索结果", "结果列表第一项"],
+      "preferred_region": "upper_middle",
+      "fallback_point": [500, 260],
+      "tolerance": 100
+    },
+    "comment_entry": {
+      "aliases": ["评论区", "评论框", "评论入口"],
+      "preferred_region": "bottom",
+      "fallback_point": [500, 930],
+      "tolerance": 120
+    },
+    "comment_submit": {
+      "aliases": ["发送", "发布", "发送评论"],
+      "preferred_region": "bottom_right",
+      "fallback_point": [930, 930],
+      "tolerance": 100
+    }
+  }
+}

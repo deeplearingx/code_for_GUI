@@ -2,6 +2,7 @@
 
 from typing import Any, Optional
 
+from .screen_state import ScreenState, ScreenStateSnapshot
 
 VIDEO_COMPLETE_TYPES = {"video_search", "comment"}
 FLOW_COMPLETE_TYPES = {"baidu_map", "meituan", "travel"}
@@ -26,13 +27,32 @@ def _build_action_sequence(
 
 
 
+def should_complete_from_state(
+    task: Any,
+    snapshot: Optional[ScreenStateSnapshot],
+) -> bool:
+    if snapshot is None or task is None or not hasattr(task, "task_type"):
+        return False
+    if hasattr(task, "has_pending_text") and task.has_pending_text():
+        return False
+    if task.task_type == "video_search":
+        return snapshot.state == ScreenState.DETAIL_PAGE
+    if task.task_type == "comment":
+        return snapshot.state == ScreenState.DONE
+    return False
+
+
+
 def should_force_complete(
     task: Any,
     step_count: int,
     last_action: Optional[str],
     current_action: Optional[str],
     recent_actions: Optional[list[str]] = None,
+    snapshot: Optional[ScreenStateSnapshot] = None,
 ) -> bool:
+    if should_complete_from_state(task, snapshot):
+        return True
     if task is not None and hasattr(task, "has_pending_text") and task.has_pending_text():
         return False
     if step_count < MIN_VIDEO_COMPLETE_STEP:
